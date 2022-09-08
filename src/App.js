@@ -1,8 +1,7 @@
-import logo from "./logo.svg";
-import "./App.css";
-
+import "./styles/variables.css";
+import { HeroHeader } from "./components/hero-header";
 function App() {
-  return <div className="App"></div>;
+  return <HeroHeader/>;
 }
 
 export default App;
