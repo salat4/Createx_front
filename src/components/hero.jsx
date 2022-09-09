@@ -3,39 +3,43 @@ import PlaySvg from "../images/small.png";
 export const Hero = () => {
   return (
     <div>
-      <button className="">
-       <img src={PlaySvg} alt="zx" />
-        Play showreel
-      </button>
-      <h1>Enjoy studying with Createx Online Courses</h1>
+      <div className="hero-content">
+        <button className="button-play">
+          <img src={PlaySvg} alt="zx" className="button-play__image" />
+          Play showreel
+        </button>
+        <h1 className="hero-title">
+          Enjoy studying with Createx Online Courses
+        </h1>
 
-      <ul>
-        <li>
-          <button>About us</button>
-        </li>
-        <li>
-          <button>Explore courses</button>
-        </li>
-      </ul>
-
-      <div className="benefit">
-        <ul>
-          <li>
-            <span>1200</span>
-            <p>Students graduated</p>
+        <ul className="hero-button__list">
+          <li className="hero-button__list-item">
+            <button className="button-outlined">About us</button>
           </li>
           <li>
-            <span>84</span>
-            <p>Completed courses</p>
+            <button className="header-button gradient">Explore courses</button>
+          </li>
+        </ul>
+      </div>
+
+      <div className="hero-benefit">
+        <ul className="hero-benefit-list">
+          <li className="hero-benefit-list__item">
+            <span className="hero-benefit__span">1200</span>
+            <p className="hero-benefit__text">Students graduated</p>
+          </li>
+          <li className="hero-benefit-list__item">
+            <span className="hero-benefit__span">84</span>
+            <p className="hero-benefit__text">Completed courses</p>
           </li>
 
-          <li>
-            <span>16</span>
-            <p>Qualified tutors</p>
+          <li className="hero-benefit-list__item">
+            <span className="hero-benefit__span">16</span>
+            <p className="hero-benefit__text">Qualified tutors</p>
           </li>
-          <li>
-            <span>5</span>
-            <p>Years of experience</p>
+          <li className="hero-benefit-list__item">
+            <span className="hero-benefit__span">5</span>
+            <p className="hero-benefit__text">Years of experience</p>
           </li>
         </ul>
       </div>
