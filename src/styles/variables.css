@@ -172,6 +172,9 @@ body {
 .footer__container{
   background-color: var(--dark-gray);
 }
+.footer__box__center__courses__list{
+  padding-bottom: 60px;
+}
 .footer__box{
   display: flex;
   padding-top: 80px;
@@ -197,10 +200,9 @@ body {
   width: 244px;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 60px;
 }
 .footer__box__left__link__facebook--white{
-  background-color: #fff;
+  fill:white;
 }
 .footer__box__center{
   margin-left: 79px;
@@ -314,4 +316,38 @@ margin-bottom: 8px;
   position: absolute;
   top: 14px;
   right: 25px;
+}
+.footer__bottom{
+  background: #FFFFFF;
+    opacity: 0.05;
+}
+.footer__copyright{
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+}
+.footer__button--top{
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 150%;
+  color: #FFFFFF;
+  opacity: 0.6
+  
+}
+.footer__bottom__container{
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+}
+
+.footer__box__left__link--hover:hover{
+  cursor: pointer;
+  opacity: 1;
 }

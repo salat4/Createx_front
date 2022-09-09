@@ -12,32 +12,32 @@ export const Footer = () => {
                         <p className="footer__box__left__text">Createx Online School is a leader in online studying. We have lots of courses and programs from the main market experts. We provide relevant approaches to online learning, internships and employment in the largest companies in the country. </p> 
                         <ul className="footer__box__left__link">
                             <li className="footer__box__left__link__facebook">
-                                <svg width="20" height="20" fill="white" opacity="0.6">
-                                    <use href={`${UserSvg}#icon-facebook `}  className="footer__box__left__link__facebook--white"/>
+                                <svg width="20" height="20" fill="white" opacity="0.6" className="footer__box__left__link__facebook--white footer__box__left__link--hover">
+                                    <use href={`${UserSvg}#icon-facebook `}  />
                                 </svg>
                             </li>
                             <li className="footer__box__left__link__twitter">
-                                <svg width="20" height="20"className="footer__box__left__link__twitter--white" fill="white" opacity="0.6">
+                                <svg width="20" height="20"className="footer__box__left__link__twitter--white footer__box__left__link--hover" fill="white" opacity="0.6">
                                     <use href={`${UserSvg}#icon-Twitter`} />
                                 </svg>
                             </li>
                             <li className="footer__box__left__link__youtube">
-                                <svg width="20" height="20" className="footer__box__left__link__youtube--white" fill="white" opacity="0.6">
+                                <svg width="20" height="20" className="footer__box__left__link__youtube--white footer__box__left__link--hover" fill="white" opacity="0.6">
                                     <use href={`${UserSvg}#icon-youtube`} />
                                 </svg>
                             </li>
                             <li className="footer__box__left__link__telegram">
-                                <svg width="20" height="20" className="footer__box__left__link__telegram--white" fill="white" opacity="0.6">
+                                <svg width="20" height="20" className="footer__box__left__link__telegram--white footer__box__left__link--hover" fill="white" opacity="0.6">
                                     <use href={`${UserSvg}#icon-telegram`} />
                                 </svg>
                             </li>
                             <li className="footer__box__left__link__instagram">
-                                <svg width="20" height="20" className="footer__box__left__link__instagram--white" fill="white" opacity="0.6">
+                                <svg width="20" height="20" className="footer__box__left__link__instagram--white footer__box__left__link--hover" fill="white" opacity="0.6">
                                     <use href={`${UserSvg}#icon-instagram`} />
                                 </svg>
                             </li>
                             <li className="footer__box__left__link__linkedin">
-                                <svg width="20" height="20" className="footer__box__left__link__linkedin--white" fill="white" opacity="0.6">
+                                <svg width="20" height="20" className="footer__box__left__link__linkedin--white footer__box__left__link--hover" fill="white" opacity="0.6">
                                     <use href={`${UserSvg}#icon-linked-in`} />
                                 </svg>
                             </li>
@@ -122,8 +122,16 @@ export const Footer = () => {
                         <p className="footer__box__right__warning">*Subscribe to our newsletter to receive communications and early updates from Createx SEO Agency.</p>
                     </li>
                 </ul>
-                {/* <div className="footer__copyright"></div>
-                <div className="footer__button--top"></div> */}
+                <div className="footer__bottom">
+                    <div className="footer__bottom__container container">
+                        <div className="footer__copyright ">
+                            <p>© All rights reserved.</p>
+                        </div>
+                        <div className="footer__button">
+                            <button className="footer__button--top">GO TO TOP</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     )
