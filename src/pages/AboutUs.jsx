@@ -1,5 +1,5 @@
 import Hero from "../components/AboutUs/Hero";
-// import Statistics from "../components/AboutUs/Statistics";
+import Statistics from "../components/AboutUs/Statistics";
 // import Values from "../components/AboutUs/Values";
 // import Directions from "../components/AboutUs/Directions";
 // import StudyingProcess from "../components/AboutUs/Studying";
@@ -13,15 +13,15 @@ export default function AboutUsPages() {
   return (
     <>
       <Hero />
-      {/* <Statistics />
-      <Values />
-      <Directions />
-      <StudyingProcess />
-      <Team />
-      <Testimonials />
-      <Companies />
-      <OurBlog />
-      <Subscribe /> */}
+      <Statistics />
+      {/* <Values /> */}
+      {/* <Directions /> */}
+      {/* <StudyingProcess /> */}
+      {/* <Team /> */}
+      {/* <Testimonials /> */}
+      {/* <Companies /> */}
+      {/* <OurBlog /> */}
+      {/* <Subscribe />  */}
     </>
   );
 }
