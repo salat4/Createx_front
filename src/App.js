@@ -6,10 +6,9 @@ import { Start } from "./pages/start";
 function App() {
   return (
     <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Start />} />
-
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Start />} />
+      </Routes>
     </BrowserRouter>
   );
 }
