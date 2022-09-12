@@ -16,7 +16,7 @@ export const Nav = () => {
           />
           <ul className="nav-list">
             <li className="nav-list__item">
-              <Link to="#" className="nav-link">
+              <Link to="/about" className="nav-link">
                 About Us
               </Link>
             </li>

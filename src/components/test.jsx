@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { getBlogs, getCourses, getEvents } from "../API";
+import { useEffect } from "react";
+import { getEvents } from "../API";
 
 export default function TestBack() {
-  const [first, setfirst] = useState([]);
+  //   const [first, setfirst] = useState([]);
   useEffect(() => {
     try {
       Blogs();
@@ -15,19 +15,5 @@ export default function TestBack() {
     }
   }, []);
 
-  return (
-    <div>
-      {first &&
-        first.map(({ about, name, category, image, profilePicture }) => {
-          return (
-            <div>
-              <p>{about}</p>
-              <p>{name}</p>
-              <p>{category}</p>
-              <img src={profilePicture} alt="qwe" />
-            </div>
-          );
-        })}
-    </div>
-  );
+  return <div>TEST Fetch</div>;
 }
