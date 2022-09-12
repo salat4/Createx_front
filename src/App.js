@@ -1,12 +1,16 @@
 import "./styles/variables.css";
-import { HeroHeader } from "./components/hero-header";
-import {Footer} from "./components/footer"
+import { Route, Routes } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import { Start } from "./pages/start";
+
 function App() {
   return (
-    <>
-      <HeroHeader />
-      <Footer />
-    </>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Start />} />
+
+    </Routes>
+    </BrowserRouter>
   );
 }
 
