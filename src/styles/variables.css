@@ -122,6 +122,7 @@ body {
 
 .nav-link {
   color: var(--grey);
+  cursor: pointer;
 }
 
 .btn-menu {
@@ -1014,3 +1015,81 @@ margin-bottom: 8px;
   cursor: pointer;
   opacity: 1;
 }
+
+
+/*---------------------------------AboutUs----------------------------------*/
+
+.about-hero_container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.about-hero_container_left {
+  width: 600px;
+}
+
+.about-us_hero {
+  font-family: 'Lato';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #1E212C;
+    margin-bottom: 8px;
+}
+
+.about-hero_title {
+  font-family: 'Lato';
+    font-weight: 900;
+    font-size: 46px;
+    line-height: 130%;
+    color: #1E212C;
+    margin-bottom: 48px;
+}
+
+.about-hero_sub_title {
+  font-family: 'Lato';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 150%;
+    color: #1E212C;
+    margin-bottom: 24px;
+}
+
+.about-hero_description {
+  font-family: 'Lato';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    color: #424551;
+    margin-bottom: 60px;
+}
+
+.about-hero_container_button {
+  width: 415px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about-hero_container_button > a{
+padding: 0px 40px;
+border-radius: 4px;
+border: 1px solid var(--btn-gradient);
+background-color: inherit;
+font-family: 'Lato';
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 52px;
+  letter-spacing: 0.5px;
+  color: var(--btn-gradient);
+}
+
+.about-hero_container_button > a:last-child {
+    color: var(--white);
+background: linear-gradient(55.95deg, #FF3F3A 0%, #F75E05 100%);
+}
+
+
