@@ -1,0 +1,45 @@
+.statistics-container {
+  @include position(flex, center, initial, initial);
+  margin-bottom: 180px;
+}
+
+.statistics-container_left {
+  margin-right: 70px;
+}
+
+.statistics-player_container {
+  @include position(flex, center, initial, initial);
+  margin-bottom: 32px;
+  cursor: pointer;
+}
+
+.statistics-circle_play {
+  @include position(flex, center, space-between, initial);
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  padding-left: 20px;
+  background-color: $orange;
+  margin-right: 16px;
+}
+
+.statistics-text {
+  @include text($main-font, $bold, 14px, 150%, $dark-gray);
+}
+
+.statistics-container_right {
+  & > p {
+    @include text($main-font, $bold, 18px, 150%, $dark-gray);
+    @include position(flex, center, initial, initial);
+  }
+
+  & > p:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  & > p > span {
+    @include text($main-font, $boldest, 48px, 130%, $orange);
+    letter-spacing: 1px;
+    margin-right: 16px;
+  }
+}

@@ -2,7 +2,12 @@
 @import "./base/base";
 @import "./utils/reset";
 @import "./base/mixins";
+@import "./layout/backdrop";
 @import "./layout/HomePage/header-hero";
 @import "./layout/HomePage/about";
 @import "./layout/HomePage/courses";
 @import "./layout/HomePage/benefit";
+@import "./layout/AboutUs/hero";
+@import "./layout/AboutUs/statistics";
+@import "./layout/AboutUs/values";
+@import "./layout/AboutUs/directions";
