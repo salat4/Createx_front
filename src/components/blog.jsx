@@ -1,5 +1,5 @@
-import Svg from "../images/symbol-defs.svg";
-import AboutImg from "../images/image2.jpg";
+// import Svg from "../images/symbol-defs.svg";
+// import AboutImg from "../images/image2.jpg";
 
 export const Team = () => {
   return (
@@ -16,7 +16,7 @@ export const Team = () => {
         <ul>
             <li>
                 <img src="" alt="" />
-                
+
             </li>
         </ul>
       </div>

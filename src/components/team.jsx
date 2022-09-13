@@ -18,7 +18,7 @@ export const Team = () => {
           </button>
           <button className="slider-btn">
             <svg width="20" height="20" className="slider-btn__svg">
-              <use href={`${Svg}#icon-Right`} />
+              <use href={`${Svg}#icon-ic-chat`} />
             </svg>
           </button>
         </div>

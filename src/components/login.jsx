@@ -1,11 +1,9 @@
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import { useLoginMutation } from '../redux/authOperation';
 import { Form, Field } from "formik";
 
 
 export default function LoginPage() {
-    const [login] = useLoginMutation();
   
     const defaultInitialValues = {
       email: '',
@@ -18,7 +16,6 @@ export default function LoginPage() {
     });
   
     const handleSubmit = (values, { resetForm }) => {
-      login(values);
       resetForm();
     };
   
