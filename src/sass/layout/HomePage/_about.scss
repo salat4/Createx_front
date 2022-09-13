@@ -1,0 +1,47 @@
+.about-section {
+  padding: 180px 0;
+}
+
+.about-container {
+  @include position(flex, initial, space-between, initial);
+}
+
+.about-svg {
+  width: 16px;
+  height: 16px;
+  fill: $orange;
+}
+
+.about-info {
+  @include position(flex, initial, initial, column);
+}
+
+.about-title {
+  @include text($main-font, $bold, 16px, 150%, $dark-gray);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.about-title__span {
+  @include text($main-font, $boldest, 46px, 60px, $dark-gray);
+}
+
+.about-list {
+  width: 390px;
+  height: 320px;
+}
+
+.about-list__item {
+  display: flex;
+  padding-bottom: 12px;
+}
+
+.about-list__item-text {
+  margin-left: 16px;
+}
+
+.about-button {
+  width: 161px;
+  height: 44px;
+}

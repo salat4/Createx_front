@@ -1,0 +1,149 @@
+.header-hero__section {
+  padding-top: 26px;
+  padding-bottom: 87px;
+  display: flex;
+  background-color: $bg-pink;
+
+  background-image: url(../../../images/illustration.png);
+  background-repeat: no-repeat;
+  background-position: 78% 34%;
+}
+
+.nav-container {
+  @include position(flex, initial, space-between, row);
+}
+
+.navigation {
+  @include position(flex, center, initial, initial);
+}
+
+.header-logo {
+  margin-right: 60px;
+}
+
+.nav-list {
+  @include position(flex, initial, initial, row);
+}
+
+.nav-list__item {
+  @include text($main-font, $bold, 16px, 160%, $grey);
+}
+
+.nav-list__item:not(:last-child) {
+  margin-right: 40px;
+}
+
+.nav-link {
+  color: $grey;
+  cursor: pointer;
+}
+
+.btn-menu {
+  @include position(flex, center, initial, initial);
+}
+
+.header-button {
+  width: 200px;
+  height: 52px;
+  @include text($main-font, $bold, 16px, 52px, initial);
+  letter-spacing: 0.5px;
+  margin-right: 36px;
+}
+
+.gradient {
+  color: $white;
+
+  background: linear-gradient(55.95deg, $orange 0%, $btn-gradient 100%);
+
+  border-radius: 4px;
+  border: none;
+}
+
+.header-button__auth {
+  border: none;
+  padding: 15px 4px;
+
+  background: transparent;
+  @include text($main-font, $bold, 16px, 160%, $grey);
+}
+
+.header-span {
+  @include text($main-font, $bold, 16px, 160%, initial);
+}
+
+.hero-content {
+  width: 496px;
+  height: 470px;
+  margin-top: 135px;
+}
+
+.button-play {
+  @include position(flex, center, initial, initial);
+  @include text($main-font, $bold, 14px, 150%, initial);
+  margin-bottom: 24px;
+  background-color: transparent;
+  border: none;
+}
+
+.button-play__image {
+  margin-right: 16px;
+}
+
+.hero-title {
+  @include text($main-font, $boldest, 64px, 130%, $dark-gray);
+  letter-spacing: 1px;
+}
+
+.hero-button__list {
+  display: flex;
+  margin-top: 60px;
+}
+
+.hero-button__list-item {
+  margin-right: 24px;
+}
+
+.button-outlined {
+  width: 148px;
+  height: 52px;
+  background-color: transparent;
+  border: 1px solid;
+  border-image-source: linear-gradient(to left, $orange, $btn-gradient);
+  border-image-slice: 1;
+  @include text($main-font, $bold, 16px, 52px, $btn-gradient);
+  letter-spacing: 0.5px;
+}
+
+.hero-benefit {
+  margin-top: 260px;
+}
+
+.hero-benefit-list {
+  @include position(flex, initial, space-between, row);
+}
+
+.hero-benefit-list__item {
+  @include position(flex, center, initial, row);
+  color: $dark-gray;
+  position: relative;
+}
+
+.hero-benefit-list__item:not(:last-child):after {
+  content: ".";
+  width: 8px;
+  height: 8px;
+  background: $orange;
+  border-radius: 25px;
+  position: absolute;
+  top: 26px;
+  right: -50px;
+}
+
+.hero-benefit__span {
+  @include text($main-font, $boldest, 46px, 130%, initial);
+  margin-right: 12px;
+}
+
+.hero-benefit__text {
+  @include text($main-font, $regular, 16px, 160%, initial);
+}
