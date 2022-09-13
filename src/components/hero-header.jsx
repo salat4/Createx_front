@@ -5,7 +5,9 @@ import { Corses } from "./corses";
 import { Benefit } from "./benefits";
 import { Schedule } from "./schedule";
 import { Certificate } from "./certificate";
-import {Team} from "./team";
+import { Team } from "./team";
+import LoginPage from "./login";
+import RegisterPage from "./reg";
 
 export const HeroHeader = () => {
   return (
@@ -14,6 +16,8 @@ export const HeroHeader = () => {
         <div className="container">
           <Nav />
           <Hero />
+          <LoginPage />
+          <RegisterPage />
         </div>
       </div>
       <About />
@@ -21,7 +25,7 @@ export const HeroHeader = () => {
       <Benefit />
       <Schedule />
       <Certificate />
-      <Team/>
+      <Team />
     </>
   );
 };
