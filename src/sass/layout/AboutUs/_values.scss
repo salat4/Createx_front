@@ -1,18 +1,9 @@
-.values-section_container {
-  margin-bottom: 180px;
-  & > p {
-    text-align: center;
-  }
-  & .title {
-    @include text($main-font, $bold, 16px, 150%, $dark-gray);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-  & .sub-title {
-    @include text($main-font, $boldest, 46px, 130%, $dark-gray);
-    margin-bottom: 60px;
-  }
+.titles-for-sections {
+  @include section-title;
+}
+
+.values-title {
+  text-align: center;
 }
 
 .values-container {
@@ -21,8 +12,6 @@
 }
 
 .values-item-container {
-  //   width: 240px;
-  //   height: 162px;
   & > div {
     width: 48px;
     height: 48px;
