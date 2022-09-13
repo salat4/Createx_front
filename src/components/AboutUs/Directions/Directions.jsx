@@ -20,7 +20,7 @@ export const Directions = () => {
   return (
     <section>
       <div className="container">
-        <div className="values-section_container">
+        <div className="titles-for-sections direction-title">
           <p className="title">Our main directions</p>
           <p className="sub-title">What do we teach</p>
           <div className="card-container">

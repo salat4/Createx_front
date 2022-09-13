@@ -4,7 +4,7 @@ export const Values = () => {
   return (
     <section>
       <div className="container">
-        <div className="values-section_container">
+        <div className="titles-for-sections values-title">
           <p className="title">We always stand for</p>
           <p className="sub-title">Our core values</p>
           <div className="values-container">
