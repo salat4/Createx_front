@@ -1,0 +1,85 @@
+.corses-section {
+  margin-bottom: 180px;
+}
+
+.info-course-section {
+  @include position(flex, center, space-between, initial);
+}
+
+.text {
+  @include text($main-font, $bold, 16px, 150%, $dark-gray);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.title {
+  @include text($main-font, $boldest, 46px, 130%, initial);
+}
+
+.btn-courses {
+  width: 200px;
+  height: 52px;
+}
+
+.couses-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 60px;
+}
+
+.couses-list__item {
+  display: flex;
+
+  margin-bottom: 30px;
+
+  width: 575px;
+  height: 214px;
+
+  border: 1px solid $bg-input-gray;
+  box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08),
+    0px 30px 24px -10px rgba(154, 156, 165, 0.05),
+    0px 12px 10px -6px rgba(154, 156, 165, 0.04),
+    0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+}
+
+.couses-list__item:nth-child(odd) {
+  margin-right: 15px;
+}
+
+.couses-list__item:hover {
+  box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.16),
+    0px 30px 24px -10px rgba(154, 156, 165, 0.1),
+    0px 12px 10px -6px rgba(154, 156, 165, 0.08),
+    0px 4px 4px -4px rgba(30, 33, 44, 0.05);
+}
+
+.coach-img {
+  margin-right: 32px;
+}
+
+.course-item__name {
+  height: 23px;
+  width: fit-content;
+
+  margin-bottom: 20px;
+  margin-top: 32px;
+
+  padding: 1px 8px;
+  @include text($main-font, $regular, 14px, 150%, $white);
+  background-color: var(--blue);
+  border-radius: 4px;
+}
+
+.course-item__text {
+  @include text($main-font, $bold, 20px, 150%, $dark-gray);
+  margin-bottom: 20px;
+}
+
+.courses-detail {
+  @include text($main-font, $regular, 18px, 150%, $light-gray);
+}
+
+.price {
+  @include text($main-font, $bold, 18px, 150%, $red);
+  margin-right: 8px;
+}
