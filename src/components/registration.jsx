@@ -1,8 +1,8 @@
 import { Formik, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { Form, Field } from "formik";
-import axios from "axios";
 import { useState } from "react";
+import registration from "../API/registration";
 
 export default function RegisterPage() {
   const [userName, setUserName] = useState("");
@@ -16,16 +16,9 @@ export default function RegisterPage() {
   };
 
   const handleSubmit = async () => {
-    try {
-      const registration = await axios.post(
-        "https://createx1.herokuapp.com/createx/auth/register",
-        { name: userName, email: userEmail, password: userPwd }
-      );
-      reset()
-      console.log(JSON.stringify(registration?.data));
-    } catch (error) {
-      console.log(error);
-    }
+    console.log(userName);
+    registration(userName, userEmail, userPwd);
+    reset();
   };
 
   const defaultInitialValues = {
@@ -44,15 +37,15 @@ export default function RegisterPage() {
     return <ErrorMessage name={name} render={(message) => <p>{message}</p>} />;
   };
 
-  const Pass = (e) => {
+  const Password = (e) => {
     setUserPwd(e.target.value);
   };
 
-  const Em = (e) => {
+  const Email = (e) => {
     setUserEmail(e.target.value);
   };
 
-  const Na = (e) => {
+  const Name = (e) => {
     setUserName(e.target.value);
   };
 
@@ -70,7 +63,7 @@ export default function RegisterPage() {
             name="name"
             type="text"
             placeholder="Enter your name"
-            onInput={Na}
+            onInput={Name}
             value={userName}
           />
           <FormError name="name" />
@@ -79,9 +72,8 @@ export default function RegisterPage() {
             name="email"
             type="email"
             placeholder="Enter your e-mail"
-            onInput={Em}
+            onInput={Email}
             value={userEmail}
-
           />
           <FormError name="email" />
           <label htmlFor="password">Password</label>
@@ -89,9 +81,8 @@ export default function RegisterPage() {
             name="password"
             type="password"
             placeholder="Enter your password"
-            onInput={Pass}
+            onInput={Password}
             value={userPwd}
-
           />
           <FormError name="password" />
           <button type="submit"> Create!</button>

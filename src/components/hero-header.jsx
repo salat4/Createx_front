@@ -7,7 +7,7 @@ import { Schedule } from "./schedule";
 import { Certificate } from "./certificate";
 import { Team } from "./team";
 import LoginPage from "./login";
-import RegisterPage from "./reg";
+import RegisterPage from "./registration";
 
 export const HeroHeader = () => {
   return (
