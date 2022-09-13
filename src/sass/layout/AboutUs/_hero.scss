@@ -1,0 +1,47 @@
+.about-hero_container {
+  @include position(flex, flex-end, space-between, initial);
+  margin-bottom: 180px;
+}
+
+.about-hero_container_left {
+  width: 600px;
+}
+
+.about-us_hero {
+  @include text($main-font, $bold, 16px, 150%, $dark-gray);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.about-hero_title {
+  @include text($main-font, $boldest, 46px, 130%, $dark-gray);
+  margin-bottom: 48px;
+}
+
+.about-hero_sub_title {
+  @include text($main-font, $bold, 20px, 150%, $dark-gray);
+  margin-bottom: 24px;
+}
+
+.about-hero_description {
+  @include text($main-font, $regular, 16px, 160%, $grey);
+  margin-bottom: 60px;
+}
+
+.about-hero_container_button {
+  @include position(flex, center, space-between, initial);
+  width: 415px;
+  & > a {
+    padding: 0px 40px;
+    border-radius: 4px;
+    border: 1px solid $btn-gradient;
+    background-color: inherit;
+    @include text($main-font, $bold, 16px, 52px, $btn-gradient);
+    letter-spacing: 0.5px;
+  }
+  & > a:last-child {
+    color: $white;
+    background: linear-gradient(55.95deg, $orange 0%, $btn-gradient 100%);
+  }
+}
