@@ -9,16 +9,6 @@ export const StudyingProcess = () => {
           <p className="sub-title">That’s how we do it</p>
           <div className="process-container">
             <div className="process-container_left">
-              <div className="step-line-container">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
               <div className="steps-container">
                 <div className="step-container">
                   <p>STEP 1</p>
