@@ -1,0 +1,218 @@
+.blogs__header{
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    flex-direction: column;
+}
+.blogs__header__text{
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    /* identical to box height, or 24px */
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    /* gray/900 */
+
+    color: #1E212C;
+    margin-bottom: 8px;
+}
+.blogs__header__title{
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 46px;
+    line-height: 130%;
+    /* identical to box height, or 60px */
+
+    text-align: center;
+
+    /* gray/900 */
+
+    color: #1E212C;
+    margin-bottom: 60px;
+}
+.blogs__hero__menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 58px;
+}
+.blogs__hero__menu__list{
+    display: flex;
+}
+.blogs__hero__menu__list__item{
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 160%;
+    /* identical to box height, or 26px */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    /* gray/600 */
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #9A9CA5;
+}
+.blogs__hero__menu__list__item:not(:last-child){
+    margin-right: 12px;
+}
+
+
+
+.active{
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 160%;
+    /* identical to box height, or 26px */
+
+    text-align: center;
+
+    /* primary */
+
+    border: 1px solid #FF3F3A;
+    border-radius: 4px;
+    color: #FF3F3A;
+}
+
+
+.blogs__hero__menu__list__icon{
+    fill: #9A9CA5;
+    margin-right: 10px;
+}
+.blogs__hero__menu__category{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.blogs__hero__menu__category__text{
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 160%;
+    /* identical to box height, or 26px */
+
+
+    /* gray/800 */
+margin-right: 12px;
+    color: #424551;
+}
+
+
+.blogs__hero__menu__category__select{
+    width: 160px;
+    height: 44px;
+
+    /* white */
+
+    background: #FFFFFF;
+    /* gray/400 */
+
+    border: 1px solid #D7DADD;
+    border-radius: 4px;
+    margin-right: 40px;
+}
+.blogs__hero__menu__category__search{
+/* white */
+    width: 285px;
+    height: 44px;
+    background: #FFFFFF;
+    /* gray/400 */
+    position: relative;
+    border: 1px solid #D7DADD;
+    border-radius: 4px;
+}
+
+.blogs__hero__menu__category__form{
+    position: relative;
+}
+.blogs__hero__menu__category__search__icon{
+    position: absolute;
+    top: 14px;
+    right: 16px;
+}
+.blog__hero__list{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    // margin-left: -30px;
+}
+.blog__hero__list__item{
+    position: relative;
+    // margin-right: 15px;
+    &:nth-child(-n+3){
+        width: 390px;
+    }
+    &:nth-child(4){
+        width: 705px;
+    }
+    &:nth-child(5){
+        width: 495px;
+    }
+    &:nth-child(n+5){
+        width: 390px;
+    }
+    &:nth-child(-n+5){
+        margin-bottom: 60px;
+    }
+}
+.blog__hero__list__item__type{
+    position: absolute;
+    top: 12px;
+    left: 12px;
+}
+.blog__hero__list__item__box{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 16px;
+    height: 150px;
+}
+.blog__hero__list__item__box__top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.blog__hero__list__item__box__title{
+    /* lead/bold */
+
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 150%;
+    /* or 30px */
+
+
+    /* gray/900 */
+
+    color: #1E212C;
+}
+.blog__hero__list__item__box__text{
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    /* or 26px */
+
+
+    /* gray/800 */
+
+    color: #424551;
+    word-wrap: break-word;
+}
