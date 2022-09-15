@@ -3,7 +3,7 @@ import Statistics from "../components/AboutUs/Statistics";
 import Values from "../components/AboutUs/Values";
 import Directions from "../components/AboutUs/Directions";
 import StudyingProcess from "../components/AboutUs/Studying";
-// import Team from "../components/AboutUs/Team";
+import Team from "../components/AboutUs/Team";
 // import Testimonials from "../components/AboutUs/Testimonials";
 // import Companies from "../components/AboutUs/Companies";
 // import OurBlog from "../components/AboutUs/OurBlog";
@@ -17,7 +17,7 @@ export default function AboutUsPages() {
       <Values />
       <Directions />
       <StudyingProcess />
-      {/* <Team /> */}
+      <Team />
       {/* <Testimonials /> */}
       {/* <Companies /> */}
       {/* <OurBlog /> */}
