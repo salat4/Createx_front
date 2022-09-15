@@ -1,5 +1,5 @@
-import checkedSvg from "../images/symbol-defs.svg";
-import AboutImg from "../images/image2.jpg";
+import checkedSvg from "../../images/symbol-defs.svg";
+import AboutImg from "../../images/image2.jpg";
 
 export const About = () => {
   return (

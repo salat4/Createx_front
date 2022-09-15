@@ -1,0 +1,18 @@
+.registration-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  
+    @include position(flex, center, initial, column);
+  
+    height: auto;
+    background-color: $white;
+    width: 490px;
+  }
+  
+  .registration-form__wraper {
+    padding: 50px 50px 0 50px;
+  }
+
+  

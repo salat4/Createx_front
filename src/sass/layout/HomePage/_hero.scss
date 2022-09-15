@@ -1,70 +1,14 @@
-.header-hero__section {
-  padding-top: 26px;
+.hero-section {
+  padding-top: 122px;
   padding-bottom: 87px;
   display: flex;
   background-color: $bg-pink;
+}
 
+.container-header{
   background-image: url(../../../images/illustration.png);
   background-repeat: no-repeat;
   background-position: 78% 34%;
-}
-
-.nav-container {
-  @include position(flex, initial, space-between, row);
-}
-
-.navigation {
-  @include position(flex, center, initial, initial);
-}
-
-.header-logo {
-  margin-right: 60px;
-}
-
-.nav-list {
-  @include position(flex, initial, initial, row);
-}
-
-.nav-list__item {
-  @include text($main-font, $bold, 16px, 160%, $grey);
-}
-
-.nav-list__item:not(:last-child) {
-  margin-right: 40px;
-}
-
-.nav-link {
-  color: $grey;
-  cursor: pointer;
-}
-
-.btn-menu {
-  @include position(flex, center, initial, initial);
-}
-
-.header-button {
-  width: 200px;
-  height: 52px;
-  @include text($main-font, $bold, 16px, 52px, initial);
-  letter-spacing: 0.5px;
-  margin-right: 36px;
-}
-
-.gradient {
-  color: $white;
-
-  background: linear-gradient(55.95deg, $orange 0%, $btn-gradient 100%);
-
-  border-radius: 4px;
-  border: none;
-}
-
-.header-button__auth {
-  border: none;
-  padding: 15px 4px;
-
-  background: transparent;
-  @include text($main-font, $bold, 16px, 160%, $grey);
 }
 
 .header-span {
@@ -74,7 +18,6 @@
 .hero-content {
   width: 496px;
   height: 470px;
-  margin-top: 135px;
 }
 
 .button-play {

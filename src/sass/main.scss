@@ -1,12 +1,24 @@
 @import "./base/variables";
 @import "./base/base";
-@import "./utils/reset";
 @import "./base/mixins";
+
+@import "./utils/reset";
+
 @import "./layout/backdrop";
-@import "./layout/HomePage/header-hero";
+@import "./layout/header";
+
+@import "./layout/HomePage/hero";
 @import "./layout/HomePage/about";
 @import "./layout/HomePage/courses";
 @import "./layout/HomePage/benefit";
+@import "./layout/HomePage/schedule";
+@import "./layout/HomePage/certificate";
+@import "./layout/HomePage/team";
+@import "./layout/HomePage/login";
+@import "./layout/HomePage/registration";
+@import "./layout/HomePage/auth-form";
+
+
 @import "./layout/AboutUs/hero";
 @import "./layout/AboutUs/statistics";
 @import "./layout/AboutUs/values";

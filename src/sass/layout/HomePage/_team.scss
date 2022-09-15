@@ -1,0 +1,126 @@
+.team-section {
+  padding: 180px 0;
+  background-color: #f4f5f7;
+}
+
+.team-container {
+  position: relative;
+}
+
+.team-title {
+  margin-bottom: 78px;
+}
+
+.slider-btn__wrap {
+  position: absolute;
+  top: 18%;
+  right: 2%;
+}
+
+.slider-btn {
+  background: transparent;
+  width: 48px;
+  height: 48px;
+  border: none;
+
+  &:hover {
+    background: $orange;
+    border: none;
+    border-radius: 25px;
+
+    text-align: center;
+    margin-left: 20px;
+  }
+  &:hover .slider-btn__svg {
+    fill: $white;
+  }
+}
+
+.team-list {
+  display: flex;
+}
+
+.team-list__item {
+  position: relative;
+  width: 285px;
+  height: 416px;
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+  &:hover .team-img__container::after {
+    content: "";
+    position: absolute;
+    width: 284px;
+    height: 281px;
+    left: 0px;
+    top: -53px;
+    background-image: linear-gradient(
+      180deg,
+      rgba(30, 33, 44, 0) 43.9%,
+      rgba(30, 33, 44, 0.03) 55.21%,
+      rgba(30, 33, 44, 0.33) 68.73%,
+      rgba(30, 33, 44, 0.56) 76.17%,
+      rgba(30, 33, 44, 0.768225) 83.75%,
+      rgba(30, 33, 44, 0.92) 91.49%,
+      #1e212c 100%
+    );
+  }
+  &:hover .social-svg {
+    display: block;
+  }
+}
+
+.team-photo {
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.team-img__container {
+  width: fit-content;
+  position: relative;
+}
+
+.team-social__list {
+  position: absolute;
+  right: 0px;
+  top: 200px;
+  display: flex;
+}
+
+.team-social-svg {
+  margin-right: 12px;
+}
+
+.social-svg {
+  display: none;
+  fill: $white;
+  opacity: 0.6;
+}
+
+.social-svg:hover {
+  fill: $white;
+  opacity: 1;
+}
+
+.team-name {
+  text-align: center;
+
+  font-style: normal;
+  font-weight:$bold;
+  font-size: 20px;
+  line-height: 150%;
+  color: $grey;
+
+  margin-top: 16px;
+  margin-bottom: 4px;
+}
+
+.team-position {
+  text-align: center;
+
+  font-style: normal;
+  font-weight: $regular;
+  font-size: 16px;
+  line-height: 160%;
+  color: $light-gray;
+}

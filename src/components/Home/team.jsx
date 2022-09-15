@@ -1,5 +1,5 @@
-import Svg from "../images/symbol-defs.svg";
-import AboutImg from "../images/image2.jpg";
+import Svg from "../../images/symbol-defs.svg";
+import AboutImg from "../../images/image2.jpg";
 
 export const Team = () => {
   return (
@@ -18,7 +18,7 @@ export const Team = () => {
           </button>
           <button className="slider-btn">
             <svg width="20" height="20" className="slider-btn__svg">
-              <use href={`${Svg}#icon-ic-chat`} />
+              <use href={`${Svg}#icon-Right`} />
             </svg>
           </button>
         </div>

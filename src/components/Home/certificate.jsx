@@ -1,7 +1,7 @@
-import Client from '../images/client.png'
-import ClientSecond from '../images/client2.png'
-import ClientThird from '../images/client3.png'
-import CertificateImg from '../images/image1.jpg'
+import Client from '../../images/client.png'
+import ClientSecond from '../../images/client2.png'
+import ClientThird from '../../images/client3.png'
+import CertificateImg from '../../images/image1.jpg'
 
 export const Certificate = () => {
   return (

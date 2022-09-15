@@ -1,0 +1,112 @@
+.schedule-section {
+    padding: 80px 0;
+    background-color: $bg-pink;
+  }
+  
+  .schedule-title {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .schedule-list__item {
+    width: 1170px;
+    height: 115px;
+    background-color: $white;
+  
+    padding: 0 20px;
+    margin-bottom: 24px;
+    border-radius: 4px;
+  
+    display: flex;
+    align-items: center;
+    
+    &:hover {
+      box-shadow: 0px 80px 80px -20px rgba(255, 63, 58, 0.16),
+        0px 30px 24px -10px rgba(255, 63, 58, 0.1),
+        0px 12px 10px -6px rgba(255, 63, 58, 0.08),
+        0px 4px 4px -4px rgba(30, 33, 44, 0.05);
+    }
+  }
+  
+  
+  .schedule-list__item_span {
+    font-style: normal;
+    font-weight:$boldest;
+    font-size: 48px;
+    line-height: 130%;
+    letter-spacing: 1px;
+    color: $orange;
+  }
+  
+  .schedule-data {
+    margin-left: 10px;
+    margin-right: 25px;
+  }
+  
+  .schedule-list__item_mounth {
+    font-style: normal;
+    font-weight: $bold;
+    font-size: 19px;
+    line-height: 150%;
+    color: $dark-gray;
+  
+    margin-bottom: 4px;
+  }
+  
+  .schedule-list__item_time {
+    font-style: normal;
+    font-weight: $regular;
+    font-size: 16px;
+    line-height: 160%;
+    color: $light-gray;
+  
+    width: max-content;
+  }
+  
+  .schedule-info {
+    width: 792px;
+    margin-right: 25px;
+  }
+  
+  .schedule-list__item-title {
+    font-style: normal;
+    font-weight: $bold;
+    font-size: 19px;
+    line-height: 150%;
+    color: $dark-gray;
+  }
+  
+  .schedule-list__item_text {
+    font-style: normal;
+    font-weight: $regular;
+    font-size: 16px;
+    line-height: 160%;
+    color: $light-gray;
+  }
+  
+  .schedule-list__item_btn:hover {
+    color: $white;
+  
+    background: linear-gradient(
+      55.95deg,
+      $orange 0%,
+      $btn-gradient 100%
+    );
+  
+    border-radius: 4px;
+    border: none;
+  }
+  
+  .schedule-text {
+    font-style: normal;
+    font-weight: $bold;
+    font-size: 28px;
+    line-height: 150%;
+    color: $dark-gray;
+  
+    margin-right: 40px;
+  }
+  
+  .schedule-additional-info__container {
+    @include position(flex, center, center, row );
+  }

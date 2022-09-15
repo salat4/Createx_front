@@ -1,8 +1,8 @@
-.benefit-section {
-  padding-bottom: 120px;
+.benefit-container {
+  padding-bottom: 242px;
   background-image: url(../../../images/illustration0.png);
   background-repeat: no-repeat;
-  background-position: 86% 86%;
+  background-position: 92% 62%;
 }
 
 .benefit-title {
@@ -15,6 +15,8 @@
 }
 
 .benefit-list__item {
+  border-radius: 4px;
+
   @include position(flex, center, center, initial);
   width: 300px;
   height: 46px;
@@ -47,8 +49,8 @@
 
 .benefit-info__container {
   margin-top: 182px;
-  width: 490px;
-  height: 195px;
+  width: 496px;
+  height: 196px;
 }
 
 .benefit-info__title {

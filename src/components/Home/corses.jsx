@@ -1,4 +1,4 @@
-import PlaySvg from "../images/image.jpg";
+import PlaySvg from "../../images/image.jpg";
 
 export const Corses = () => {
   return (

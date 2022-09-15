@@ -1,9 +1,9 @@
-import Svg from "../images/symbol-defs.svg";
+import Svg from "../../images/symbol-defs.svg";
 
 export const Benefit = () => {
   return (
     <div className="benefit-section">
-      <div className="container">
+      <div className="container benefit-container">
         <h2 className="text benefit-title">
           Our benefits 
           <br />

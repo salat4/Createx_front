@@ -1,13 +1,11 @@
 import { Hero } from "./hero";
-import { Nav } from "./nav";
+import { Nav } from "../header";
 import { About } from "./about";
 import { Corses } from "./corses";
 import { Benefit } from "./benefits";
 import { Schedule } from "./schedule";
 import { Certificate } from "./certificate";
 import { Team } from "./team";
-import LoginPage from "./login";
-import RegisterPage from "./registration";
 
 export const HeroHeader = () => {
   return (
@@ -16,8 +14,6 @@ export const HeroHeader = () => {
         <div className="container">
           <Nav />
           <Hero />
-          <LoginPage />
-          <RegisterPage />
         </div>
       </div>
       <About />
