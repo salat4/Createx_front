@@ -5,7 +5,7 @@ import Directions from "../components/AboutUs/Directions";
 import StudyingProcess from "../components/AboutUs/Studying";
 import Team from "../components/AboutUs/Team";
 // import Testimonials from "../components/AboutUs/Testimonials";
-// import Companies from "../components/AboutUs/Companies";
+import Companies from "../components/AboutUs/Companies";
 // import OurBlog from "../components/AboutUs/OurBlog";
 // import Subscribe from "../components/AboutUs/Subscribe";
 
@@ -19,7 +19,7 @@ export default function AboutUsPages() {
       <StudyingProcess />
       <Team />
       {/* <Testimonials /> */}
-      {/* <Companies /> */}
+      <Companies />
       {/* <OurBlog /> */}
       {/* <Subscribe />  */}
     </>
