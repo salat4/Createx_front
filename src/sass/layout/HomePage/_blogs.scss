@@ -1,0 +1,102 @@
+.blog-section {
+  padding-top: 124px;
+  padding-bottom: 150px;
+}
+.blog-title__wrap {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 53px;
+}
+
+.blog__btn {
+  width: 159px;
+  height: 52px;
+  padding: 0 40px;
+  margin-left: auto;
+
+  @include text($main-font, $bold, 16px, 52px, $white);
+  letter-spacing: 0.5px;
+}
+
+.blog-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.blog-list__item {
+  position: relative;
+  height: 507px;
+  width: 390px;
+}
+
+.blog-list__type__wrap {
+  background-color: $white;
+  padding: 1px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.blog-list__item__type {
+  margin-left: 5px;
+  @include text($main-font, $regular, 14px, 150%, $grey);
+}
+
+.blog-list__item__box {
+  @include position(flex, flex-start, center, column);
+
+  margin-top: 16px;
+  height: 150px;
+}
+
+.blog-list__item__box__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.box-top__text {
+  @include text($main-font, $regular, 14px, 150%, $light-gray);
+  &:not(:last-child) {
+    margin-right: 12px;
+  }
+}
+
+.blog-list__item__box__title {
+  @include text($main-font, $bold, 20px, 160%, $dark-gray);
+}
+
+.blog-list__item__box__text {
+  @include text($main-font, $regular, 16px, 160%, $grey);
+  word-wrap: break-word;
+}
+
+.box-top__text__span {
+  margin-right: 12px;
+}
+
+.blog-btn__more {
+  margin-top: 16px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  fill: $orange;
+  border: none;
+  background-color: transparent;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 160%;
+  @include text($main-font, $bold, 16px, 160%, $dark-gray);
+}
+
+.more-btn__svg {
+  margin-left: 8px;
+}

@@ -3,7 +3,7 @@
 }
 
 .info-course-section {
-  @include position(flex, center, space-between, initial);
+  @include position(flex, end, space-between, initial);
 }
 
 .text {
@@ -13,6 +13,7 @@
 }
 
 .title {
+  margin-top: 8px;
   @include text($main-font, $boldest, 46px, 130%, initial);
 }
 
@@ -25,6 +26,7 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 60px;
+  justify-content: space-between;
 }
 
 .couses-list__item {

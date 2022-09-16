@@ -28,7 +28,7 @@ export const ButtonShowAndHide = ({userPwd, Password }) => {
         onInput={Password}
         name="password"
         type={type}
-        placeholder="Password"
+        placeholder="•••••••••••"
         value={userPwd}
       />
     </>

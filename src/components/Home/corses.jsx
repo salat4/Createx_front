@@ -10,7 +10,7 @@ export const Corses = () => {
             <br />
             <span className="title">Featured Courses</span>
           </h2>
-          <button className="button-outlined btn-courses" type="button">
+          <button className="button-outlined btn-courses btn-hover" type="button">
             View all courses
           </button>
         </div>

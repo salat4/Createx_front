@@ -19,28 +19,28 @@ export const Header = () => {
                 className="header-logo"
               />
               <ul className="nav-list">
-                <li className="nav-list__item">
-                  <Link to="/about" className="nav-link">
+                <li className="nav-list__item ">
+                  <Link to="/about" className="nav-link hover">
                     About Us
                   </Link>
                 </li>
                 <li className="nav-list__item">
-                  <Link to="/courses" className="nav-link">
+                  <Link to="/courses" className="nav-link hover">
                     Courses
                   </Link>
                 </li>
                 <li className="nav-list__item">
-                  <Link to="/events" className="nav-link">
+                  <Link to="/events" className="nav-link hover">
                     Events
                   </Link>
                 </li>
                 <li className="nav-list__item">
-                  <Link to="/blog" className="nav-link">
+                  <Link to="/blog" className="nav-link hover">
                     Blog
                   </Link>
                 </li>
                 <li className="nav-list__item">
-                  <Link to="/contacts" className="nav-link">
+                  <Link to="/contacts" className="nav-link hover">
                     Contacts
                   </Link>
                 </li>
@@ -48,7 +48,7 @@ export const Header = () => {
             </nav>
 
             <div className="btn-menu">
-              <button type="button" className="header-button gradient">
+              <button type="button" className="header-button gradient btn-hover">
                 Get consultation
               </button>
               <svg width="20" height="20">

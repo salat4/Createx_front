@@ -1,7 +1,30 @@
 import Svg from "../../images/symbol-defs.svg";
 import AboutImg from "../../images/image2.jpg";
+import SimpleSlider from "./review";
+import getAbout from "../../API/getAbout";
+import { useEffect, useState } from "react";
+
 
 export const Team = () => {
+
+  const [about, setAbout] = useState(null);
+  // const [items, setItems] = useState(null);
+console.log(about);
+  useEffect(() => {
+    async function FetchAbout() {
+      const blog = await getAbout();
+      setAbout(blog);
+    }
+    FetchAbout();
+  }, []);
+
+  // useEffect(() => {
+  //   if (blogs !== null) {
+  //     const blogsToRender = blogs.slice(0, 3);
+  //     setItems(blogsToRender);
+  //   }
+  // }, [blogs]);
+
   return (
     <div className="team-section">
       <div className=" container team-container">
@@ -149,6 +172,11 @@ export const Team = () => {
           </li>
         </ul>
       </div>
+      <h2 className="text review-title">
+      TESTIMONIALS <br />
+          <span className="title">What our students say</span>
+        </h2>
+      <SimpleSlider/>
     </div>
   );
 };

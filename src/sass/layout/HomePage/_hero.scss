@@ -72,7 +72,7 @@
 }
 
 .hero-benefit-list__item:not(:last-child):after {
-  content: ".";
+  content: "";
   width: 8px;
   height: 8px;
   background: $orange;

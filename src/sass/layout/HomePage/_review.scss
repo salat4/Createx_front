@@ -1,0 +1,136 @@
+.slider-wrap {
+  position: relative;
+  padding: 64px 105px 34px 164px;
+  margin: auto;
+  width: 1020px;
+  height: 344px;
+  background-color: $white;
+}
+
+.slider-svg {
+  position: absolute;
+  top: 70px;
+  left: 113px;
+}
+
+.slider-review__text {
+  @include text($main-font, $regular, 20px, 150%, $grey);
+  margin-bottom: 24px;
+}
+
+.slider-client__card {
+  display: flex;
+}
+
+.slider-client__card-text {
+  display: block;
+  margin-left: 20px;
+  margin-top: 11px;
+}
+
+.slider-client__name {
+  @include text($main-font, $bold, 16px, 160%, $grey);
+  margin-bottom: 4px;
+}
+
+.slider-client__position {
+  @include text($main-font, $regular, 14px, 150%, $light-gray);
+}
+
+.slick-dots {
+  margin-bottom: -60px;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+.slick-dots li button {
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  width: 206px;
+  height: 20px;
+  padding: 5px;
+  cursor: pointer;
+  color: transparent;
+  border: 0;
+  outline: 0;
+  background: 0 0;
+}
+
+.slick-dots li button:before {
+  font-size: 6px;
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 0;
+  content: "";
+  text-align: center;
+  opacity: 0.25;
+  border: 1px solid #b3b7bc;
+}
+
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.slick-prev {
+    z-index: 1;
+  font-size: 0;
+  line-height: 0;
+  left: 2%;
+  top: 50%;
+  width: 35px;
+  height: 35px;
+  background-image: url(.././../../images/right-black.png);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  cursor: pointer;
+  outline: 0;
+  border-radius: 25px;
+  transform: rotate(180deg);
+
+  &:hover {
+    background-image: url(.././../../images/right.png);
+    background-color: $orange;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(180deg);
+  }
+}
+
+.slick-next {
+  font-size: 0;
+  line-height: 0;
+  right: 2%;
+  top: 50%;
+  width: 35px;
+  height: 35px;
+  background-image: url(.././../../images/right-black.png);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  cursor: pointer;
+  outline: 0;
+  border-radius: 25px;
+
+  &:hover {
+    background-image: url(.././../../images/right.png);
+    background-color: $orange;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.slick-next:before, .slick-prev:before {
+  content: "";
+}
+

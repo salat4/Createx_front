@@ -59,7 +59,7 @@ export const About = () => {
               </p>
             </li>
           </ul>
-          <button className="about-button gradient" type="button">More about us</button>
+          <button className="about-button gradient btn-hover" type="button">More about us</button>
         </div>
       </div>
     </div>

@@ -127,7 +127,7 @@ export default function RegisterPage() {
                 id="repeated_password"
                 name="repeated_password"
                 type={type}
-                placeholder="Confirm your password"
+                placeholder="•••••••••••"
               />
             </label>
             <div className="auth-checkbox__section">

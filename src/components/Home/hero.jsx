@@ -15,10 +15,10 @@ export const Hero = () => {
 
           <ul className="hero-button__list">
             <li className="hero-button__list-item">
-              <button className="button-outlined">About us</button>
+              <button className="button-outlined btn-hover">About us</button>
             </li>
             <li>
-              <button className="header-button gradient">
+              <button className="header-button gradient btn-hover">
                 Explore courses
               </button>
             </li>

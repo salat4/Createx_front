@@ -74,7 +74,7 @@ export const Schedule = () => {
         </ul>
         <div className="schedule-additional-info__container">
           <p className="schedule-text">Do you want more?</p>
-          <button className="header-button gradient" type="button">
+          <button className="header-button gradient btn-hover" type="button">
             Explore all events
           </button>
         </div>

@@ -7,7 +7,9 @@ import { Benefit } from "../components/Home/benefits";
 import { Schedule } from "../components/Home/schedule";
 import { Certificate } from "../components/Home/certificate";
 import { Team } from "../components/Home/team";
-import PauseOnHover from "../components/Home/review";
+import { Blog } from "../components/Home/blog";
+import { Subscribe } from "../components/Home/subscribe";
+
 export const Home = () => {
   return (
     <>
@@ -19,7 +21,8 @@ export const Home = () => {
       <Schedule />
       <Certificate />
       <Team />
-      <PauseOnHover/>
+      <Blog/>
+      <Subscribe/>
     </>
   );
 };

@@ -44,4 +44,6 @@
 .about-button {
   width: 161px;
   height: 44px;
+  @include text($main-font, $bold, 14px, 44px, $white);
+
 }
