@@ -1,0 +1,45 @@
+.companies-sections_container {
+  @include section-title;
+  margin-bottom: 60px;
+}
+
+.companies-title {
+  text-align: center;
+}
+
+.companies_logo-list {
+  @include position(flex, center, initial, initial);
+  flex-wrap: wrap;
+
+  & > li {
+    width: 120px;
+    cursor: pointer;
+  }
+
+  & > li:hover {
+    transform: scale(1.2);
+  }
+
+  & > li:nth-child(-n + 5) {
+    margin-right: 102px;
+  }
+
+  & > li:nth-child(-n + 6) {
+    margin-bottom: 40px;
+  }
+
+  & > li:nth-child(n + 7) {
+    margin-right: 102px;
+  }
+
+  & > li:nth-child(12) {
+    margin-right: 0;
+  }
+
+  & > li > img {
+    filter: grayscale(100%);
+  }
+  & > li:nth-child(6) {
+    opacity: 0.5;
+  }
+}
