@@ -7,6 +7,7 @@ export const Events = () => {
   const [category, setCategory] = useState("All themes");
   const [sort, setSort] = useState("newest");
   const [amount, setAmount] = useState(9);
+  const [baseEvents, setBaseEvents] = useState([]);
   const [events, setEvents] = useState([]);
   const [listCategory, setListCategory] = useState(false);
   const [listData, setListData] = useState(false);
@@ -17,12 +18,20 @@ export const Events = () => {
       getAllEvents();
       async function getAllEvents() {
         const allEvents = await getEvents();
-        setEvents(allEvents);
+        setBaseEvents(allEvents);
+        if (category !== "All themes") {
+          const filterCategory = allEvents.filter(
+            (c) => c.category === category
+          );
+          setEvents(filterCategory.slice(0, amount));
+        } else {
+          setEvents(allEvents.slice(0, amount));
+        }
       }
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [amount, category]);
 
   const showList = (e) => {
     const { id } = e.target;
@@ -51,25 +60,43 @@ export const Events = () => {
   const changeCategory = (e) => {
     const { id } = e.target;
     setCategory(id);
-    setListAmount(false);
-    setListData(false);
     setListCategory(false);
   };
 
   const changeSortDate = (e) => {
     const { id } = e.target;
     setSort(id);
-    setListAmount(false);
+    const date = events.map(({ dates }) => {
+      const qwe = Date.parse(new Date(dates.date));
+      return qwe;
+    });
+    if (id === "newest") {
+      date.sort((a, b) => {
+        return b - a;
+      });
+    } else {
+      date.sort((a, b) => {
+        return a - b;
+      });
+    }
+
+    const da = date.map((item) => {
+      const asd = new Date(item);
+      return asd.toString(item).slice(4, 10);
+    });
+    const arr2 = [];
+    for (let i of da) {
+      const arr = events.filter((a) => a.dates.date === i);
+      arr2.push(...arr);
+    }
+    setEvents(arr2);
     setListData(false);
-    setListCategory(false);
   };
 
   const changeAmount = (e) => {
     const { textContent } = e.target;
     setAmount(textContent);
     setListAmount(false);
-    setListData(false);
-    setListCategory(false);
   };
 
   return (
@@ -90,7 +117,7 @@ export const Events = () => {
               {events && listCategory && (
                 <div>
                   <ul onClick={changeCategory} className="filter_category-list">
-                    {events.map(({ category }) => {
+                    {baseEvents.map(({ category }) => {
                       return (
                         <li key={uuidv4()} id={category}>
                           {category}
@@ -160,6 +187,14 @@ export const Events = () => {
               </svg>
             </button>
           </div>
+        </div>
+        <div>
+          <ul>
+            {events &&
+              events.map((i) => {
+                return <li>{i.category}</li>;
+              })}
+          </ul>
         </div>
       </div>
     </section>
