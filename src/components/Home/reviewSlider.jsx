@@ -1,11 +1,11 @@
 import Slider from "react-slick";
 import { Component } from "react";
-import Client from "../images/client_rev.png";
-import Client1 from "../images/client_rev1.png";
-import Client2 from "../images/client_rev2.png";
-import Client3 from "../images/client_rev3.png";
+import Client from "../../images/client_rev.png";
+import Client1 from "../../images/client_rev1.png";
+import Client2 from "../../images/client_rev2.png";
+import Client3 from "../../images/client_rev3.png";
 
-import Svg from "../images/symbol-defs.svg";
+import Svg from "../../images/symbol-defs.svg";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
