@@ -1,0 +1,82 @@
+.process-container {
+  @include position(flex, center, space-between, initial);
+}
+
+// .process-container_left {
+//   @include position(flex, flex-start, initial, initial);
+// }
+
+.step-line-container {
+  @include position(flex, center, center, initial);
+  flex-direction: column;
+  margin-right: 40px;
+
+  & > span:nth-child(odd) {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: $orange;
+  }
+
+  & > span:nth-child(even) {
+    display: inline-block;
+    opacity: 0.5;
+    height: 125px;
+    border: 1px solid $light-gray2;
+  }
+
+  & > span:not(:last-child) {
+    margin-bottom: 4px;
+  }
+}
+
+.steps-container {
+  width: 447px;
+  margin-left: 48px;
+
+  & > div:not(:last-child) {
+    margin-bottom: 32px;
+  }
+}
+
+.step-container {
+  position: relative;
+
+  & > p:nth-child(1) {
+    @include text($main-font, $boldest, 12px, 150%, $light-gray);
+    &::before {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: $orange;
+      border-radius: 50%;
+      left: -48px;
+      top: 5px;
+    }
+  }
+  & > p:nth-child(2) {
+    @include text($main-font, $bold, 20px, 150%, $dark-gray);
+    margin-bottom: 8px;
+  }
+  & > p:nth-child(3) {
+    @include text($main-font, $regular, 16px, 160%, $light-gray);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    opacity: 0.5;
+    height: 125px;
+    border: 1px solid $light-gray2;
+    left: -45px;
+    top: 16px;
+  }
+}
+
+.image-container {
+  & > img {
+    transform: translateY(-45px);
+  }
+}

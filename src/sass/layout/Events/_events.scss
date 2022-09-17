@@ -1,0 +1,172 @@
+.events_title-container {
+  @include section-title;
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 60px;
+}
+
+.filter_container {
+  @include position(flex, center, initial, initial);
+  margin-bottom: 60px;
+}
+
+.filter_change-category {
+  @include position(flex, center, initial, initial);
+  margin-right: 40px;
+  & > p {
+    @include text($main-font, $bold, 16px, 160%, $grey);
+    margin-right: 12px;
+  }
+  & > div {
+    position: relative;
+    cursor: pointer;
+  }
+  & > div > p {
+    @include text($main-font, $regular, 14px, 150%, $grey);
+    width: 180px;
+    border: 1px solid $border-input-gray;
+    border-radius: 4px;
+    padding: 10px 16px;
+  }
+  & > div > svg {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+  }
+}
+
+.filter_category-list {
+  position: absolute;
+
+  & > li {
+    @include text($main-font, $regular, 14px, 150%, $grey);
+    width: 180px;
+    padding: 10px 16px;
+  }
+  & > li:hover {
+    background-color: $bg-gray;
+    cursor: pointer;
+  }
+}
+
+.filter_sort {
+  @include position(flex, center, initial, initial);
+  margin-right: 40px;
+  & > p {
+    @include text($main-font, $bold, 16px, 160%, $grey);
+    margin-right: 12px;
+  }
+  & > div {
+    position: relative;
+    cursor: pointer;
+  }
+  & > div > p {
+    @include text($main-font, $regular, 14px, 150%, $grey);
+    width: 160px;
+    border: 1px solid $border-input-gray;
+    border-radius: 4px;
+    padding: 10px 16px;
+  }
+  & > div > svg {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+  }
+}
+
+.filter_sort-list {
+  position: absolute;
+
+  & > li {
+    @include text($main-font, $regular, 14px, 150%, $grey);
+    width: 160px;
+    padding: 10px 16px;
+  }
+  & > li:hover {
+    background-color: $bg-gray;
+    cursor: pointer;
+  }
+}
+
+.show-amount {
+  @include position(flex, center, initial, initial);
+  margin-right: 40px;
+  & > p {
+    @include text($main-font, $bold, 16px, 160%, $grey);
+    margin-right: 12px;
+  }
+  & > div {
+    position: relative;
+    cursor: pointer;
+    margin-right: 12px;
+  }
+  & > div > p {
+    @include text($main-font, $regular, 14px, 150%, $grey);
+    width: 72px;
+    border: 1px solid $border-input-gray;
+    border-radius: 4px;
+    padding: 10px 16px;
+  }
+  & > div > svg {
+    position: absolute;
+    right: 15px;
+    top: 14px;
+  }
+  & > span {
+    @include text($main-font, $bold, 14px, 150%, $light-gray);
+  }
+}
+
+.filter_show-list {
+  position: absolute;
+
+  & > li {
+    @include text($main-font, $regular, 14px, 150%, $grey);
+    width: 72px;
+    padding: 10px 16px;
+  }
+
+  & > li:hover {
+    background-color: $bg-gray;
+    cursor: pointer;
+  }
+}
+
+.search {
+  margin-right: 40px;
+  position: relative;
+  cursor: pointer;
+  & > input {
+    @include text($main-font, $regular, 14px, 150%, $grey);
+    padding: 10px 16px;
+    width: 265px;
+    border: 1px solid $border-input-gray;
+    border-radius: 4px;
+  }
+  & > button {
+    position: absolute;
+    right: 16px;
+    top: 10px;
+  }
+}
+
+.search-button {
+  border: none;
+  background-color: inherit;
+  padding: 5px 5px;
+}
+
+.button-view_container {
+  @include position(flex, center, initial, initial);
+  & > button {
+    border: none;
+    background-color: inherit;
+  }
+
+  & > button:hover > svg {
+    fill: $orange;
+  }
+  & > button:first-child {
+    margin-right: 13px;
+  }
+}

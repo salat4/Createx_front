@@ -1,0 +1,44 @@
+.titles-for-sections {
+  @include section-title;
+}
+
+.values-title {
+  text-align: center;
+}
+
+.values-container {
+  @include position(flex, center, initial, initial);
+  position: relative;
+}
+
+.values-item-container {
+  & > div {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto;
+  }
+  & .values-item_title {
+    @include text($main-font, $bold, 20px, 150%, $dark-gray);
+    text-align: center;
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+  & .values-item_text {
+    @include text($main-font, $regular, 16px, 160%, $light-gray);
+    text-align: center;
+  }
+}
+
+.separator {
+  width: 1px;
+  height: 162px;
+  margin-right: 41px;
+  margin-left: 41px;
+  background: linear-gradient(
+    #dadbdd 0%,
+    #dadbdd 50%,
+    #dadbdd 100%,
+    #dadbdd 50%,
+    #dadbdd 0%
+  );
+}

@@ -1,17 +1,32 @@
-import "./styles/variables.css";
+import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
+import "./styles/variables.css";
 import { Start } from "./pages/start";
-import AboutUsPages from "./pages/AboutUs";
-import { Blogs } from "./pages/Blogs";
+
+const AboutUsPages = lazy(() =>
+  import("./pages/AboutUs" /* webpackChunkName: "AboutUsPages" */)
+);
+const EventsPages = lazy(() =>
+  import("./pages/Events" /* webpackChunkName: "EventsPages" */)
+);
+const Blogs = lazy(()=>
+  import ("./pages/Blogs" /* webpackChunkName: "BlogsPages" */)
+);
+
+
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Start />} />
-        <Route path="/about" element={<AboutUsPages />} />
-        <Route path="/blogs" element={ <Blogs/>} />
-      </Routes>
+      <Suspense fallback={"Loading"}>
+        <Routes>
+          <Route path="/" element={<Start />} />
+          <Route path="/about" element={<AboutUsPages />} />
+          <Route path="/events" element={<EventsPages />} />
+          <Route path="/blogs" element = {<BlogsPages />} />
+        </Routes>
+      </Suspense>
+
     </BrowserRouter>
   );
 }
