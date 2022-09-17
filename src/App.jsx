@@ -6,6 +6,9 @@ import { Start } from "./pages/start";
 const AboutUsPages = lazy(() =>
   import("./pages/AboutUs" /* webpackChunkName: "AboutUsPages" */)
 );
+const EventsPages = lazy(() =>
+  import("./pages/Events" /* webpackChunkName: "EventsPages" */)
+);
 
 function App() {
   return (
@@ -14,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Start />} />
           <Route path="/about" element={<AboutUsPages />} />
+          <Route path="/events" element={<EventsPages />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
