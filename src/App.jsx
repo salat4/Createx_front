@@ -3,12 +3,17 @@ import { Route, Routes } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import "./styles/variables.css";
 import { Start } from "./pages/start";
+
 const AboutUsPages = lazy(() =>
   import("./pages/AboutUs" /* webpackChunkName: "AboutUsPages" */)
 );
 const EventsPages = lazy(() =>
   import("./pages/Events" /* webpackChunkName: "EventsPages" */)
 );
+const Blogs = lazy(()=>
+  import ("./pages/Blogs" /* webpackChunkName: "BlogsPages" */)
+);
+
 
 function App() {
   return (
@@ -18,8 +23,10 @@ function App() {
           <Route path="/" element={<Start />} />
           <Route path="/about" element={<AboutUsPages />} />
           <Route path="/events" element={<EventsPages />} />
+          <Route path="/blogs" element = {<BlogsPages />} />
         </Routes>
       </Suspense>
+
     </BrowserRouter>
   );
 }
