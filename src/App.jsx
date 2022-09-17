@@ -2,11 +2,9 @@ import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import "./styles/variables.css";
+import { Home } from "./pages/Home";
 
 
-const Home = lazy(()=>
-  import ("./pages/Home" /* webpackChunkName: "HomePages" */)
-);
 const AboutUsPages = lazy(() =>
   import("./pages/AboutUs" /* webpackChunkName: "AboutUsPages" */)
 );

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import getCourses from "../../API/getCourses";
 import  TeamSlider  from './teamSlider';
-import ReviewSlider from './reviewSlider';
+import ReviewSlider from '../reviewSlider';
 
 export const Team = () => {
   const [teams, setTeams] = useState(null);

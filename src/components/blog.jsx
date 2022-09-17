@@ -1,5 +1,5 @@
-import Svg from "../../images/symbol-defs.svg";
-import getBlogs from "../../API/getBlogs";
+import Svg from "../images/symbol-defs.svg";
+import getBlogs from "../API/getBlogs";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
