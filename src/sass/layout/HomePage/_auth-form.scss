@@ -1,4 +1,4 @@
-.auth-container {
+.modal-container {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -11,8 +11,8 @@
   width: 490px;
 }
 
-.auth-form__wraper {
-  padding: 50px 50px 0 50px;
+.modal-form__wraper {
+  padding: 50px ;
 }
 
 .auth-title {
@@ -34,6 +34,8 @@
 
 .auth-form__label {
   position: relative;
+  @include text($main-font, $regular, 14px, 150%, $grey);
+
 }
 
 .error-text {
@@ -49,7 +51,7 @@
   margin-top: 8px;
   margin-bottom: 20px;
   border: 1px solid $border-input-gray;
-  @include text($main-font, $regular, 12px, 150%, $grey);
+  @include text($main-font, $regular, 14px, 150%, $grey);
 
   &::placeholder {
     @include text($main-font, $regular, 14px, 150%, $light-gray2);

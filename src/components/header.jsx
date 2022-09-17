@@ -3,6 +3,7 @@ import Logo from "../images/logo.png";
 import UserSvg from "../images/symbol-defs.svg";
 import { ShowLoginModal } from "./Home/showLoginModal";
 import { ShowRegModal } from "./Home/showRegistrationModal";
+import { ShowConsultationModal } from "./Home/showConsultationModal";
 
 export const Header = () => {
   return (
@@ -48,9 +49,7 @@ export const Header = () => {
             </nav>
 
             <div className="btn-menu">
-              <button type="button" className="header-button gradient btn-hover">
-                Get consultation
-              </button>
+              <ShowConsultationModal />
               <svg width="20" height="20">
                 <use href={`${UserSvg}#icon-profile`} />
               </svg>

@@ -7,7 +7,11 @@ export const ShowRegModal = () => {
 
   const showRegistrationForm = () => {
     setModalRegistration(!modalRegistration);
+    const log = document.querySelector('#login')
+    log.classList.add('none')
   };
+
+
 
   return (
     <>
@@ -19,7 +23,7 @@ export const ShowRegModal = () => {
         Register
       </button>
       {modalRegistration && (
-        <Backdrop onClick={showRegistrationForm}>
+        <Backdrop id='log' onClick={showRegistrationForm}>
           <RegisterPage />
         </Backdrop>
       )}

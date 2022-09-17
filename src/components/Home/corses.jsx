@@ -1,6 +1,18 @@
-import PlaySvg from "../../images/image.jpg";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import getCourses from "../../API/getCourses";
 
 export const Corses = () => {
+  const [courses, setCourses] = useState(null);
+console.log(courses);
+  useEffect(() => {
+    async function FetchCourses() {
+      const course = await getCourses();
+      setCourses(course);
+    }
+    FetchCourses();
+  }, []);
+
   return (
     <div className="corses-section">
       <div className="container">
@@ -10,63 +22,45 @@ export const Corses = () => {
             <br />
             <span className="title">Featured Courses</span>
           </h2>
-          <button className="button-outlined btn-courses btn-hover" type="button">
-            View all courses
+          <button
+            className="button-outlined btn-courses btn-hover"
+            type="button"
+          >
+            <Link to="/courses" className="link-orange">
+              View all courses
+            </Link>
           </button>
         </div>
 
         <ul className="couses-list">
-          <li className="couses-list__item">
-            <img src={PlaySvg} alt="ff" width="214" height="214" className="coach-img" />
-            <div>
-              <p className="course-item__name">marketim</p>
-              <h3 className="course-item__text">The Ultimate Google Ads Training Course </h3>
-              <p className="courses-detail">
-                <span className="price">$100</span>
-                <span color=' var(--light-gray)'>|</span>
-                by Jerome Bell
-              </p>
-            </div>
-          </li>
+        {courses &&
+          courses.map((course, indx) => {
+            if (indx === 7) {
+              return null;
+            }
+            return (
 
           <li className="couses-list__item">
-            <img src={PlaySvg} alt="ff" width="214" height="214" className="coach-img" />
+            <img
+              src={course.profilePicture}
+              alt="ff"
+width='300'
+              className="coach-img"
+            />
             <div>
-              <p className="course-item__name">marketim</p>
-              <h3 className="course-item__text">The Ultimate Google Ads Training Course </h3>
+              <p className="course-item__name">{course.typeOfCourse}</p>
+              <h3 className="course-item__text">
+                {course.about}
+              </h3>
               <p className="courses-detail">
-                <span className="price">$100</span>
-                <span color=' var(--light-gray)'>| </span>
-                by Jerome Bell
+                <span className="price">{course.price}</span>
+                <span color=" var(--light-gray)">|</span>
+                {course.name}
               </p>
             </div>
           </li>
-
-          <li className="couses-list__item">
-            <img src={PlaySvg} alt="ff" width="214" height="214" className="coach-img" />
-            <div>
-              <p className="course-item__name">marketim</p>
-              <h3 className="course-item__text">The Ultimate Google Ads Training Course </h3>
-              <p className="courses-detail">
-                <span className="price">$100</span>
-                <span color=' var(--light-gray)'>|</span>
-                by Jerome Bell
-              </p>
-            </div>
-          </li>
-
-          <li className="couses-list__item">
-            <img src={PlaySvg} alt="ff" width="214" height="214" className="coach-img" />
-            <div>
-              <p className="course-item__name">marketim</p>
-              <h3 className="course-item__text">The Ultimate Google Ads Training Course </h3>
-              <p className="courses-detail">
-                <span className="price">$100</span>
-                <span color=' var(--light-gray)'>|</span>
-                by Jerome Bell
-              </p>
-            </div>
-          </li>
+      );
+    })}
         </ul>
       </div>
     </div>

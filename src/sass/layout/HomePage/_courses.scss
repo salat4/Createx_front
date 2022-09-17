@@ -3,7 +3,7 @@
 }
 
 .info-course-section {
-  @include position(flex, end, space-between, initial);
+  @include position(flex, flex-end, space-between, initial);
 }
 
 .text {
@@ -56,7 +56,7 @@
 }
 
 .coach-img {
-  margin-right: 32px;
+  margin-right: 23px;
 }
 
 .course-item__name {
@@ -64,7 +64,7 @@
   width: fit-content;
 
   margin-bottom: 20px;
-  margin-top: 32px;
+  margin-top: 4px;
 
   padding: 1px 8px;
   @include text($main-font, $regular, 14px, 150%, $white);

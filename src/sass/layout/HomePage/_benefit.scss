@@ -20,27 +20,33 @@
   @include position(flex, center, center, initial);
   width: 300px;
   height: 46px;
-}
-
-.benefit-list__item:hover {
-  transition-duration: 300ms;
-  border: 1px solid $orange;
-  border-radius: 4px;
-}
-
-.benefit-list__item:hover .benefit-list__item_text {
-  transition-duration: 300ms;
-  color: $orange;
-}
-
-.benefit-list__item:hover .benefit-list__item_svg {
-  fill: $orange;
-  transition-duration: 300ms;
+  &:hover {
+    transition-duration: 300ms;
+    border: 1px solid $orange;
+    border-radius: 4px;
+  }
+  
+  &:hover .benefit-list__item_text {
+    transition-duration: 300ms;
+    color: $orange;
+  }
+  
+  &:hover .benefit-list__item_svg {
+    fill: $orange;
+    transition-duration: 300ms;
+  }
 }
 
 .benefit-list__item_svg {
   fill: $light-gray2;
   margin-right: 8px;
+}
+
+.benefit-list__item_btn{
+  border: none;
+  background-color: transparent;
+  display: contents;
+
 }
 
 .benefit-list__item_text {

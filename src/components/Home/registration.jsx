@@ -5,7 +5,8 @@ import { Form, Field } from "formik";
 import registration from "../../API/registration";
 import Svg from "../../images/symbol-defs.svg";
 import { ButtonShowAndHide } from "./btnShow";
-import { ShowLoginModal } from "./showLoginModal";
+import Backdrop from "../Backdrop";
+import LoginPage from "./login";
 
 export default function RegisterPage() {
   const [userName, setUserName] = useState("");
@@ -50,6 +51,17 @@ export default function RegisterPage() {
     );
   };
 
+
+  const [modalLogin, setModalLogin] = useState(false);
+
+  const showLoginForm = () => {
+    setModalLogin(!modalLogin);
+    const log = document.querySelector('#login')
+    log.className.add('none')
+  };
+
+
+
   const Password = (e) => {
     setUserPwd(e.target.value);
   };
@@ -68,8 +80,8 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-form__wraper">
+    <div id="reg" className="modal-container r">
+      <div className="modal-form__wraper">
         <h2 className="auth-title">Sign up</h2>
         <p className="auth-text">
           Registration takes less than a minute but gives you full control over
@@ -150,7 +162,19 @@ export default function RegisterPage() {
         </Formik>
         <div className="auth-sign__section">
           <p className="auth-sign__text">Already have an account?</p>
-         <ShowLoginModal/>
+
+          <button
+        className="header-button__auth"
+        onClick={showLoginForm}
+      >
+        Log in
+      </button>
+      {modalLogin && (
+        <Backdrop onClick={showLoginForm}>
+          <LoginPage />
+        </Backdrop>
+      )}
+
         </div>
         <div className="auth__google">
           <p className="auth__google-text">Or sign in with</p>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Schedule = () => {
   return (
     <div className="schedule-section">
@@ -74,8 +76,11 @@ export const Schedule = () => {
         </ul>
         <div className="schedule-additional-info__container">
           <p className="schedule-text">Do you want more?</p>
+
           <button className="header-button gradient btn-hover" type="button">
-            Explore all events
+            <Link to="/events" className="link">
+              Explore all events
+            </Link>
           </button>
         </div>
       </div>

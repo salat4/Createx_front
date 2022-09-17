@@ -1,6 +1,7 @@
 import Svg from "../../images/symbol-defs.svg";
 import getBlogs from "../../API/getBlogs";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Blog = () => {
   const [blogs, setBlogs] = useState(null);
@@ -29,7 +30,11 @@ export const Blog = () => {
             Our blog <br />
             <span className="title">Latest posts</span>
           </h2>
-          <button className="gradient blog__btn btn-hover">Go to blog</button>
+          <button className="gradient blog__btn btn-hover">
+            <Link to="/blogs" className="link">
+              Go to blog
+            </Link>
+          </button>
         </div>
 
         <ul className="blog-list">
@@ -41,9 +46,7 @@ export const Blog = () => {
                   <svg width="16" height="16" fill="#424551">
                     <use href={`${Svg}#icon-mic`} />
                   </svg>
-                  <p className="blog-list__item__type">
-                    {item.typeofBlog}
-                  </p>
+                  <p className="blog-list__item__type">{item.typeofBlog}</p>
                 </div>
                 <div className="blog-list__item__box">
                   <ul className="blog-list__item__box__top">
@@ -59,12 +62,8 @@ export const Blog = () => {
                       </li>
                     )}
                   </ul>
-                  <p className="blog-list__item__box__title">
-                    {item.title}
-                  </p>
-                  <p className="blog-list__item__box__text">
-                    {item.text}
-                  </p>
+                  <p className="blog-list__item__box__title">{item.title}</p>
+                  <p className="blog-list__item__box__text">{item.text}</p>
                   <button className="blog-btn__more">
                     Enjoy
                     <svg width="20" height="20" className="more-btn__svg">

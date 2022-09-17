@@ -7,12 +7,13 @@ export const ShowLoginModal = () => {
 
   const showLoginForm = () => {
     setModalLogin(!modalLogin);
+    const regi = document.querySelector('.r')
+    regi.classList.add('none');
   };
 
   return (
     <>
       <button
-        type="button"
         className="header-button__auth"
         onClick={showLoginForm}
       >

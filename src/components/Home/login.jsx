@@ -50,8 +50,8 @@ export default function LoginPage() {
 
   return (
     <>
-      <div className="auth-container">
-        <div className="auth-form__wraper">
+      <div id="login" className="modal-container ">
+        <div className="modal-form__wraper">
           <h2 className="auth-title">Sign in</h2>
           <p className="auth-text">
             Sign in to your account using email and password provided during
@@ -88,7 +88,6 @@ export default function LoginPage() {
                     type="checkbox"
                     id="keepData"
                     name="keepData"
-                    
                   />
                   Keep me signed in
                   <span className="checkmark"></span>
@@ -102,14 +101,14 @@ export default function LoginPage() {
           </Formik>
           <div className="auth-sign__section">
             <p className="auth-sign__text">Don't have an account?</p>
-            <ShowRegModal/>
+            <ShowRegModal />
           </div>
-        </div>
-        <div className="auth__google">
-          <p className="auth__google-text">Or sign in with</p>
-          <svg className="auth__google-svg">
-            <use href={`${Svg}#icon-google `} />
-          </svg>
+          <div className="auth__google">
+            <p className="auth__google-text">Or sign in with</p>
+            <svg className="auth__google-svg">
+              <use href={`${Svg}#icon-google `} />
+            </svg>
+          </div>
         </div>
       </div>
     </>

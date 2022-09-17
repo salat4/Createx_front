@@ -85,7 +85,7 @@ export default class SimpleSlider extends Component {
                   <p className="slider-client__position ">Position, Course</p>
                 </div>
               </div>
-            </div>{" "}
+            </div>
           </div>
           <div>
             <div className="slider-wrap">

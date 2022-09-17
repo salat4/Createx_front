@@ -23,6 +23,7 @@ export const Backdrop = ({ children, onClick }) => {
     if (e.target.className === "backdrop") {
       onClick();
     }
+    
   };
 
   return createPortal(
