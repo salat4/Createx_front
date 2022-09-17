@@ -8,7 +8,7 @@ import { Schedule } from "../components/Home/schedule";
 import { Certificate } from "../components/Home/certificate";
 import { Team } from "../components/Home/team";
 import { Blog } from "../components/blog";
-import { Subscribe } from "../components/Home/subscribe";
+import { Subscribe } from "../components/subscribe";
 import {Footer} from '../components/footer';
 
 export const Home = () => {
