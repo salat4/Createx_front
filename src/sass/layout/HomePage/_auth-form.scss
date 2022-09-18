@@ -1,0 +1,186 @@
+.modal-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  @include position(flex, center, initial, column);
+
+  height: auto;
+  background-color: $white;
+  width: 490px;
+}
+
+.modal-form__wraper {
+  padding: 50px ;
+}
+
+.auth-title {
+  text-align: center;
+  margin-bottom: 24px;
+
+  @include text($main-font, $bold, 28px, 150%, $dark-gray);
+}
+
+.auth-text {
+  margin-bottom: 24px;
+  text-align: center;
+  @include text($main-font, $regular, 14px, 150%, $light-gray);
+}
+
+.auth-form {
+  @include position(flex, flex-start, center, column);
+}
+
+.auth-form__label {
+  position: relative;
+  @include text($main-font, $regular, 14px, 150%, $grey);
+
+}
+
+.error-text {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  @include text($main-font, $regular, 12px, 150%, $orange);
+}
+
+.auth-form__input {
+  width: 390px;
+  padding: 11px 14px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  border: 1px solid $border-input-gray;
+  @include text($main-font, $regular, 14px, 150%, $grey);
+
+  &::placeholder {
+    @include text($main-font, $regular, 14px, 150%, $light-gray2);
+  }
+}
+
+.auth-checkbox__section {
+  @include position(flex, center, space-between, row);
+  width: 390px;
+}
+
+.auth-form__checkbox:checked {
+  background-color:$orange;
+}
+
+.auth-form__checkbox_label {
+  display: block;
+  position: relative;
+  padding-left: 23px;
+  cursor: pointer;
+  user-select: none;
+  @include text($main-font, $regular, 14px, 150%, $grey);
+  & input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  &:hover input ~ .checkmark {
+    background-color: $white;
+  }
+
+  & input:checked ~ .checkmark {
+    background-color: $orange;
+    border: none;
+  }
+
+  & input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  & .checkmark:after {
+    left: 6px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+
+    transform: rotate(45deg);
+  }
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: transparent;
+  border: 1px solid $border-input-gray;
+  border-radius: 4px;
+  &:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+}
+
+.checkbox__section-text {
+  @include text($main-font, $regular, 14px, 150%, $orange);
+}
+
+.auth-btn {
+  width: 390px;
+  height: 44px;
+  margin: 24px 0;
+}
+
+.auth-sign__section {
+  display: flex;
+  align-items: baseline;
+  margin-right: auto;
+}
+
+.auth-sign__text {
+  @include text($main-font, $regular, 14px, 150%, $grey);
+}
+
+.auth-sign__btn {
+  margin-left: 4px;
+  @include text($main-font, $regular, 14px, 150%, $orange);
+}
+
+.auth__google {
+  margin-top: 24px;
+  padding: 24px 0 48px 0;
+  border-top: 1px solid #e5e8ed;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.auth__google-text {
+  text-align: center;
+  margin-right: 15px;
+  @include text($main-font, $regular, 14px, 150%, $light-gray);
+}
+
+.auth__google-svg {
+  width: 20px;
+  height: 20px;
+  fill: $light-gray;
+
+  &:hover {
+    fill: $orange;
+  }
+}
+
+.hide-btn,
+.show-btn {
+  position: absolute;
+  padding: 7px 7px;
+  right: 0;
+  top: 29px;
+  cursor: pointer;
+  width: 37px;
+  height: 37px;
+}

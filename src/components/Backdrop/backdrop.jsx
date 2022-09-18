@@ -9,6 +9,7 @@ export const Backdrop = ({ children, onClick }) => {
       if (e.key === "Escape") {
         onClick();
       }
+
       return;
     };
     window.addEventListener("keydown", toggleBackdropKeyboard);
@@ -18,8 +19,11 @@ export const Backdrop = ({ children, onClick }) => {
     };
   }, [onClick]);
 
-  const toggleBackdrop = () => {
-    onClick();
+  const toggleBackdrop = (e) => {
+    if (e.target.className === "backdrop") {
+      onClick();
+    }
+    
   };
 
   return createPortal(

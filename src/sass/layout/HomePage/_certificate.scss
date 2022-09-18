@@ -1,0 +1,38 @@
+.certificate-section {
+    padding: 29px 0;
+  }
+  
+  .certificate-container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .client-info__section {
+    width: 397px;
+    margin-right: 135px;
+  }
+  
+  .certificate-title {
+    margin-bottom: 48px;
+  }
+  
+  .certificate-text {
+    font-style: normal;
+    font-weight: $regular;
+    font-size: 16px;
+    line-height: 160%;
+    color: $grey;
+  }
+  
+  .client-list {
+    @include position(flex, center, space-between, row );
+    margin-top: 32px;
+  }
+  
+  .sertificate-img {
+    box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.16),
+      0px 30px 24px -10px rgba(154, 156, 165, 0.1),
+      0px 12px 10px -6px rgba(154, 156, 165, 0.08),
+      0px 4px 4px -4px rgba(30, 33, 44, 0.05);
+    border-radius: 4px;
+  }

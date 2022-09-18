@@ -1,0 +1,90 @@
+.hover {
+  &:hover,
+  &:focus {
+    color: $orange;
+    transition: 250ms;
+  }
+}
+
+.none{
+  display: none;
+
+}
+
+.btn-hover{
+  &:hover {
+    box-shadow: 0px 80px 80px -20px rgba(255, 63, 58, 0.16),
+      0px 30px 24px -10px rgba(255, 63, 58, 0.1),
+      0px 12px 10px -6px rgba(255, 63, 58, 0.08),
+      0px 4px 4px -4px rgba(30, 33, 44, 0.05);
+  }
+}
+
+.header-section {
+  padding-top: 26px;
+  display: flex;
+  background-color: $bg-pink;
+}
+
+.nav-container {
+  @include position(flex, initial, space-between, row);
+}
+
+.navigation {
+  @include position(flex, center, initial, initial);
+}
+
+.header-logo {
+  margin-right: 60px;
+}
+
+.nav-list {
+  @include position(flex, initial, initial, row);
+}
+
+.nav-list__item {
+  @include text($main-font, $bold, 16px, 160%, $grey);
+  &:not(:last-child) {
+    margin-right: 40px;
+  }
+  &:hover {
+    color: $orange;
+  }
+}
+.nav-link {
+  color: $grey;
+  cursor: pointer;
+}
+
+.btn-menu {
+  @include position(flex, center, initial, initial);
+}
+
+.header-button {
+  width: 200px;
+  height: 52px;
+  @include text($main-font, $bold, 16px, 52px, initial);
+  letter-spacing: 0.5px;
+  margin-right: 36px;
+}
+
+.gradient {
+  color: $white;
+
+  background: linear-gradient(55.95deg, $orange 0%, $btn-gradient 100%);
+
+  border-radius: 4px;
+  border: none;
+}
+
+.header-button__auth {
+  border: none;
+  padding: 2px 4px;
+
+  background: transparent;
+  @include text($main-font, $bold, 16px, 160%, $grey);
+
+  &:hover {
+    color: $orange;
+  }
+}

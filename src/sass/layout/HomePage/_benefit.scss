@@ -1,8 +1,8 @@
-.benefit-section {
-  padding-bottom: 120px;
+.benefit-container {
+  padding-bottom: 242px;
   background-image: url(../../../images/illustration0.png);
   background-repeat: no-repeat;
-  background-position: 86% 86%;
+  background-position: 92% 62%;
 }
 
 .benefit-title {
@@ -15,30 +15,38 @@
 }
 
 .benefit-list__item {
+  border-radius: 4px;
+
   @include position(flex, center, center, initial);
   width: 300px;
   height: 46px;
-}
-
-.benefit-list__item:hover {
-  transition-duration: 300ms;
-  border: 1px solid $orange;
-  border-radius: 4px;
-}
-
-.benefit-list__item:hover .benefit-list__item_text {
-  transition-duration: 300ms;
-  color: $orange;
-}
-
-.benefit-list__item:hover .benefit-list__item_svg {
-  fill: $orange;
-  transition-duration: 300ms;
+  &:hover {
+    transition-duration: 300ms;
+    border: 1px solid $orange;
+    border-radius: 4px;
+  }
+  
+  &:hover .benefit-list__item_text {
+    transition-duration: 300ms;
+    color: $orange;
+  }
+  
+  &:hover .benefit-list__item_svg {
+    fill: $orange;
+    transition-duration: 300ms;
+  }
 }
 
 .benefit-list__item_svg {
   fill: $light-gray2;
   margin-right: 8px;
+}
+
+.benefit-list__item_btn{
+  border: none;
+  background-color: transparent;
+  display: contents;
+
 }
 
 .benefit-list__item_text {
@@ -47,8 +55,8 @@
 
 .benefit-info__container {
   margin-top: 182px;
-  width: 490px;
-  height: 195px;
+  width: 496px;
+  height: 196px;
 }
 
 .benefit-info__title {

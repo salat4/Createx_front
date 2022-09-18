@@ -1,5 +1,6 @@
-import checkedSvg from "../images/symbol-defs.svg";
-import AboutImg from "../images/image2.jpg";
+import checkedSvg from "../../images/symbol-defs.svg";
+import AboutImg from "../../images/image2.jpg";
+import { Link } from "react-router-dom";
 
 export const About = () => {
   return (
@@ -23,13 +24,15 @@ export const About = () => {
               </p>
             </li>
             <li className="about-list__item">
-            <svg width="16" height="20">
+              <svg width="16" height="20">
                 <use href={`${checkedSvg}#icon-checked`} />
               </svg>
-              <p className="about-list__item-text">Vulputate placerat amet pulvinar lorem nisl.</p>
+              <p className="about-list__item-text">
+                Vulputate placerat amet pulvinar lorem nisl.
+              </p>
             </li>
             <li className="about-list__item">
-            <svg width="24" height="20">
+              <svg width="24" height="20">
                 <use href={`${checkedSvg}#icon-checked`} />
               </svg>
               <p className="about-list__item-text">
@@ -38,19 +41,23 @@ export const About = () => {
               </p>
             </li>
             <li className="about-list__item">
-            <svg width="17" height="20">
+              <svg width="17" height="20">
                 <use href={`${checkedSvg}#icon-checked`} />
               </svg>
-              <p className="about-list__item-text">Etiam duis lobortis in fames ultrices commodo nibh.</p>
+              <p className="about-list__item-text">
+                Etiam duis lobortis in fames ultrices commodo nibh.
+              </p>
             </li>
             <li className="about-list__item">
-            <svg width="17" height="20">
+              <svg width="17" height="20">
                 <use href={`${checkedSvg}#icon-checked`} />
               </svg>
-              <p className="about-list__item-text">Tincidunt sagittis neque sem ac eget.</p>
+              <p className="about-list__item-text">
+                Tincidunt sagittis neque sem ac eget.
+              </p>
             </li>
             <li className="about-list__item">
-              <svg width="20" height="16" >
+              <svg width="20" height="16">
                 <use href={`${checkedSvg}#icon-checked`} />
               </svg>
               <p className="about-list__item-text">
@@ -59,7 +66,11 @@ export const About = () => {
               </p>
             </li>
           </ul>
-          <button className="about-button gradient" type="button">More about us</button>
+          <button className="about-button gradient btn-hover" type="button">
+            <Link to="/about" className="link">
+              More about us
+            </Link>
+          </button>
         </div>
       </div>
     </div>
