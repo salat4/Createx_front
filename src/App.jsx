@@ -11,10 +11,11 @@ const AboutUsPages = lazy(() =>
 const EventsPages = lazy(() =>
   import("./pages/Events" /* webpackChunkName: "EventsPages" */)
 );
-const BlogsPages = lazy(()=>
-  import ("./pages/Blogs" /* webpackChunkName: "BlogsPages" */)
-);
 
+const Blogs = lazy(() =>
+  import("./pages/Blogs" /* webpackChunkName: "BlogsPages" */)
+
+);
 
 function App() {
   return (
@@ -24,10 +25,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUsPages />} />
           <Route path="/events" element={<EventsPages />} />
-          <Route path="/blogs" element = {<BlogsPages />} />
+          <Route path="/blogs" element={<Blogs />} />
         </Routes>
       </Suspense>
-
     </BrowserRouter>
   );
 }
