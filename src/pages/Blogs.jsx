@@ -2,7 +2,7 @@ import getBlogs from "../API/getBlogs"
 import { useEffect,useState } from "react";
 import UserSvg from "../images/symbol-defs.svg";
 
-export const Blogs = () => {
+export default function Blogs()  {
 
     const [blogs, setBlog] = useState(null)
 
@@ -16,6 +16,7 @@ export const Blogs = () => {
 
 
     return (
+        <>
         <div className="blogs container">
             <div className="blogs__header">
                 <p className="blogs__header__text">Our blog</p>
@@ -71,16 +72,55 @@ export const Blogs = () => {
                     {blogs &&
                         blogs.map((blog) => (
                             <li  key = {blog._id} className="blog__hero__list__item">
-                                <img src={blog.image} alt={blog.image}></img>
-                                <p className="blog__hero__list__item__type">{blog.typeofBlog}</p>
+                                <img src={blog.image} alt={blog.image} ></img>
+                                <div className="blog__hero__list__item__type">
+                                    
+                                   
+                                    { blog.typeofBlog === "Podcast" && 
+                                        <svg width="16" height = "16" >
+                                            <use href={`${UserSvg}#icon-mic`}></use>
+                                        </svg>}
+                                       
+                                    {blog.typeofBlog === "Video" &&
+                                    <svg width="16" height = "16" >
+                                        <use href={`${UserSvg}#icon-play`}></use>
+                                    </svg>}
+                                    {blog.typeofBlog === "Article" &&
+                                    <svg width="16" height = "16" >
+                                        <use href={`${UserSvg}#icon-files`}></use>
+                                    </svg>}    
+                                    <p className = "blog__hero__list__item__type__text" >{blog.typeofBlog}</p>
+                                </div>
+                                
                                 <div className="blog__hero__list__item__box">
-                                    <ul className="blog__hero__list__item__b ox__top">
-                                        <li>{blog.category}</li>
-                                        <li>{blog.date}</li>
-                                        {blog.duration && <li>{ blog.duration} min</li>} 
+                                    <ul className="blog__hero__list__item__box__top">
+                                        <li className = "blog__hero__list__box__item">{blog.category}</li>
+                                        <li className = "blog__hero__list__box__item">
+                                            <svg width="16"height = "16"  >
+                                                <use href={`${UserSvg}#icon-calendar`}></use>
+                                            </svg>
+                                            {blog.date}
+                                        </li>
+                                        {blog.duration && <li className = "blog__hero__list__box__item">{ blog.duration} min</li>} 
                                     </ul>
                                     <p className="blog__hero__list__item__box__title">{blog.title}</p>
                                     <p className="blog__hero__list__item__box__text">{blog.text}</p>
+                                    { blog.typeofBlog === "Podcast" && 
+                                    <div className = "blog__hero__list__item__box__button">
+                                        <p>Listen</p> 
+                                        <svg width="24" height = "24" className="blog__hero__list__item__box__button--red">
+                                            <use href={`${UserSvg}#icon-Right`}></use>
+                                        </svg>
+                                        </div> }
+                                       
+                                    {blog.typeofBlog === "Video" &&
+                                    <div className = "blog__hero__list__item__box__button"><p>Read</p><svg width="24" height = "24" className="blog__hero__list__item__box__button--red" >
+                                    <use href={`${UserSvg}#icon-Right`}></use>
+                                </svg></div>}
+                                    {blog.typeofBlog === "Article" &&
+                                    <div className = "blog__hero__list__item__box__button"><p>Watch</p><svg width="24" height = "24"  className="blog__hero__list__item__box__button--red">
+                                    <use href={`${UserSvg}#icon-Right`}></use>
+                                </svg></div>}  
                                 </div>
                                 
                                 
@@ -88,6 +128,52 @@ export const Blogs = () => {
                     ))}
                 </ul>
             </div>
+            <div className="blogs__pages">
+                <ul className = "blogs__pages__list">
+                    <li className = "blogs__pages__item active__pages" >
+                        1
+                    </li>
+                    <li className = "blogs__pages__item">
+                        2
+                    </li>
+                    <li className = "blogs__pages__item">
+                        3
+                    </li>
+                    <li className = "blogs__pages__item">
+                        4
+                    </li>
+                    <li className = "blogs__pages__item">
+                    <svg width="24" height = "24" className="">
+                                            <use href={`${UserSvg}#icon-Right`}></use>
+                                        </svg>
+                    </li>
+
+                </ul>
+            </div>
         </div>
+        <div className="blogs__subscribe">
+            <div className = "blogs__container container">
+                <ul className="blogs__subscribe__list">
+                    <li className="blogs__subscribe__text">
+                        <p>
+                            Want to get the best articles weekly?<br/>
+                            Subscribe to our newsletter!
+                        </p>
+                    </li>
+                    <li className="blogs__subscribe__form">
+                        <form className="blogs__subscribe__form__item">
+                            <input placeholder="Your working email" className = "blogs__subscribe__input"></input>
+                        </form>
+                        <button className = "blogs__subscribe__button" type= "submit">Subscribe</button>
+                    </li>   
+                    <li className="blogs__subscribe__check">
+                        <input type = "checkbox" className="blogs__subscribe__checkbox__input"></input>
+                        <p className = " blogs__subscribe__checkbox__text">I agree to receive communications from Createx Online School</p>
+                    </li>
+                </ul>
+            </div>
+            
+    </div>
+    </>
     )
 } 
