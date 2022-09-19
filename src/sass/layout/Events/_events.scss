@@ -37,6 +37,7 @@
 
 .filter_category-list {
   position: absolute;
+  background-color: $white;
 
   & > li {
     @include text($main-font, $regular, 14px, 150%, $grey);
@@ -76,7 +77,7 @@
 
 .filter_sort-list {
   position: absolute;
-
+  background-color: $white;
   & > li {
     @include text($main-font, $regular, 14px, 150%, $grey);
     width: 160px;
@@ -119,6 +120,7 @@
 
 .filter_show-list {
   position: absolute;
+  background-color: $white;
 
   & > li {
     @include text($main-font, $regular, 14px, 150%, $grey);
@@ -169,4 +171,127 @@
   & > button:first-child {
     margin-right: 13px;
   }
+}
+
+.button-view_flex--active > svg {
+  fill: $orange;
+}
+
+.button-view_grid--active > svg {
+  fill: $orange;
+}
+
+.info_list--grid {
+  @include position(flex, initial, space-between, row);
+  flex-wrap: wrap;
+}
+
+.info_item {
+  @include position(flex, center, initial, initial);
+  padding: 33px 40px;
+  border: 1px solid $bg-input-gray;
+  border-radius: 4px;
+
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  & > p {
+    @include text($main-font, $boldest, 48px, 130%, $orange);
+    letter-spacing: 1px;
+    margin-right: 20px;
+  }
+
+  &:hover {
+    box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08),
+      0px 30px 24px -10px rgba(154, 156, 165, 0.05),
+      0px 12px 10px -6px rgba(154, 156, 165, 0.04),
+      0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+    & > button {
+      background-color: $orange;
+      color: $white;
+    }
+  }
+}
+
+.info_date-container {
+  margin-right: 40px;
+  & > p {
+    @include text($main-font, $bold, 20px, 150%, $dark-gray);
+    margin-bottom: 4px;
+  }
+
+  & > p:last-child {
+    @include text($main-font, $regular, 16px, 160%, $light-gray);
+  }
+}
+
+.info_text-container {
+  & > p {
+    width: 757px;
+    @include text($main-font, $bold, 20px, 150%, $dark-gray);
+    margin-bottom: 4px;
+  }
+
+  & > p:last-child {
+    @include text($main-font, $regular, 16px, 160%, $light-gray);
+  }
+}
+
+.info_button {
+  @include text($main-font, $bold, 14px, 44px, $orange);
+
+  border: 1px solid $orange;
+  background-color: inherit;
+  border-radius: 4px;
+  padding: 1px 32px;
+  letter-spacing: 0.5px;
+  margin-left: auto;
+}
+
+.info_item--grid {
+  @include position(flex, initial, initial, column);
+  width: calc(100% / 3 - 30px);
+  height: 323px;
+  padding: 24px;
+  border: 1px solid $bg-input-gray;
+  box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08),
+    0px 30px 24px -10px rgba(154, 156, 165, 0.05),
+    0px 12px 10px -6px rgba(154, 156, 165, 0.04),
+    0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+  border-radius: 4px;
+  &:nth-child(-n + 6) {
+    margin-bottom: 30px;
+  }
+}
+
+.info_date--grid {
+  @include text($main-font, $bold, 28px, 150%, $orange);
+  margin-bottom: 4px;
+}
+
+.info_time--grid {
+  @include text($main-font, $regular, 16px, 160%, $light-gray);
+}
+
+.info_text--grid {
+  @include text($main-font, $bold, 18px, 150%, $dark-gray);
+  margin-bottom: 8px;
+  margin-top: 20px;
+}
+
+.info_category--grid {
+  @include text($main-font, $regular, 16px, 160%, $light-gray);
+}
+
+.info_button--grid {
+  @include text($main-font, $bold, 14px, 44px, $orange);
+
+  border: 1px solid $orange;
+  background-color: inherit;
+  border-radius: 4px;
+  padding: 1px 32px;
+  letter-spacing: 0.5px;
+  width: 100%;
+  margin-top: auto;
 }
