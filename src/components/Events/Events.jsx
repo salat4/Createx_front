@@ -12,6 +12,7 @@ export const Events = () => {
   const [listCategory, setListCategory] = useState(false);
   const [listData, setListData] = useState(false);
   const [listAmount, setListAmount] = useState(false);
+  const [view, setView] = useState("flex");
 
   useEffect(() => {
     try {
@@ -99,6 +100,30 @@ export const Events = () => {
     setListAmount(false);
   };
 
+  const searchValue = (e) => {
+    const { value } = e.target;
+    const res = [];
+    for (let event of events) {
+      for (let a of value) {
+        for (let i of event.category) {
+          if (a === i && !res.includes(event)) {
+            res.push(event);
+          }
+        }
+      }
+    }
+    if (res.length === 0) {
+      setEvents(baseEvents);
+      return;
+    }
+    setEvents(res);
+  };
+
+  const changeView = (e) => {
+    const { id } = e.target;
+    setView(id);
+  };
+
   return (
     <section>
       <div className="container">
@@ -168,33 +193,70 @@ export const Events = () => {
             <span>events per page</span>
           </div>
           <div className="search">
-            <input placeholder="Search event..." />
+            <input placeholder="Search event..." onChange={searchValue} />
             <button className="search-button">
               <svg width="14" height="14">
                 <use href={`${pathToSvg}#icon-search`} />
               </svg>
             </button>
           </div>
-          <div className="button-view_container">
-            <button className="button-view_flex">
-              <svg width="18" height="18">
-                <use href={`${pathToSvg}#icon-menu-column`} />
+          <div onClick={changeView} className="button-view_container">
+            <button
+              id="flex"
+              className={view === "flex" && "button-view_flex--active"}
+            >
+              <svg id="flex" width="18" height="18">
+                <use id="flex" href={`${pathToSvg}#icon-menu-column`} />
               </svg>
             </button>
-            <button className="button-view_grid">
-              <svg width="18" height="18">
-                <use href={`${pathToSvg}#icon-menu-row`} />
+            <button
+              id="grid"
+              className={view === "grid" && "button-view_grid--active"}
+            >
+              <svg id="grid" width="18" height="18">
+                <use id="grid" href={`${pathToSvg}#icon-menu-row`} />
               </svg>
             </button>
           </div>
         </div>
         <div>
-          <ul>
-            {events &&
-              events.map((i) => {
-                return <li>{i.category}</li>;
+          {events && view === "flex" && (
+            <ul>
+              {events.map((i) => {
+                return (
+                  <li className="info_item" key={uuidv4()}>
+                    <p>{i.dates.date.slice(-2)}</p>
+                    <div className="info_date-container">
+                      <p>{i.dates.date.slice(0, 3)}</p>
+                      <p>{i.dates.time}</p>
+                    </div>
+                    <div className="info_text-container">
+                      <p>{i.eventInfo}</p>
+                      <p>{i.category}</p>
+                    </div>
+                    <button className="info_button">View more</button>
+                  </li>
+                );
               })}
-          </ul>
+            </ul>
+          )}
+          {events && view === "grid" && (
+            <ul className="info_list--grid">
+              {events.map((i) => {
+                return (
+                  <li className="info_item--grid" key={uuidv4()}>
+                    <p className="info_date--grid">
+                      {i.dates.date.slice(-2)} {i.dates.date.slice(0, 3)}
+                    </p>
+                    <p className="info_time--grid">{i.dates.time}</p>
+                    <p className="info_text--grid">{i.eventInfo}</p>
+                    <p className="info_category--grid">{i.category}</p>
+                    <button className="info_button--grid">View more</button>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </div>
       </div>
     </section>
