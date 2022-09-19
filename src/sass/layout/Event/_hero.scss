@@ -1,0 +1,23 @@
+.hero_event-section {
+  background-image: url("../../../images/back-event.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 120px;
+}
+
+.hero_event-text-container {
+  text-align: center;
+  margin-top: 120px;
+  & > p {
+    @include text($main-font, $bold, 16px, 150%, $orange);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  & > p:last-child {
+    @include text($main-font, $boldest, 46px, 130%, $dark-gray);
+    text-transform: none;
+    margin-bottom: 0;
+  }
+}
