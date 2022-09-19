@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import pathToSvg from "../../images/symbol-defs.svg";
 import { getEvents } from "../../API";
@@ -240,7 +241,9 @@ export const Events = () => {
                         <p>{i.eventInfo}</p>
                         <p>{i.category}</p>
                       </div>
-                      <button className="info_button">View more</button>
+                      <Link to="/event" className="info_button">
+                        View more
+                      </Link>
                     </li>
                   );
                 })}
