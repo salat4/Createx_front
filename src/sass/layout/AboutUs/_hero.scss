@@ -29,9 +29,10 @@
   margin-bottom: 60px;
 }
 
-.about-hero_container_button {
+.about-hero_button-container {
   @include position(flex, center, space-between, initial);
   width: 415px;
+
   & > a {
     padding: 0px 40px;
     border-radius: 4px;
@@ -40,6 +41,7 @@
     @include text($main-font, $bold, 16px, 52px, $btn-gradient);
     letter-spacing: 0.5px;
   }
+
   & > a:last-child {
     color: $white;
     background: linear-gradient(55.95deg, $orange 0%, $btn-gradient 100%);

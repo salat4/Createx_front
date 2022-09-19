@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getCourses } from "../../../API";
 
-export const Team = () => {
+export const TeamAbout = () => {
   const [team, setTeam] = useState([]);
   useEffect(() => {
     try {

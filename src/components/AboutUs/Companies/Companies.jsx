@@ -13,53 +13,55 @@ import Logo12 from "../../../images/logo11-min.png";
 
 export const Companies = () => {
   return (
-    <section>
-      <div className="container">
-        <div className="companies-sections_container companies-title">
-          <p className="title">Best jobs for you</p>
-          <p className="sub-title">Our students work here</p>
-          <div className="companies_logo-container">
-            <ul className="companies_logo-list">
-              <li>
-                <img src={Logo1} alt="Logo1" />
-              </li>
-              <li>
-                <img src={Logo2} alt="Logo2" />
-              </li>
-              <li>
-                <img src={Logo3} alt="Logo3" />
-              </li>
-              <li>
-                <img src={Logo4} alt="Logo4" />
-              </li>
-              <li>
-                <img src={Logo5} alt="Logo5" />
-              </li>
-              <li>
-                <img src={Logo6} alt="Logo6" />
-              </li>
-              <li>
-                <img src={Logo7} alt="Logo7" />
-              </li>
-              <li>
-                <img src={Logo8} alt="Logo8" />
-              </li>
-              <li>
-                <img src={Logo9} alt="Logo9" />
-              </li>
-              <li>
-                <img src={Logo10} alt="Logo10" />
-              </li>
-              <li>
-                <img src={Logo11} alt="Logo11" />
-              </li>
-              <li>
-                <img src={Logo12} alt="Logo12" />
-              </li>
-            </ul>
+    <>
+      <section>
+        <div className="container">
+          <div className="companies-sections_container companies-title">
+            <p className="title">Best jobs for you</p>
+            <p className="sub-title">Our students work here</p>
+            <div className="companies_logo-container">
+              <ul className="companies_logo-list">
+                <li>
+                  <img src={Logo1} alt="Logo1" />
+                </li>
+                <li>
+                  <img src={Logo2} alt="Logo2" />
+                </li>
+                <li>
+                  <img src={Logo3} alt="Logo3" />
+                </li>
+                <li>
+                  <img src={Logo4} alt="Logo4" />
+                </li>
+                <li>
+                  <img src={Logo5} alt="Logo5" />
+                </li>
+                <li>
+                  <img src={Logo6} alt="Logo6" />
+                </li>
+                <li>
+                  <img src={Logo7} alt="Logo7" />
+                </li>
+                <li>
+                  <img src={Logo8} alt="Logo8" />
+                </li>
+                <li>
+                  <img src={Logo9} alt="Logo9" />
+                </li>
+                <li>
+                  <img src={Logo10} alt="Logo10" />
+                </li>
+                <li>
+                  <img src={Logo11} alt="Logo11" />
+                </li>
+                <li>
+                  <img src={Logo12} alt="Logo12" />
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };

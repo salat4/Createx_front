@@ -20,7 +20,7 @@ export const Hero = () => {
               During your studies, we will help you find a job. Check the
               courses and online events that we organise.
             </p>
-            <div className="about-hero_container_button">
+            <div className="about-hero_button-container">
               <Link to="/events">Explore events</Link>
               <Link to="/courses">Browse courses</Link>
             </div>

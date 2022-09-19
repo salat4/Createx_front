@@ -3,11 +3,10 @@ import Statistics from "../components/AboutUs/Statistics";
 import Values from "../components/AboutUs/Values";
 import Directions from "../components/AboutUs/Directions";
 import StudyingProcess from "../components/AboutUs/Studying";
-import Team from "../components/AboutUs/Team";
-// import Testimonials from "../components/AboutUs/Testimonials";
+import TeamAbout from "../components/AboutUs/Team";
 import Companies from "../components/AboutUs/Companies";
-// import OurBlog from "../components/AboutUs/OurBlog";
-// import Subscribe from "../components/AboutUs/Subscribe";
+import { Blog } from "../components/Home/blog";
+import { Subscribe } from "../components/Home/subscribe";
 
 export default function AboutUsPages() {
   return (
@@ -17,11 +16,10 @@ export default function AboutUsPages() {
       <Values />
       <Directions />
       <StudyingProcess />
-      <Team />
-      {/* <Testimonials /> */}
+      <TeamAbout />
       <Companies />
-      {/* <OurBlog /> */}
-      {/* <Subscribe />  */}
+      <Blog />
+      <Subscribe />
     </>
   );
 }
