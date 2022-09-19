@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import pathToSvg from "../../images/symbol-defs.svg";
 import { getEvents } from "../../API";
+import { Subscribe } from "../Home/subscribe";
 
 export const Events = () => {
   const [category, setCategory] = useState("All themes");
@@ -125,140 +126,147 @@ export const Events = () => {
   };
 
   return (
-    <section>
-      <div className="container">
-        <div className="events_title-container">
-          <p className="title">Our events</p>
-          <p className="sub-title">Lectures, workshops & master-classes</p>
-        </div>
-        <div className="filter_container">
-          <div className="filter_change-category">
-            <p>Event category</p>
-            <div onClick={showList}>
-              <p id="category">{category}</p>
-              <svg width="16" height="16" id="category">
-                <use href={`${pathToSvg}#icon-arrow-down-filter`} />
-              </svg>
-              {events && listCategory && (
-                <div>
-                  <ul onClick={changeCategory} className="filter_category-list">
-                    {baseEvents.map(({ category }) => {
-                      return (
-                        <li key={uuidv4()} id={category}>
-                          {category}
-                        </li>
-                      );
-                    })}
+    <>
+      <section className="events_container">
+        <div className="container">
+          <div className="events_title-container">
+            <p className="title">Our events</p>
+            <p className="sub-title">Lectures, workshops & master-classes</p>
+          </div>
+          <div className="filter_container">
+            <div className="filter_change-category">
+              <p>Event category</p>
+              <div onClick={showList}>
+                <p id="category">{category}</p>
+                <svg width="16" height="16" id="category">
+                  <use href={`${pathToSvg}#icon-arrow-down-filter`} />
+                </svg>
+                {events && listCategory && (
+                  <div>
+                    <ul
+                      onClick={changeCategory}
+                      className="filter_category-list"
+                    >
+                      <li id="All themes">All themes</li>
+                      {baseEvents.map(({ category }) => {
+                        return (
+                          <li key={uuidv4()} id={category}>
+                            {category}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="filter_sort">
+              <p>Sort by</p>
+              <div onClick={showList}>
+                <p id="sort">{sort}</p>
+                <svg width="16" height="16" id="sort">
+                  <use href={`${pathToSvg}#icon-arrow-down-filter`} />
+                </svg>
+                {events && listData && (
+                  <div>
+                    <ul onClick={changeSortDate} className="filter_sort-list">
+                      <li key={uuidv4()} id={"newest"}>
+                        newest
+                      </li>
+                      <li key={uuidv4()} id={"boldest"}>
+                        boldest
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="show-amount">
+              <p>Show</p>
+              <div onClick={showList}>
+                <p id="show">{amount}</p>
+                <svg width="16" height="16" id="show">
+                  <use href={`${pathToSvg}#icon-arrow-down-filter`} />
+                </svg>
+                {listAmount && (
+                  <ul onClick={changeAmount} className="filter_show-list">
+                    <li id="show">3</li>
+                    <li id="show">6</li>
+                    <li id="show">9</li>
                   </ul>
-                </div>
-              )}
+                )}
+              </div>
+              <span>events per page</span>
+            </div>
+            <div className="search">
+              <input placeholder="Search event..." onChange={searchValue} />
+              <button className="search-button">
+                <svg width="14" height="14">
+                  <use href={`${pathToSvg}#icon-search`} />
+                </svg>
+              </button>
+            </div>
+            <div onClick={changeView} className="button-view_container">
+              <button
+                id="flex"
+                className={view === "flex" && "button-view_flex--active"}
+              >
+                <svg id="flex" width="18" height="18">
+                  <use id="flex" href={`${pathToSvg}#icon-menu-column`} />
+                </svg>
+              </button>
+              <button
+                id="grid"
+                className={view === "grid" && "button-view_grid--active"}
+              >
+                <svg id="grid" width="18" height="18">
+                  <use id="grid" href={`${pathToSvg}#icon-menu-row`} />
+                </svg>
+              </button>
             </div>
           </div>
-          <div className="filter_sort">
-            <p>Sort by</p>
-            <div onClick={showList}>
-              <p id="sort">{sort}</p>
-              <svg width="16" height="16" id="sort">
-                <use href={`${pathToSvg}#icon-arrow-down-filter`} />
-              </svg>
-              {events && listData && (
-                <div>
-                  <ul onClick={changeSortDate} className="filter_sort-list">
-                    <li key={uuidv4()} id={"newest"}>
-                      newest
+          <div>
+            {events && view === "flex" && (
+              <ul>
+                {events.map((i) => {
+                  return (
+                    <li className="info_item" key={uuidv4()}>
+                      <p>{i.dates.date.slice(-2)}</p>
+                      <div className="info_date-container">
+                        <p>{i.dates.date.slice(0, 3)}</p>
+                        <p>{i.dates.time}</p>
+                      </div>
+                      <div className="info_text-container">
+                        <p>{i.eventInfo}</p>
+                        <p>{i.category}</p>
+                      </div>
+                      <button className="info_button">View more</button>
                     </li>
-                    <li key={uuidv4()} id={"boldest"}>
-                      boldest
+                  );
+                })}
+              </ul>
+            )}
+            {events && view === "grid" && (
+              <ul className="info_list--grid">
+                {events.map((i) => {
+                  return (
+                    <li className="info_item--grid" key={uuidv4()}>
+                      <p className="info_date--grid">
+                        {i.dates.date.slice(-2)} {i.dates.date.slice(0, 3)}
+                      </p>
+                      <p className="info_time--grid">{i.dates.time}</p>
+                      <p className="info_text--grid">{i.eventInfo}</p>
+                      <p className="info_category--grid">{i.category}</p>
+                      <button className="info_button--grid">View more</button>
                     </li>
-                  </ul>
-                </div>
-              )}
-            </div>
-          </div>
-          <div className="show-amount">
-            <p>Show</p>
-            <div onClick={showList}>
-              <p id="show">{amount}</p>
-              <svg width="16" height="16" id="show">
-                <use href={`${pathToSvg}#icon-arrow-down-filter`} />
-              </svg>
-              {listAmount && (
-                <ul onClick={changeAmount} className="filter_show-list">
-                  <li id="show">3</li>
-                  <li id="show">6</li>
-                  <li id="show">9</li>
-                </ul>
-              )}
-            </div>
-            <span>events per page</span>
-          </div>
-          <div className="search">
-            <input placeholder="Search event..." onChange={searchValue} />
-            <button className="search-button">
-              <svg width="14" height="14">
-                <use href={`${pathToSvg}#icon-search`} />
-              </svg>
-            </button>
-          </div>
-          <div onClick={changeView} className="button-view_container">
-            <button
-              id="flex"
-              className={view === "flex" && "button-view_flex--active"}
-            >
-              <svg id="flex" width="18" height="18">
-                <use id="flex" href={`${pathToSvg}#icon-menu-column`} />
-              </svg>
-            </button>
-            <button
-              id="grid"
-              className={view === "grid" && "button-view_grid--active"}
-            >
-              <svg id="grid" width="18" height="18">
-                <use id="grid" href={`${pathToSvg}#icon-menu-row`} />
-              </svg>
-            </button>
+                  );
+                })}
+              </ul>
+            )}
           </div>
         </div>
-        <div>
-          {events && view === "flex" && (
-            <ul>
-              {events.map((i) => {
-                return (
-                  <li className="info_item" key={uuidv4()}>
-                    <p>{i.dates.date.slice(-2)}</p>
-                    <div className="info_date-container">
-                      <p>{i.dates.date.slice(0, 3)}</p>
-                      <p>{i.dates.time}</p>
-                    </div>
-                    <div className="info_text-container">
-                      <p>{i.eventInfo}</p>
-                      <p>{i.category}</p>
-                    </div>
-                    <button className="info_button">View more</button>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
-          {events && view === "grid" && (
-            <ul className="info_list--grid">
-              {events.map((i) => {
-                return (
-                  <li className="info_item--grid" key={uuidv4()}>
-                    <p className="info_date--grid">
-                      {i.dates.date.slice(-2)} {i.dates.date.slice(0, 3)}
-                    </p>
-                    <p className="info_time--grid">{i.dates.time}</p>
-                    <p className="info_text--grid">{i.eventInfo}</p>
-                    <p className="info_category--grid">{i.category}</p>
-                    <button className="info_button--grid">View more</button>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
-        </div>
-      </div>
-    </section>
+      </section>
+      <Subscribe />
+    </>
   );
 };
