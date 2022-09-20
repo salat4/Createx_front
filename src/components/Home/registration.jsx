@@ -30,6 +30,7 @@ export default function RegisterPage({ onClick, modalLogin, showLoginForm }) {
     name: "",
     email: "",
     password: "",
+    repeated_password: ""
   };
 
   const schema = yup.object().shape({

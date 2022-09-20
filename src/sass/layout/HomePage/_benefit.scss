@@ -70,7 +70,12 @@
 .library:hover::after {
   content: "Will be soon!";
   padding: 8px 12px;
-  border: 1pc solid $orange;
-  border-radius: 25px;
+  border: 1px solid $orange;
+  border-radius: 4px;
   position: absolute;
+  top: -46px;
+  right: -18px;
+  background: linear-gradient(55.95deg, $orange 0%, $btn-gradient 100%);
+  @include text($main-font, $bold, 16px, 160%, $white);
+
 }

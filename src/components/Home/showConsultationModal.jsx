@@ -8,6 +8,11 @@ export const ShowConsultationModal = () => {
   const showModal = () => {
     setModal(!modal);
   };
+
+  const onClick = () => {
+    setModal(false);
+  };
+
   return (
     <>
       <button
@@ -19,7 +24,7 @@ export const ShowConsultationModal = () => {
       </button>
       {modal && (
         <Backdrop onClick={showModal}>
-          <ConsultationModal />
+          <ConsultationModal onClick={onClick}/>
         </Backdrop>
       )}
     </>

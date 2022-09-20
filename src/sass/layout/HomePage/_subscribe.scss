@@ -34,4 +34,6 @@
 .subscribe-form__btn {
   width: 154px;
   height: 52px;
+  @include text($main-font, $bold, 14px, 44px, $white);
+
 }

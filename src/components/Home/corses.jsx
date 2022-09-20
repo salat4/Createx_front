@@ -5,8 +5,6 @@ import getCourses from "../../API/getCourses";
 export const Corses = () => {
   const [courses, setCourses] = useState(null);
 
-
-  console.log(courses);
   useEffect(() => {
     async function FetchCourses() {
       const course = await getCourses();
