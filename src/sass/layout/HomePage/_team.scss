@@ -1,6 +1,11 @@
 .team-section {
   padding: 180px 0;
   background-color: #f4f5f7;
+  background-image: url(../../../images/circle.png),
+    url(../../../images/shapes.png), url(../../../images//shapes1.png),
+    url(../../../images/Vector.png), url(../../../images/dots.png);
+  background-repeat: no-repeat;
+  background-position: 6% 52%, 100% 31%, 69% 57%, 10% 8%, 70% 5%;
 }
 
 .team-container {
@@ -136,4 +141,3 @@
   fill: $white;
   opacity: 0.6;
 }
-

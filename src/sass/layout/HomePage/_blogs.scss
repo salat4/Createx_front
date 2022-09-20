@@ -54,20 +54,29 @@
 
   margin-top: 16px;
   height: 150px;
+
 }
 
 .blog-list__item__box__top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin-top: 16px;
+  width: 100%;
 }
 
 .box-top__text {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   @include text($main-font, $regular, 14px, 150%, $light-gray);
   &:not(:last-child) {
     margin-right: 12px;
   }
+}
+
+.box-top__svg{
+  margin-right: 7px;
 }
 
 .blog-list__item__box__title {

@@ -43,8 +43,16 @@ export const Blog = () => {
               <li key={item._id} className="blog-list__item">
                 <img src={item.image} alt="podcast" />
                 <div className="blog-list__type__wrap">
-                  <svg width="16" height="16" fill="#424551">
-                    <use href={`${Svg}#icon-mic`} />
+                  <svg fill="#424551" width="16" height="16">
+                    {item.typeofBlog === "Podcast" && (
+                      <use href={`${Svg}#icon-mic`}></use>
+                    )}
+                    {item.typeofBlog === "Video" && (
+                      <use href={`${Svg}#icon-play`}></use>
+                    )}
+                    {item.typeofBlog === "Article" && (
+                      <use href={`${Svg}#icon-files`}></use>
+                    )}
                   </svg>
                   <p className="blog-list__item__type">{item.typeofBlog}</p>
                 </div>
@@ -53,11 +61,17 @@ export const Blog = () => {
                     <li className="box-top__text">{item.category}</li>
                     <li className="box-top__text">
                       <span className="box-top__text__span"> | </span>
+                      <svg className="box-top__svg" width="16" height="16">
+                        <use href={`${Svg}#icon-calendar`}></use>
+                      </svg>
                       {item.date}
                     </li>
                     {item.duration && (
                       <li className="box-top__text">
                         <span className="box-top__text__span"> | </span>
+                        <svg className="box-top__svg" width="16" height="16">
+                          <use href={`${Svg}#icon-clock`}></use>
+                        </svg>
                         {item.duration} min
                       </li>
                     )}
