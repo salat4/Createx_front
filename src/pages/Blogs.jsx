@@ -5,15 +5,31 @@ import UserSvg from "../images/symbol-defs.svg";
 export default function Blogs()  {
 
     const [blogs, setBlog] = useState(null)
-
+    const [typeBlogs, setTypeBlogs] = useState(null)
+    const [active, setActive] = useState("All")
     useEffect(() => {
         async function FetchBlogs() {
             const blog = await getBlogs()
             setBlog(blog)
+            setTypeBlogs(blog)
+            
         }
         FetchBlogs()
     },[])
 
+    const filterType = (e)=>{
+        if(e.target.innerText !== "All"){
+            setTypeBlogs(blogs.filter(
+                el => el.typeofBlog.toLowerCase().indexOf(e.target.innerText.toLowerCase()) !== -1
+            ))
+        }
+        else{
+            setTypeBlogs(blogs)
+        }
+        setActive(e.target.innerText)
+
+
+    }
 
     return (
         <>
@@ -25,26 +41,26 @@ export default function Blogs()  {
             <div>
                 <div className="blogs__hero__menu">
                     <ul className="blogs__hero__menu__list">
-                        <li className="blogs__hero__menu__list__item active">
-                            All
+                        <li  className={`blogs__hero__menu__list__item ${"All" === active && "active"}`} onClick={filterType}>
+                           <p>All</p> 
                         </li>
-                        <li className="blogs__hero__menu__list__item">
+                        <li className={`blogs__hero__menu__list__item  ${"Article" === active && "active"}`} onClick={filterType}>
                             <svg width="16" height = "16" className="blogs__hero__menu__list__icon">
                                 <use href={`${UserSvg}#icon-files`}></use>
                             </svg>
-                            Articles
+                            <p>Article</p>
                         </li>
-                        <li className="blogs__hero__menu__list__item">
+                        <li className={`blogs__hero__menu__list__item  ${"Video" === active && "active"}`} onClick={filterType}>
                              <svg width="16" height = "16" className="blogs__hero__menu__list__icon">
                                 <use href={`${UserSvg}#icon-play`}></use>
                             </svg>
-                            Videos
+                            <p>Video</p>
                         </li>
-                        <li className="blogs__hero__menu__list__item">
+                        <li className={`blogs__hero__menu__list__item  ${"Podcast" === active && "active"}`} onClick={filterType}>
                              <svg width="16" height = "16" className="blogs__hero__menu__list__icon">
                                 <use href={`${UserSvg}#icon-mic`}></use>
                             </svg>
-                            Podcasts
+                            <p>Podcast</p>
                         </li>
                     </ul>
                     <div className="blogs__hero__menu__category">
@@ -69,8 +85,8 @@ export default function Blogs()  {
                     </div>
                 </div>
                 <ul className="blog__hero__list">
-                    {blogs &&
-                        blogs.map((blog) => (
+                    {typeBlogs &&
+                        typeBlogs.map((blog) => (
                             <li  key = {blog._id} className="blog__hero__list__item">
                                 <img src={blog.image} alt={blog.image} ></img>
                                 <div className="blog__hero__list__item__type">
