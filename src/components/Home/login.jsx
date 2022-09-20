@@ -5,9 +5,10 @@ import { Form, Field } from "formik";
 import login from "../../API/login";
 import Svg from "../../images/symbol-defs.svg";
 import { ButtonShowAndHide } from "./btnShow";
-import { ShowRegModal } from "./showRegistrationModal";
+import RegisterPage from "./registration";
+import Backdrop from "../Backdrop";
 
-export default function LoginPage() {
+export default function LoginPage({ onClick, showRegistrationForm, modalRegistration }) {
   const [userEmail, setUserEmail] = useState("");
   const [userPwd, setUserPwd] = useState("");
 
@@ -57,6 +58,11 @@ export default function LoginPage() {
             Sign in to your account using email and password provided during
             registration.
           </p>
+          <button onClick={onClick}  className="btn-close">
+          <svg width='24' height='24' >
+            <use href={`${Svg}#icon-close `} />
+          </svg>
+        </button>
 
           <Formik
             initialValues={defaultInitialValues}
@@ -101,7 +107,18 @@ export default function LoginPage() {
           </Formik>
           <div className="auth-sign__section">
             <p className="auth-sign__text">Don't have an account?</p>
-            <ShowRegModal />
+            <button
+              type="button"
+              className="header-button__auth"
+              onClick={showRegistrationForm}
+            >
+              Register
+            </button>
+            {modalRegistration && (
+              <Backdrop onClick={showRegistrationForm}>
+                <RegisterPage/>
+              </Backdrop>
+            )}
           </div>
           <div className="auth__google">
             <p className="auth__google-text">Or sign in with</p>

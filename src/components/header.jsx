@@ -4,8 +4,28 @@ import UserSvg from "../images/symbol-defs.svg";
 import { ShowLoginModal } from "./Home/showLoginModal";
 import { ShowRegModal } from "./Home/showRegistrationModal";
 import { ShowConsultationModal } from "./Home/showConsultationModal";
+import { useState } from "react";
 
 export const Header = () => {
+  const [modalRegistration, setModalRegistration] = useState(false);
+
+  const showRegistrationForm = () => {
+    setModalRegistration(!modalRegistration);
+    setModalLogin(false);
+  };
+
+  const [modalLogin, setModalLogin] = useState(false);
+
+  const showLoginForm = () => {
+    setModalLogin(!modalLogin);
+    setModalRegistration(false);
+  };
+
+  const onClick = () => {
+    setModalRegistration(false);
+    setModalLogin(false);
+  };
+
   return (
     <>
       <div className="header-section">
@@ -49,13 +69,25 @@ export const Header = () => {
             </nav>
 
             <div className="btn-menu">
-              <ShowConsultationModal />
+              <ShowConsultationModal onClick={onClick} />
               <svg width="20" height="20">
                 <use href={`${UserSvg}#icon-profile`} />
               </svg>
-              <ShowLoginModal />
+              <ShowLoginModal
+                onClick={onClick}
+                modalLogin={modalLogin}
+                showLoginForm={showLoginForm}
+                showRegistrationForm={showRegistrationForm}
+                modalRegistration={modalRegistration}
+              />
               <span className="header-span">/</span>
-              <ShowRegModal />
+              <ShowRegModal
+                onClick={onClick}
+                modalLogin={modalLogin}
+                showLoginForm={showLoginForm}
+                showRegistrationForm={showRegistrationForm}
+                modalRegistration={modalRegistration}
+              />
             </div>
           </div>
         </div>

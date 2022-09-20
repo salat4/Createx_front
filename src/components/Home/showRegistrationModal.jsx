@@ -1,18 +1,13 @@
-import { useState } from "react";
 import Backdrop from "../Backdrop";
 import RegisterPage from "./registration";
 
-export const ShowRegModal = () => {
-  const [modalRegistration, setModalRegistration] = useState(false);
-
-  const showRegistrationForm = () => {
-    setModalRegistration(!modalRegistration);
-    const log = document.querySelector('#login')
-    log.classList.add('none')
-  };
-
-
-
+export const ShowRegModal = ({
+  modalLogin,
+  showLoginForm,
+  showRegistrationForm,
+  modalRegistration,
+  onClick,
+}) => {
   return (
     <>
       <button
@@ -23,8 +18,12 @@ export const ShowRegModal = () => {
         Register
       </button>
       {modalRegistration && (
-        <Backdrop id='log' onClick={showRegistrationForm}>
-          <RegisterPage />
+        <Backdrop onClick={showRegistrationForm}>
+          <RegisterPage
+            onClick={onClick}
+            modalLogin={modalLogin}
+            showLoginForm={showLoginForm}
+          />
         </Backdrop>
       )}
     </>
