@@ -101,7 +101,11 @@ export default function Blogs()  {
                                             </svg>
                                             {blog.date}
                                         </li>
-                                        {blog.duration && <li className = "blog__hero__list__box__item">{ blog.duration} min</li>} 
+                                        {blog.duration && <li className = "blog__hero__list__box__item">
+                                        <svg width="16"height = "16"  >
+                                                <use href={`${UserSvg}#icon-clock`}></use>
+                                            </svg>
+                                            { blog.duration} min</li>} 
                                     </ul>
                                     <p className="blog__hero__list__item__box__title">{blog.title}</p>
                                     <p className="blog__hero__list__item__box__text">{blog.text}</p>

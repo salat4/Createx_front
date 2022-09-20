@@ -115,7 +115,7 @@ export const Footer = () => {
                             <input className="footer__box__right__input"
                             placeholder="Email address"
                             ></input>
-                            <svg width="15" height="10" className="footer__box__right__input__svg">
+                            <svg width="16" height="16" className="footer__box__right__input__svg">
                                 <use href={`${UserSvg}#icon-Right`}></use>
                             </svg>
                         </form>
@@ -125,10 +125,14 @@ export const Footer = () => {
                 <div className="footer__bottom">
                     <div className="footer__bottom__container container">
                         <div className="footer__copyright ">
-                            <p>© All rights reserved.</p>
+                            <span>© All rights reserved.Made with <svg width="16" height="16" className="footer__copyright__svg">
+                                <use href={`${UserSvg}#icon-heart`}></use>
+                            </svg>
+                            by Createx Studio.
+                            </span>
                         </div>
                         <div className="footer__button">
-                            <button className="footer__button--top">GO TO TOP</button>
+                            <span className="footer__button--top">GO TO TOP</span>
                         </div>
                     </div>
                 </div>
