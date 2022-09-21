@@ -1,0 +1,100 @@
+.info {
+  padding: 120px 0px;
+}
+
+.info_container {
+  @include position(flex, initial, space-between, initial);
+}
+
+.info_about-title {
+  @include text($main-font, $boldest, 46px, 130%, $dark-gray);
+  margin-bottom: 40px;
+}
+
+.info_about-list {
+  & > li:not(:last-child) {
+    margin-bottom: 24px;
+  }
+}
+
+.info_about-item {
+  @include position(flex, center, initial, initial);
+}
+
+.info_button-list {
+  margin-right: 21px;
+  & > svg {
+    fill: $orange;
+  }
+}
+
+.info_theme {
+  @include text($main-font, $regular, 20px, 150%, $orange);
+  margin-right: 8px;
+}
+
+.info_theme-text {
+  @include text($main-font, $bold, 20px, 150%, $dark-gray);
+}
+
+.info_sidebar_container {
+  width: 495px;
+  border: 1px solid $bg-input-gray;
+  box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08),
+    0px 30px 24px -10px rgba(154, 156, 165, 0.05),
+    0px 12px 10px -6px rgba(154, 156, 165, 0.04),
+    0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+  border-radius: 4px;
+  padding: 40px 32px;
+}
+
+.info_sidebar_title {
+  @include text($main-font, $bold, 14px, 150%, $dark-gray);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.info_sidebar_title-time {
+  @include text($main-font, $bold, 24px, 130%, $orange);
+  margin-bottom: 8px;
+  margin-top: 4px;
+}
+
+.info_sidebar_title-text {
+  @include text($main-font, $regular, 16px, 160%, $light-gray);
+  margin-bottom: 32px;
+}
+
+.info_sidebar_price-title {
+  @include text($main-font, $bold, 14px, 150%, $dark-gray);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.info_sidebar_price {
+  @include text($main-font, $bold, 24px, 130%, $orange);
+  margin-bottom: 8px;
+  margin-top: 4px;
+}
+.info_sidebar_price-text {
+  @include text($main-font, $regular, 16px, 160%, $light-gray);
+  margin-bottom: 32px;
+}
+
+.info_sidebar_link {
+  & > a {
+    @include text($main-font, $bold, 14px, 150%, $orange);
+    letter-spacing: 1px;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+  }
+
+  margin-bottom: 40px;
+}
+
+.info_sidebar-button {
+  @include text($main-font, $bold, 14px, 44px, $white);
+  letter-spacing: 0.5px;
+  background: linear-gradient(55.95deg, #ff3f3a 0%, #f75e05 100%);
+  border-radius: 4px;
+  width: 100%;
+}
