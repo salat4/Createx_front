@@ -2,8 +2,13 @@ import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import "./styles/variables.css";
-import { Home } from "./pages/Home";
 
+const Home = lazy(() =>
+  import("./pages/Home" /* webpackChunkName: "Home" */)
+);
+const ContactPage = lazy(() =>
+import("./pages/Contact" /* webpackChunkName: "ContactPage" */)
+);
 const AboutUsPages = lazy(() =>
   import("./pages/AboutUs" /* webpackChunkName: "AboutUsPages" */)
 );
@@ -28,6 +33,7 @@ function App() {
           <Route path="/events" element={<EventsPages />} />
           <Route path="/blog" element={<BlogsPages />} />
           <Route path="/event" element={<EventPage />} />
+          <Route path="/contacts" element={<ContactPage />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
