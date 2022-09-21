@@ -11,7 +11,7 @@ import { Blog } from "../components/Home/blog";
 import { Subscribe } from "../components/Home/subscribe";
 import {Footer} from '../components/footer';
 
-export const Home = () => {
+export default function Home (){
   return (
     <>
       <HeroHeader />
