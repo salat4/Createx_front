@@ -12,7 +12,8 @@
 }
 
 .modal-form__wraper {
-  padding: 50px ;
+  position: relative;
+  padding: 50px;
 }
 
 .auth-title {
@@ -28,6 +29,21 @@
   @include text($main-font, $regular, 14px, 150%, $light-gray);
 }
 
+.btn-close {
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 25px;
+  background-color: transparent;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+
+  &:hover {
+    fill: $orange;
+  }
+}
+
 .auth-form {
   @include position(flex, flex-start, center, column);
 }
@@ -35,7 +51,6 @@
 .auth-form__label {
   position: relative;
   @include text($main-font, $regular, 14px, 150%, $grey);
-
 }
 
 .error-text {
@@ -64,7 +79,7 @@
 }
 
 .auth-form__checkbox:checked {
-  background-color:$orange;
+  background-color: $orange;
 }
 
 .auth-form__checkbox_label {
@@ -96,8 +111,8 @@
   }
 
   & .checkmark:after {
-    left: 6px;
-    top: 3px;
+    left: 5px;
+    top: 2px;
     width: 5px;
     height: 10px;
     border: solid white;

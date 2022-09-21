@@ -10,7 +10,6 @@ export const Hero = () => {
     setFrame(!frame);
   };
   return (
-    <div className="hero-section">
       <div className="container container-header">
         <div className="hero-content">
           <button onClick={videoPlay} type="button" className="button-play">
@@ -68,6 +67,5 @@ export const Hero = () => {
           </ul>
         </div>
       </div>
-    </div>
   );
 };

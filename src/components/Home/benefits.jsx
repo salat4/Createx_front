@@ -8,6 +8,9 @@ export const Benefit = () => {
   const showModal = () => {
     setModal(!modal);
   };
+  const onClick = () => {
+    setModal(false);
+  };
 
   return (
     <div className="benefit-section">
@@ -33,11 +36,11 @@ export const Benefit = () => {
               <p className="benefit-list__item_text">Feedback & Support</p>
             </button>
           </li>
-          <li className="benefit-list__item">
+          <li className="benefit-list__item library">
             <svg width="16" height="16" className="benefit-list__item_svg">
               <use href={`${Svg}#icon-layouts`} />
             </svg>
-            <p className="benefit-list__item_text">24/7 Online Library</p>
+            <p className="benefit-list__item_text ">24/7 Online Library</p>
           </li>
           <li className="benefit-list__item">
             <svg width="16" height="16" className="benefit-list__item_svg">
@@ -48,7 +51,7 @@ export const Benefit = () => {
         </ul>
         {modal && (
           <Backdrop onClick={showModal}>
-            <ConsultationModal />
+            <ConsultationModal onClick={onClick} />
           </Backdrop>
         )}
         <div className="benefit-info__container">

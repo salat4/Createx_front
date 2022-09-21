@@ -1,5 +1,5 @@
-import { Header } from "../components/header";
-import { Hero } from "../components/Home/hero";
+import { HeroHeader } from "../components/Home/hero-header";
+
 
 import { About } from "../components/Home/about";
 import { Corses } from "../components/Home/corses";
@@ -14,8 +14,7 @@ import {Footer} from '../components/footer';
 export const Home = () => {
   return (
     <>
-      <Header />
-      <Hero />
+      <HeroHeader />
       <About />
       <Corses />
       <Benefit />

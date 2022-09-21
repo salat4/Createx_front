@@ -8,7 +8,7 @@ import { ButtonShowAndHide } from "./btnShow";
 import Backdrop from "../Backdrop";
 import LoginPage from "./login";
 
-export default function RegisterPage() {
+export default function RegisterPage({ onClick, modalLogin, showLoginForm }) {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userPwd, setUserPwd] = useState("");
@@ -30,6 +30,7 @@ export default function RegisterPage() {
     name: "",
     email: "",
     password: "",
+    repeated_password: ""
   };
 
   const schema = yup.object().shape({
@@ -51,17 +52,6 @@ export default function RegisterPage() {
     );
   };
 
-
-  const [modalLogin, setModalLogin] = useState(false);
-
-  const showLoginForm = () => {
-    setModalLogin(!modalLogin);
-    const log = document.querySelector('#login')
-    log.className.add('none')
-  };
-
-
-
   const Password = (e) => {
     setUserPwd(e.target.value);
   };
@@ -80,13 +70,18 @@ export default function RegisterPage() {
   };
 
   return (
-    <div id="reg" className="modal-container r">
+    <div className="modal-container">
       <div className="modal-form__wraper">
         <h2 className="auth-title">Sign up</h2>
         <p className="auth-text">
           Registration takes less than a minute but gives you full control over
           your studying.
         </p>
+        <button onClick={onClick} className="btn-close">
+          <svg width="24" height="24">
+            <use href={`${Svg}#icon-close `} />
+          </svg>
+        </button>
         <Formik
           initialValues={defaultInitialValues}
           onSubmit={handleSubmit}
@@ -149,7 +144,6 @@ export default function RegisterPage() {
                   type="checkbox"
                   id="keepData"
                   name="keepData"
-                  
                 />
                 Remember me
                 <span className="checkmark"></span>
@@ -163,18 +157,14 @@ export default function RegisterPage() {
         <div className="auth-sign__section">
           <p className="auth-sign__text">Already have an account?</p>
 
-          <button
-        className="header-button__auth"
-        onClick={showLoginForm}
-      >
-        Log in
-      </button>
-      {modalLogin && (
-        <Backdrop onClick={showLoginForm}>
-          <LoginPage />
-        </Backdrop>
-      )}
-
+          <button className="header-button__auth" onClick={showLoginForm}>
+            Log in
+          </button>
+          {modalLogin && (
+            <Backdrop onClick={showLoginForm}>
+              <LoginPage />
+            </Backdrop>
+          )}
         </div>
         <div className="auth__google">
           <p className="auth__google-text">Or sign in with</p>

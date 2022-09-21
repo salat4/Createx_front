@@ -1,14 +1,20 @@
-.hero-section {
-  padding-top: 122px;
+.hero-header-section {
   padding-bottom: 87px;
   display: flex;
   background-color: $bg-pink;
+  background-image: url(../../../images/dots.png),
+    url(../../../images//Group.png), url(../../../images/Vector.png),
+    url(../../../images/shapes.png), url(../../../images//shapes1.png), url(../../../images//shapes2.png);
+  background-repeat: no-repeat;
+  background-position: 100% 80%, right 100% top 100%, right 57% top 72%, right 97% top 9% ,
+    right 58% top 41%, right 0 top 0;
 }
 
 .container-header {
+  padding-top: 122px;
   background-image: url(../../../images/illustration.png);
   background-repeat: no-repeat;
-  background-position: 78% 34%;
+  background-position: 97% 34%;
 }
 
 .header-span {
@@ -96,18 +102,17 @@
   height: 50px;
   background-color: $orange;
   border-radius: 50%;
-  box-shadow: 0 0 0 13px #FEC7C0;
+  box-shadow: 0 0 0 13px #fec7c0;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 21px;
 }
 
-.link{
+.link {
   color: $white;
 }
 
-.link-orange{
+.link-orange {
   color: $orange;
-
 }

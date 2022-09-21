@@ -1,6 +1,9 @@
 .schedule-section {
     padding: 80px 0;
     background-color: $bg-pink;
+    background-image: url(../../../images/dots.png), url(../../../images/circles_1.png);
+    background-repeat: no-repeat;
+    background-position: 0% 100%, 100% -28%;
   }
   
   .schedule-title {

@@ -1,4 +1,6 @@
-export const ConsultationModal = () => {
+import Svg from "../../images/symbol-defs.svg";
+
+export const ConsultationModal = ({ onClick }) => {
   return (
     <div className="modal-container">
       <div className="modal-form__wraper">
@@ -7,6 +9,11 @@ export const ConsultationModal = () => {
           Leave your details!
         </h2>
 
+        <button onClick={onClick} className="btn-close">
+          <svg width="24" height="24">
+            <use href={`${Svg}#icon-close `} />
+          </svg>
+        </button>
         <form>
           <label className="auth-form__label" htmlFor="name">
             Full Name

@@ -35,6 +35,12 @@ export const Corses = () => {
         <ul className="couses-list">
           {courses &&
             courses.map((course, indx) => {
+              if (indx === 4) {
+                return null;
+              }
+              if (indx === 3) {
+                return null;
+              }
               if (indx === 7) {
                 return null;
               }
@@ -47,7 +53,27 @@ export const Corses = () => {
                     className="coach-img"
                   />
                   <div>
-                    <p className="course-item__name">{course.typeOfCourse}</p>
+                    {course.typeOfCourse === "Management" && (
+                      <p className="course-item__name blue">
+                        {course.typeOfCourse}
+                      </p>
+                    )}
+                    {course.typeOfCourse === "HR & Recruting" && (
+                      <p className="course-item__name yellow">
+                        {course.typeOfCourse}
+                      </p>
+                    )}
+                    {course.typeOfCourse === "Design" && (
+                      <p className="course-item__name pink">
+                        {course.typeOfCourse}
+                      </p>
+                    )}
+                    {course.typeOfCourse === "Marketing" && (
+                      <p className="course-item__name turquoise">
+                        {course.typeOfCourse}
+                      </p>
+                    )}
+
                     <h3 className="course-item__text">{course.about}</h3>
                     <p className="courses-detail">
                       <span className="price">{course.price}</span>

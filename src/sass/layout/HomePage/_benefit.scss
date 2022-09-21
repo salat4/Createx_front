@@ -16,7 +16,7 @@
 
 .benefit-list__item {
   border-radius: 4px;
-
+  position: relative;
   @include position(flex, center, center, initial);
   width: 300px;
   height: 46px;
@@ -25,12 +25,12 @@
     border: 1px solid $orange;
     border-radius: 4px;
   }
-  
+
   &:hover .benefit-list__item_text {
     transition-duration: 300ms;
     color: $orange;
   }
-  
+
   &:hover .benefit-list__item_svg {
     fill: $orange;
     transition-duration: 300ms;
@@ -42,11 +42,10 @@
   margin-right: 8px;
 }
 
-.benefit-list__item_btn{
+.benefit-list__item_btn {
   border: none;
   background-color: transparent;
   display: contents;
-
 }
 
 .benefit-list__item_text {
@@ -66,4 +65,17 @@
 .benefit-info__text {
   @include text($main-font, $regular, 16px, 160%, $grey);
   margin-top: 24px;
+}
+
+.library:hover::after {
+  content: "Will be soon!";
+  padding: 8px 12px;
+  border: 1px solid $orange;
+  border-radius: 4px;
+  position: absolute;
+  top: -46px;
+  right: -18px;
+  background: linear-gradient(55.95deg, $orange 0%, $btn-gradient 100%);
+  @include text($main-font, $bold, 16px, 160%, $white);
+
 }
