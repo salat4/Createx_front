@@ -39,7 +39,7 @@ export const ConsultationModal = ({ onClick }) => {
               className="auth-form__input"
               name="phone"
               type="phone"
-              placeholder="Your working email"
+              placeholder="Your phone number"
             />
           </label>
 

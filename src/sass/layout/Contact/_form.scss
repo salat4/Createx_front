@@ -1,0 +1,109 @@
+.contact-form__section {
+  padding-bottom: 180px;
+}
+
+.contact-container {
+  background-image: url(../../../images/illustration4.png);
+  background-repeat: no-repeat;
+  background-position: 0% 54%;
+}
+
+.сontact-title {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.contact-form {
+  width: 705px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.contact-form__label {
+  display: flex;
+  flex-direction: column;
+  @include text($main-font, $regular, 14px, 150%, $grey);
+}
+
+.contact-form__input {
+  outline: none;
+
+  width: calc((705px - 25px) / 2);
+  padding: 13px 16px;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  border: 1px solid $border-input-gray;
+  @include text($main-font, $regular, 14px, 150%, $grey);
+
+  &::placeholder {
+    @include text($main-font, $regular, 14px, 150%, $light-gray2);
+  }
+}
+
+.contact-form__textarea {
+  width: 705px;
+  height: 128px;
+  margin-top: 4px;
+  border: 1px solid $border-input-gray;
+  outline: none;
+  margin: 8px 0;
+  padding: 8px;
+  @include text($main-font, $regular, 14px, 150%, $grey);
+}
+
+.contact-form__btn {
+  width: 340px;
+  height: 52px;
+  @include text($main-font, $bold, 16px, 52px, $white);
+
+  margin-left: 50px;
+}
+
+.contact-checkbox__section {
+  width: 705px;
+  display: flex;
+  align-items: center;
+  margin-top: 48px;
+}
+
+.contact-form__checkbox_label {
+  display: block;
+  position: relative;
+  padding-left: 23px;
+  cursor: pointer;
+  user-select: none;
+  @include text($main-font, $regular, 16px, 160%, $grey);
+  & input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  &:hover input ~ .checkmark {
+    background-color: $white;
+  }
+
+  & input:checked ~ .checkmark {
+    background-color: $orange;
+    border: none;
+  }
+
+  & input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  & .checkmark:after {
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+
+    transform: rotate(45deg);
+  }
+}
