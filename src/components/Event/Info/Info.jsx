@@ -14,7 +14,7 @@ export const Info = ({ events, id }) => {
     const arrValue = [];
     setindexInfo(100);
     if (events) {
-      const obj = events
+      events
         .filter((item) => item._id === id)
         .map(({ theme }) => {
           for (const key in theme) {
