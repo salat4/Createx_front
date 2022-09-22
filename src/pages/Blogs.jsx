@@ -7,6 +7,9 @@ export default function Blogs()  {
     const [blogs, setBlog] = useState(null)
     const [typeBlogs, setTypeBlogs] = useState(null)
     const [active, setActive] = useState("All")
+    const [category, setCategory] = useState("All themes")
+    const [list,setList] = useState(false)
+    const [search, setSearch] = useState([])
     useEffect(() => {
         async function FetchBlogs() {
             const blog = await getBlogs()
@@ -29,6 +32,41 @@ export default function Blogs()  {
         setActive(e.target.innerText)
 
 
+    }
+
+    const showList = () =>{
+        setList(!list)
+    }
+    const handleCategory = (e)=>{
+        setCategory(e.target.id)
+        if(e.target.id !== "All themes"){
+            setTypeBlogs(blogs.filter(
+                el => el.category.toLowerCase().indexOf(e.target.id.toLowerCase()) !== -1
+            ))
+        }
+        else{
+            setTypeBlogs(blogs)
+        }
+    }
+    const handleSearch = (e)=>{
+
+
+        setTypeBlogs(blogs.filter(
+            el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
+        ));
+        // for(let blog of blogs){
+        //     setSearch(blog.filter(
+        //         el => el.title.split(' ').toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
+        //     ));
+        //     console.log(search)
+        //     // blog.title.split(' ').filter(e.target.value)
+        //     // setSearch()
+        //     // el.toLowerCase().indexOf(e.target.value.toLowerCase() !== -1)
+        // }
+        
+        // setTypeBlogs(blogs.filter(
+        //     el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
+        // ))
     }
 
     return (
@@ -65,16 +103,25 @@ export default function Blogs()  {
                     </ul>
                     <div className="blogs__hero__menu__category">
                         <p className="blogs__hero__menu__category__text">Blog category</p>
-                        <select className="blogs__hero__menu__category__select">
-                            <option value="">all themes</option>
-                            <option value="1">Marketing</option>
-                            <option value="2">Development</option>
-                            <option value="3">Design</option>
-                            <option value="4">HR & Recruting</option>
-                            <option value="5">Management</option>
-                        </select>
+                        <div onClick={showList}>
+                            <p>{category}</p>
+                            <svg width="16" height="16" id="sort">
+                                <use href={`${UserSvg}#icon-arrow-down-filter`} />
+                            </svg>
+                            {list && 
+                            <div>
+                                <ul className = "blogs__hero__menu__category__select" onClick={handleCategory}>
+                                    <li id = "All themes">All themes</li>
+                                    <li id="Marketing">Marketing</li>
+                                    <li id="Development">Development</li>
+                                    <li id="Design">Design</li>
+                                    <li id="HR & Recruting">HR & Recruting</li>
+                                    <li id="Management">Management</li>
+                                </ul>
+                            </div>}
+                        </div>
                         <form className="blogs__hero__menu__category__form" >
-                            <input placeholder="Search blog..." className="blogs__hero__menu__category__search"></input>
+                            <input placeholder="Search blog..." className="blogs__hero__menu__category__search" onChange={handleSearch}></input>
                             <svg width="16" height="16" className="blogs__hero__menu__category__search__icon">
                                 <use href = {`${UserSvg}#icon-search`}>
 
