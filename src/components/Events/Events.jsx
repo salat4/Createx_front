@@ -285,7 +285,11 @@ export const Events = ({ eventId }) => {
                       <p className="info_time--grid">{i.dates.time}</p>
                       <p className="info_text--grid">{i.eventInfo}</p>
                       <p className="info_category--grid">{i.category}</p>
-                      <Link id={i._id} className="info_button--grid">
+                      <Link
+                        to="/events/event"
+                        id={i._id}
+                        className="info_button--grid"
+                      >
                         View more
                       </Link>
                     </li>
