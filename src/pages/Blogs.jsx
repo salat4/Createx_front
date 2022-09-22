@@ -1,14 +1,18 @@
 import getBlogs from "../API/getBlogs"
 import { useEffect,useState } from "react";
 import UserSvg from "../images/symbol-defs.svg";
+import { useLocation } from "react-router-dom";
 
-export default function Blogs()  {
+export default function Blogs(course)  {
+    const location = useLocation();
 
     const [blogs, setBlog] = useState(null)
     const [typeBlogs, setTypeBlogs] = useState(null)
     const [active, setActive] = useState("All")
     const [category, setCategory] = useState("All themes")
     const [list,setList] = useState(false)
+    const [search,setSearch] = useState("")
+
     useEffect(() => {
         async function FetchBlogs() {
             const blog = await getBlogs()
@@ -20,15 +24,47 @@ export default function Blogs()  {
     },[])
 
     const filterType = (e)=>{
+        setActive(e.target.innerText)
+
         if(e.target.innerText !== "All"){
-            setTypeBlogs(blogs.filter(
+            if(blogs.length === typeBlogs.length){
+                console.log("Type of blog tilky odyn")
+                setTypeBlogs(blogs.filter(
+                    el => el.typeofBlog.toLowerCase().indexOf(e.target.innerText.toLowerCase()) !== -1
+                ))
+            }
+            else if (search !== ""){
+                console.log("Type of blog plus poshuk")
+
+                let i =(blogs.filter(
                 el => el.typeofBlog.toLowerCase().indexOf(e.target.innerText.toLowerCase()) !== -1
+            ))  
+            setTypeBlogs(i.filter(
+                el => el.title.toLowerCase().indexOf(search.toLowerCase()) !== -1
             ))
+            }
+            else if (category !== "All themes"){
+                console.log("Type of blog plus category")
+
+                let i =(blogs.filter(
+                el => el.typeofBlog.toLowerCase().indexOf(e.target.innerText.toLowerCase()) !== -1
+            ))  
+            setTypeBlogs(i.filter(
+                el => el.category.toLowerCase().indexOf(category.toLowerCase()) !== -1
+            ))
+            }
+            else {
+                console.log("Type of blog problema")
+
+                setTypeBlogs(blogs.filter(
+                    el => el.typeofBlog.toLowerCase().indexOf(e.target.innerText.toLowerCase()) !== -1
+                ))   
+            }
+
         }
         else{
             setTypeBlogs(blogs)
         }
-        setActive(e.target.innerText)
 
 
     }
@@ -39,18 +75,82 @@ export default function Blogs()  {
     const handleCategory = (e)=>{
         setCategory(e.target.id)
         if(e.target.id !== "All themes"){
-            setTypeBlogs(blogs.filter(
+            if(blogs.length === typeBlogs.length){
+                console.log("Category tilky odyn")
+
+                setTypeBlogs(blogs.filter(
+                    el => el.category.toLowerCase().indexOf(e.target.id.toLowerCase()) !== -1
+                ))
+            }
+            else if (typeBlogs !== "All"){
+                console.log("Category plus type of blog")
+
+                let i =(blogs.filter(
                 el => el.category.toLowerCase().indexOf(e.target.id.toLowerCase()) !== -1
+            ))  
+            setTypeBlogs(i.filter(
+                el => el.typeofBlog.toLowerCase().indexOf(typeBlogs.toLowerCase()) !== -1
             ))
+            }
+            else if (search !== ""){
+                console.log("Category plus poshuk")
+
+             let i = (blogs.filter(
+                el => el.category.toLowerCase().indexOf(e.target.id.toLowerCase()) !== -1
+            )) 
+            setTypeBlogs(i.filter(
+                el => el.title.toLowerCase().indexOf(search.toLowerCase()) !== -1
+            ))
+            }
+            else {
+                console.log("Category pomulka")
+
+                setTypeBlogs(blogs.filter(
+                    el => el.category.toLowerCase().indexOf(e.target.id.toLowerCase()) !== -1
+                ))   
+            }
+            
         }
         else{
             setTypeBlogs(blogs)
         }
     }
     const handleSearch = (e)=>{
-        setTypeBlogs(blogs.filter(
+        setSearch(e.target.value);
+        if(blogs.length === typeBlogs.length){
+            console.log("Poshuk tilky odyn")
+
+            setTypeBlogs(blogs.filter(
+                el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
+            ))
+        }
+        else if (typeBlogs !== "All"){
+            console.log("Poshuk plus type of blog")
+
+            let i =(blogs.filter(
             el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
-        ));
+        ))  
+        setTypeBlogs(i.filter(
+            el => el.typeofBlog.toLowerCase().indexOf(typeBlogs.toLowerCase()) !== -1
+        ))
+        }
+        else if (category !== "All themes"){
+            console.log("Poshuk plus category")
+
+            let i =(blogs.filter(
+            el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
+        ))  
+        setTypeBlogs(i.filter(
+            el => el.category.toLowerCase().indexOf(category.toLowerCase()) !== -1
+        ))
+        }
+        else {
+            console.log("Poshuk problema")
+
+            setTypeBlogs(blogs.filter(
+                el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
+            ))   
+        }
     }
 
     return (

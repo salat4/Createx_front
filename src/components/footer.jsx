@@ -1,8 +1,12 @@
 import Logo from "../images/logo-white.png";
 import UserSvg from "../images/symbol-defs.svg";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 
 export const Footer = () => {
+    const navigate = useNavigate();
+    const [course, setCourse] = useState("Marketing");
     return (
         <>
             <div className="footer__container">
@@ -49,19 +53,19 @@ export const Footer = () => {
                                 SITE MAP
                             </h3>
                             <ul className="footer__box__center__sitemap__list">
-                                <li className="footer__box__center__box__sitemap__aboutus footer--gray list__item">
+                                <li className="footer__box__center__box__sitemap__aboutus footer--gray list__item" onClick = {(() => navigate("/about"))}>
                                     About Us
                                 </li>
-                                <li className="footer__box__center__box__sitemap__courses footer--gray list__item">
+                                <li className="footer__box__center__box__sitemap__courses footer--gray list__item" onClick = {(() => navigate("/about"))}>
                                     Courses
                                 </li>
-                                <li className="footer__box__center__box__sitemap__events footer--gray list__item">
+                                <li className="footer__box__center__box__sitemap__events footer--gray list__item" onClick = {(() => navigate("/events"))}>
                                     Events
                                 </li>
-                                <li className="footer__box__center__box__sitemap__blog footer--gray list__item" >
+                                <li className="footer__box__center__box__sitemap__blog footer--gray list__item" onClick = {(() => navigate("/blogs"))}>
                                     Blog
                                 </li>
-                                <li className="footer__box__center__box__sitemap__contacts footer--gray list__item">
+                                <li className="footer__box__center__box__sitemap__contacts footer--gray list__item" onClick = {(() => navigate("/contacts"))}>
                                     Contacts
                                 </li>
                                 
@@ -72,7 +76,7 @@ export const Footer = () => {
                             COURSES
                         </h3>
                             <ul className="footer__box__center__courses__list">
-                                <li className="footer__box__center__courses__marketing footer--gray list__item">
+                                <li className="footer__box__center__courses__marketing footer--gray list__item" onClick = {((e) => navigate("/blogs",{state:e.target.innerText}))}>
                                     Marketing
                                 </li>
                                 <li className="footer__box__center__courses__management footer--gray list__item">
