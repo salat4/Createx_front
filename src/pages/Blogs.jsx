@@ -9,7 +9,6 @@ export default function Blogs()  {
     const [active, setActive] = useState("All")
     const [category, setCategory] = useState("All themes")
     const [list,setList] = useState(false)
-    const [search, setSearch] = useState([])
     useEffect(() => {
         async function FetchBlogs() {
             const blog = await getBlogs()
@@ -49,24 +48,9 @@ export default function Blogs()  {
         }
     }
     const handleSearch = (e)=>{
-
-
         setTypeBlogs(blogs.filter(
             el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
         ));
-        // for(let blog of blogs){
-        //     setSearch(blog.filter(
-        //         el => el.title.split(' ').toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
-        //     ));
-        //     console.log(search)
-        //     // blog.title.split(' ').filter(e.target.value)
-        //     // setSearch()
-        //     // el.toLowerCase().indexOf(e.target.value.toLowerCase() !== -1)
-        // }
-        
-        // setTypeBlogs(blogs.filter(
-        //     el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
-        // ))
     }
 
     return (
