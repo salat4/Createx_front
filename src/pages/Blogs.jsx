@@ -1,10 +1,10 @@
 import getBlogs from "../API/getBlogs"
 import { useEffect,useState } from "react";
 import UserSvg from "../images/symbol-defs.svg";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 
 export default function Blogs(course)  {
-    const location = useLocation();
+    // const location = useLocation();
 
     const [blogs, setBlog] = useState(null)
     const [typeBlogs, setTypeBlogs] = useState(null)
@@ -13,6 +13,7 @@ export default function Blogs(course)  {
     const [list,setList] = useState(false)
     const [search,setSearch] = useState("")
 
+
     useEffect(() => {
         async function FetchBlogs() {
             const blog = await getBlogs()
@@ -20,138 +21,224 @@ export default function Blogs(course)  {
             setTypeBlogs(blog)
             
         }
+        
         FetchBlogs()
     },[])
 
-    const filterType = (e)=>{
-        setActive(e.target.innerText)
+    
+    // let condition = {typeofBlog:"Podcast",title:"profiles"}
+    // console.log(filter(condition))
+    const filter = (condition, data) =>{
+        return data.filter(item =>{
+            return Object.keys(condition).every(key =>{
+                return String(item[ key ]).toLowerCase().includes(
+                    String( condition[ key ]).trim().toLowerCase()
+                )
+            })
+        })
+    }
 
-        if(e.target.innerText !== "All"){
-            if(blogs.length === typeBlogs.length){
-                console.log("Type of blog tilky odyn")
-                setTypeBlogs(blogs.filter(
-                    el => el.typeofBlog.toLowerCase().indexOf(e.target.innerText.toLowerCase()) !== -1
-                ))
-            }
-            else if (search !== ""){
-                console.log("Type of blog plus poshuk")
 
-                let i =(blogs.filter(
-                el => el.typeofBlog.toLowerCase().indexOf(e.target.innerText.toLowerCase()) !== -1
-            ))  
-            setTypeBlogs(i.filter(
-                el => el.title.toLowerCase().indexOf(search.toLowerCase()) !== -1
-            ))
-            }
-            else if (category !== "All themes"){
-                console.log("Type of blog plus category")
+    useEffect(()=>{
+        
+    let condition = {}
 
-                let i =(blogs.filter(
-                el => el.typeofBlog.toLowerCase().indexOf(e.target.innerText.toLowerCase()) !== -1
-            ))  
-            setTypeBlogs(i.filter(
-                el => el.category.toLowerCase().indexOf(category.toLowerCase()) !== -1
-            ))
-            }
-            else {
-                console.log("Type of blog problema")
-
-                setTypeBlogs(blogs.filter(
-                    el => el.typeofBlog.toLowerCase().indexOf(e.target.innerText.toLowerCase()) !== -1
-                ))   
-            }
-
+        if (active === "All" && category !== "All themes"){
+             condition = { title: search, category: category}
         }
-        else{
-            setTypeBlogs(blogs)
+        else if (category === "All themes" && active !== "All"){
+            condition = { typeofBlog: active,title: search}
         }
+        else if (category === "All themes" && active === "All"){
+            condition = { title: search}
+        }
+        else if (category !== "All themes" && active !== "All"){
+            condition = {typeofBlog: active, title: search, category: category}
+        }
+        
+        if(blogs){
+            console.log(condition);
+            setTypeBlogs(filter(condition, blogs))
+        }        
+         
+    },[blogs, category, search, active])
 
+    function filterType(e) {
 
+        // if (e.target.innerText !== "All") {
+            setActive(e.target.innerText);
+        // }
+        // else {
+        //     setTypeBlogs(blogs);
+        // }
+
+        // if(e.target.innerText !== "All"){
+        //     if(blogs.length === typeBlogs.length){
+        //         console.log("Type of blog tilky odyn")
+        //         setTypeBlogs(blogs.filter(
+        //             el => el.typeofBlog.toLowerCase().indexOf(e.target.innerText.toLowerCase()) !== -1
+        //         ))
+        //     }
+        //     else if (search !== "" && category === "All themes"){
+        //         console.log("Type of blog plus poshuk")
+        //         let i =(blogs.filter(
+        //         el => el.typeofBlog.toLowerCase().indexOf(e.target.innerText.toLowerCase()) !== -1
+        //     ))  
+        //     setTypeBlogs(i.filter(
+        //         el => el.title.toLowerCase().indexOf(search.toLowerCase()) !== -1
+        //     ))
+        //     }
+        //     else if (category !== "All themes" && search === ""){
+        //         console.log("Type of blog plus category")
+        //         let i =(blogs.filter(
+        //         el => el.typeofBlog.toLowerCase().indexOf(e.target.innerText.toLowerCase()) !== -1
+        //     ))  
+        //     setTypeBlogs(i.filter(
+        //         el => el.category.toLowerCase().indexOf(category.toLowerCase()) !== -1
+        //     ))
+        //     }
+        //     else if (category !== "All themes" && search !== ""){
+        //         console.log("Type of blog plus category")
+        //         let i = (blogs.filter(
+        //         el => el.typeofBlog.toLowerCase().indexOf(e.target.innerText.toLowerCase()) !== -1
+        //     ))  
+        //         let j =(i.filter(
+        //             el => el.title.toLowerCase().indexOf(search.toLowerCase()) !== -1
+        //     ))  
+        //     setTypeBlogs(j.filter(
+        //         el => el.category.toLowerCase().indexOf(category.toLowerCase()) !== -1
+        //     ))
+        //     }
+        //     else {
+        //         console.log("Type of blog problema")
+        //         setTypeBlogs(blogs.filter(
+        //             el => el.typeofBlog.toLowerCase().indexOf(e.target.innerText.toLowerCase()) !== -1
+        //         ))   
+        //     }
+        // }
+        // else{
+        // }
     }
 
     const showList = () =>{
         setList(!list)
     }
     const handleCategory = (e)=>{
-        setCategory(e.target.id)
-        if(e.target.id !== "All themes"){
-            if(blogs.length === typeBlogs.length){
-                console.log("Category tilky odyn")
 
-                setTypeBlogs(blogs.filter(
-                    el => el.category.toLowerCase().indexOf(e.target.id.toLowerCase()) !== -1
-                ))
-            }
-            else if (typeBlogs !== "All"){
-                console.log("Category plus type of blog")
 
-                let i =(blogs.filter(
-                el => el.category.toLowerCase().indexOf(e.target.id.toLowerCase()) !== -1
-            ))  
-            setTypeBlogs(i.filter(
-                el => el.typeofBlog.toLowerCase().indexOf(typeBlogs.toLowerCase()) !== -1
-            ))
-            }
-            else if (search !== ""){
-                console.log("Category plus poshuk")
+      //  if(e.target.id !== "All themes" ){
+            setCategory(e.target.id)
+       // }
+        
+        // if(e.target.id !== "All themes" ){
+        //     if(blogs.length === typeBlogs.length){
+        //         console.log("Category tilky odyn")
 
-             let i = (blogs.filter(
-                el => el.category.toLowerCase().indexOf(e.target.id.toLowerCase()) !== -1
-            )) 
-            setTypeBlogs(i.filter(
-                el => el.title.toLowerCase().indexOf(search.toLowerCase()) !== -1
-            ))
-            }
-            else {
-                console.log("Category pomulka")
+        //         setTypeBlogs(blogs.filter(
+        //             el => el.category.toLowerCase().indexOf(e.target.id.toLowerCase()) !== -1
+        //         ))
+        //     }
+        //     else if (typeBlogs !== "All" && search === ""){
+        //         console.log("Category plus type of blog")
 
-                setTypeBlogs(blogs.filter(
-                    el => el.category.toLowerCase().indexOf(e.target.id.toLowerCase()) !== -1
-                ))   
-            }
+        //         let i =(blogs.filter(
+        //         el => el.category.toLowerCase().indexOf(e.target.id.toLowerCase()) !== -1
+        //     ))  
+        //     setTypeBlogs(i.filter(
+        //         el => el.typeofBlog.toLowerCase().indexOf(typeBlogs.toLowerCase()) !== -1
+        //     ))
+        //     }
+        //     else if (search !== "" && typeBlogs === "All"){
+        //         console.log("Category plus poshuk")
+
+        //      let i = (blogs.filter(
+        //         el => el.category.toLowerCase().indexOf(e.target.id.toLowerCase()) !== -1
+        //     )) 
+        //     setTypeBlogs(i.filter(
+        //         el => el.title.toLowerCase().indexOf(search.toLowerCase()) !== -1
+        //     ))
+        //     }
+        //     else if (search !== "" && typeBlogs !== "All"){
+        //         console.log("Category plus poshuk")
+
+        //      let i = (blogs.filter(
+        //         el => el.category.toLowerCase().indexOf(e.target.id.toLowerCase()) !== -1
+        //     )) 
+        //     let j = (i.filter(
+        //         el => el.typeBlogs.toLowerCase().indexOf(typeBlogs.toLowerCase()) !== -1
+        //     ))
+        //     setTypeBlogs(j.filter(
+        //         el => el.title.toLowerCase().indexOf(search.toLowerCase()) !== -1
+        //     ))
+        //     }
+        //     else {
+        //         console.log("Category pomulka")
+
+        //         setTypeBlogs(blogs.filter(
+        //             el => el.category.toLowerCase().indexOf(e.target.id.toLowerCase()) !== -1
+        //         ))   
+        //     }
             
-        }
-        else{
-            setTypeBlogs(blogs)
-        }
+        // }
+        // else{
+        //     setTypeBlogs(blogs)
+        // }
     }
     const handleSearch = (e)=>{
+
+
+
         setSearch(e.target.value);
-        if(blogs.length === typeBlogs.length){
-            console.log("Poshuk tilky odyn")
+        // if(blogs.length === typeBlogs.length){
+        //     console.log("Poshuk tilky odyn")
 
-            setTypeBlogs(blogs.filter(
-                el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
-            ))
-        }
-        else if (typeBlogs !== "All"){
-            console.log("Poshuk plus type of blog")
+        //     setTypeBlogs(blogs.filter(
+        //         el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
+        //     ))
+        // }
+        // else if (typeBlogs !== "All" && category === "All themes"){
+        //     console.log("Poshuk plus type of blog")
 
-            let i =(blogs.filter(
-            el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
-        ))  
-        setTypeBlogs(i.filter(
-            el => el.typeofBlog.toLowerCase().indexOf(typeBlogs.toLowerCase()) !== -1
-        ))
-        }
-        else if (category !== "All themes"){
-            console.log("Poshuk plus category")
+        //     let i =(blogs.filter(
+        //     el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
+        // ))  
+        // setTypeBlogs(i.filter(
+        //     el => el.typeofBlog.toLowerCase().indexOf(typeBlogs.toLowerCase()) !== -1
+        // ))
+        // }
+        // else if (category !== "All themes" && typeBlogs === "All"){
+        //     console.log("Poshuk plus category")
 
-            let i =(blogs.filter(
-            el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
-        ))  
-        setTypeBlogs(i.filter(
-            el => el.category.toLowerCase().indexOf(category.toLowerCase()) !== -1
-        ))
-        }
-        else {
-            console.log("Poshuk problema")
+        //     let i =(blogs.filter(
+        //     el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
+        // ))  
+        // setTypeBlogs(i.filter(
+        //     el => el.category.toLowerCase().indexOf(category.toLowerCase()) !== -1
+        // ))
+        // }
+        // else if (category !== "All themes" && typeBlogs !== "All"){
+        //     console.log("Poshuk plus category")
 
-            setTypeBlogs(blogs.filter(
-                el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
-            ))   
-        }
+        //     let i =(blogs.filter(
+        //     el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
+        // ))  
+        // let j = (i.filter(
+        //     el => el.typeofBlog.toLowerCase().indexOf(typeBlogs.toLowerCase()) !== -1
+        // ))
+        // setTypeBlogs(j.filter(
+        //     el => el.category.toLowerCase().indexOf(category.toLowerCase()) !== -1
+        // ))
+        // }
+        // else {
+        //     console.log("Poshuk problema")
+
+        //     setTypeBlogs(blogs.filter(
+        //         el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
+        //     ))   
+        // }
     }
+
+   
 
     return (
         <>
