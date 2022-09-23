@@ -3,7 +3,7 @@ import getEvents from "../API/getEvents";
 import Hero from "../components/Event/Hero";
 import Info from "../components/Event/Info";
 import Speaker from "../components/Event/Speaker";
-// import Mailing from "../components/Event/Mailing";
+import Mailing from "../components/Event/Mailing";
 // import RequestForm from "../components/Event/RequestForm";
 // import Slider from "../components/Event/Slider";
 
@@ -23,7 +23,7 @@ export default function EventPage({ id }) {
       <Hero />
       <Info events={event} id={id} />
       <Speaker event={event} id={id} />
-      {/* <Mailing /> */}
+      <Mailing />
       {/* <RequestForm /> */}
       {/* <Slider />  */}
     </>
