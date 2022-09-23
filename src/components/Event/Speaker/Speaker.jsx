@@ -1,19 +1,25 @@
-import { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid";
 import pathToSvg from "../../../images/symbol-defs.svg";
 import Logo3 from "../../../images/logo2-min.png";
 import Logo4 from "../../../images/logo3-min.png";
 import Logo12 from "../../../images/logo11-min.png";
+import { useEffect } from "react";
+import { useState } from "react";
 
-export const Speaker = ({ events, id }) => {
-  const [event, setEvent] = useState(null);
-
+export const Speaker = ({ event }) => {
+  const [benefits, setBenefits] = useState(null);
   useEffect(() => {
-    if (events) {
-      const eventArr = events.filter((item) => item._id === id);
-      setEvent(eventArr);
+    const arr = [];
+    if (event) {
+      event.map(({ list }) => {
+        for (let text of list) {
+          arr.push(text);
+        }
+        return list;
+      });
+      setBenefits(arr);
     }
-  }, [events, id]);
+  }, [event]);
 
   return (
     <section className="speaker-section">
@@ -84,6 +90,29 @@ export const Speaker = ({ events, id }) => {
                   </svg>
                 </button>
               </li>
+            </ul>
+          </div>
+        </div>
+        <div className="speaker_benefit-container">
+          <div className="speaker_benefit_title-container">
+            <p>For whom?</p>
+            <p>Who will benefit from the event:</p>
+          </div>
+          <div className="speaker_benefit_list-container">
+            <ul>
+              {benefits &&
+                benefits.map((text) => {
+                  return (
+                    <li key={uuid()} className="speaker_benefit_item">
+                      <div>
+                        <svg width="19" height="16">
+                          <use href={`${pathToSvg}#icon-checked`} />
+                        </svg>
+                      </div>
+                      {text}
+                    </li>
+                  );
+                })}
             </ul>
           </div>
         </div>
