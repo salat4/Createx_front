@@ -1,0 +1,66 @@
+.speaker-section {
+  background-image: url("../../../images/Background-speaker-min.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.speaker_container {
+  @include position(flex, center, space-between, initial);
+  margin-bottom: 180px;
+}
+
+.speaker_info-container {
+  width: 600px;
+}
+
+.speaker_title {
+  @include text($main-font, $bold, 16px, 150%, $dark-gray);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.speaker_name {
+  @include text($main-font, $boldest, 46px, 130%, $dark-gray);
+  margin-bottom: 16px;
+}
+
+.speaker_job {
+  @include text($main-font, $regular, 20px, 150%, $light-gray);
+  margin-bottom: 32px;
+}
+
+.speaker_info {
+  @include text($main-font, $regular, 16px, 160%, $grey);
+}
+
+.speaker_companies-list {
+  @include position(flex, center, initial, initial);
+  margin-top: 40px;
+  margin-bottom: 40px;
+  & > li:not(:last-child) {
+    margin-right: 40px;
+  }
+}
+
+.speaker_link-list {
+  @include position(flex, center, initial, initial);
+
+  & > li {
+    height: 23px;
+  }
+
+  & > li:not(:last-child) {
+    height: 24px;
+    margin-right: 30px;
+  }
+}
+
+.speaker_link-button {
+  & > svg {
+    fill: $light-gray;
+  }
+  &:hover > svg {
+    fill: $orange;
+  }
+}
