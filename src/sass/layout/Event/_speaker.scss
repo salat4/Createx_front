@@ -2,6 +2,7 @@
   background-image: url("../../../images/Background-speaker-min.png");
   background-repeat: no-repeat;
   background-size: cover;
+  margin-bottom: 180px;
 }
 
 .speaker_container {
@@ -62,5 +63,37 @@
   }
   &:hover > svg {
     fill: $orange;
+  }
+}
+
+.speaker_benefit-container {
+  @include position(flex, initial, space-between, initial);
+}
+
+.speaker_benefit_title-container {
+  width: 495px;
+  & > p:first-child {
+    @include text($main-font, $bold, 16px, 150%, $dark-gray);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  & > p:last-child {
+    @include text($main-font, $boldest, 46px, 130%, $dark-gray);
+  }
+}
+
+.speaker_benefit_list-container {
+  width: 600px;
+}
+
+.speaker_benefit_item {
+  @include position(flex, initial, initial, initial);
+  @include text($main-font, $bold, 20px, 150%, $grey);
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  & > div {
+    margin-right: 16px;
   }
 }

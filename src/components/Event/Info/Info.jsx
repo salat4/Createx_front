@@ -14,20 +14,18 @@ export const Info = ({ events, id }) => {
     const arrValue = [];
     setindexInfo(100);
     if (events) {
-      events
-        .filter((item) => item._id === id)
-        .map(({ theme }) => {
-          for (const key in theme) {
-            arrKey.push(key);
-            arrValue.push(theme[key]);
-          }
-          return theme;
-        });
+      events.map(({ theme }) => {
+        for (const key in theme) {
+          arrKey.push(key);
+          arrValue.push(theme[key]);
+        }
+        return theme;
+      });
       setKeyTheme(arrKey);
       setValueTheme(arrValue);
       setEvent(events);
     }
-  }, [events, id]);
+  }, [events]);
 
   const openInfo = (e) => {
     const { id } = e.target;
