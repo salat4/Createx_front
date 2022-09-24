@@ -19,7 +19,6 @@
 
 .mailing_form {
   margin-top: 48px;
-  margin-bottom: 24px;
   & > input {
     @include text($main-font, $regular, 16px, 160%, $light-gray2);
     padding: 13px 16px;
@@ -34,5 +33,15 @@
     margin-left: 24px;
     background: linear-gradient(55.95deg, #ff3f3a 0%, #f75e05 100%);
     border-radius: 4px;
+    margin-bottom: 24px;
+  }
+  & > button:disabled {
+    @include text($main-font, $bold, 16px, 52px, $white);
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-left: 24px;
+    background: $light-gray2;
+    border-radius: 4px;
+    margin-bottom: 24px;
   }
 }

@@ -83,6 +83,10 @@
     width: 0;
   }
 
+  & input ~ .checkmark {
+    background-color: $white;
+  }
+
   &:hover input ~ .checkmark {
     background-color: $white;
   }
