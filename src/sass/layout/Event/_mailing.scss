@@ -19,6 +19,7 @@
 
 .mailing_form {
   margin-top: 48px;
+
   & > input {
     @include text($main-font, $regular, 16px, 160%, $light-gray2);
     padding: 13px 16px;
@@ -26,6 +27,7 @@
     background-color: $white;
     border: none;
   }
+
   & > button {
     @include text($main-font, $bold, 16px, 52px, $white);
     padding-left: 40px;

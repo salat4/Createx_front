@@ -4,10 +4,23 @@ import imageMailing from "../../../images/illustration (3).png";
 
 export const Mailing = () => {
   const [checked, setChecked] = useState(true);
+  const [subscribeEmail, setSubscribeEmail] = useState("");
 
   const SubscribeSubmit = (e) => {
     e.preventDefault();
-    Notiflix.Notify.success("Subscription successful!");
+    // if (subscribeEmail === "") {
+    //   ref.current.focus();
+    //   Notiflix.Notify.warning("Fill in the email field to subscribe");
+    //   return;
+    // }
+
+    Notiflix.Notify.success(`${subscribeEmail} subscription successful!`);
+    setSubscribeEmail("");
+  };
+
+  const SubscribeFormEmail = (e) => {
+    const { value } = e.target;
+    setSubscribeEmail(value);
   };
 
   return (
@@ -22,7 +35,13 @@ export const Mailing = () => {
               Don’t want to miss the best events? Subscribe to our newsletter!
             </p>
             <form onSubmit={SubscribeSubmit} className="mailing_form">
-              <input placeholder="Your working email" />
+              <input
+                placeholder="Your working email"
+                onChange={SubscribeFormEmail}
+                value={subscribeEmail}
+                type="email"
+                required={true}
+              />
               <button type="submit" disabled={checked}>
                 Subscribe
               </button>
