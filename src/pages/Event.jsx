@@ -4,7 +4,7 @@ import Hero from "../components/Event/Hero";
 import Info from "../components/Event/Info";
 import Speaker from "../components/Event/Speaker";
 import Mailing from "../components/Event/Mailing";
-// import RequestForm from "../components/Event/RequestForm";
+import RequestForm from "../components/Event/RequestForm";
 // import Slider from "../components/Event/Slider";
 
 export default function EventPage({ id }) {
@@ -24,7 +24,7 @@ export default function EventPage({ id }) {
       <Info events={event} id={id} />
       <Speaker event={event} id={id} />
       <Mailing />
-      {/* <RequestForm /> */}
+      <RequestForm />
       {/* <Slider />  */}
     </>
   );
