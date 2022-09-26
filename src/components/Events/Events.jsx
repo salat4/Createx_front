@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
 import { v4 as uuidv4 } from "uuid";
 import pathToSvg from "../../images/symbol-defs.svg";
 import { getEvents } from "../../API";
 import { Subscribe } from "../Home/subscribe";
 
-export const Events = ({ eventId }) => {
+export const Events = () => {
   const [category, setCategory] = useState("All themes");
   const [sort, setSort] = useState("newest");
   const [amount, setAmount] = useState(9);
@@ -16,7 +15,6 @@ export const Events = ({ eventId }) => {
   const [listData, setListData] = useState(false);
   const [listAmount, setListAmount] = useState(false);
   const [view, setView] = useState("flex");
-  const [idE, setIdE] = useState(null);
 
   useEffect(() => {
     try {
@@ -56,7 +54,6 @@ export const Events = ({ eventId }) => {
         setListData(false);
         setListCategory(false);
         break;
-
       default:
         break;
     }
@@ -126,15 +123,6 @@ export const Events = ({ eventId }) => {
   const changeView = (e) => {
     const { id } = e.target;
     setView(id);
-  };
-
-  const More = (e) => {
-    const { id } = e.target;
-    if (idE === id || idE === "") {
-      return;
-    }
-    setIdE(id);
-    eventId(id);
   };
 
   return (
@@ -242,12 +230,7 @@ export const Events = ({ eventId }) => {
               <ul>
                 {events.map((i) => {
                   return (
-                    <li
-                      onMouseMove={More}
-                      id={i._id}
-                      className="info_item"
-                      key={uuidv4()}
-                    >
+                    <li id={i._id} className="info_item" key={uuidv4()}>
                       <p>{i.dates.date.slice(-2)}</p>
                       <div className="info_date-container">
                         <p>{i.dates.date.slice(0, 3)}</p>
@@ -258,8 +241,8 @@ export const Events = ({ eventId }) => {
                         <p>{i.category}</p>
                       </div>
                       <Link
-                        id={i._id}
-                        to="/events/event"
+                        to={`/events/${i._id}`}
+                        state={{ i, baseEvents }}
                         className="info_button"
                       >
                         View more
@@ -273,12 +256,7 @@ export const Events = ({ eventId }) => {
               <ul className="info_list--grid">
                 {events.map((i) => {
                   return (
-                    <li
-                      className="info_item--grid"
-                      onMouseMove={More}
-                      id={i._id}
-                      key={uuidv4()}
-                    >
+                    <li className="info_item--grid" id={i._id} key={uuidv4()}>
                       <p className="info_date--grid">
                         {i.dates.date.slice(-2)} {i.dates.date.slice(0, 3)}
                       </p>
@@ -286,8 +264,8 @@ export const Events = ({ eventId }) => {
                       <p className="info_text--grid">{i.eventInfo}</p>
                       <p className="info_category--grid">{i.category}</p>
                       <Link
-                        to="/events/event"
-                        id={i._id}
+                        to={`/events/${i._id}`}
+                        state={{ i, baseEvents }}
                         className="info_button--grid"
                       >
                         View more
