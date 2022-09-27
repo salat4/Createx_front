@@ -17,7 +17,7 @@ export default function EventPage() {
       <Speaker state={state} />
       <Mailing />
       <RequestForm />
-      <Slider />
+      <Slider state={state} />
     </>
   );
 }
