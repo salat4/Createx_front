@@ -1,0 +1,29 @@
+.slider_section {
+  background-color: $bg-gray;
+  padding-top: 100px;
+  padding-bottom: 180px;
+}
+
+.slider_head-container {
+  @include position(flex, flex-end, space-between, initial);
+}
+
+.slider_title-container {
+  & > p:first-child {
+    @include text($main-font, $bold, 16px, 150%, $dark-gray);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  & > p:last-child {
+    @include text($main-font, $boldest, 46px, 130%, $dark-gray);
+    margin-top: 8px;
+    margin-bottom: 60px;
+  }
+}
+
+.slider_button-right {
+  & > img {
+    color: $grey;
+  }
+}
