@@ -21,6 +21,10 @@
   // background-color: $bg-pink;
 }
 
+.logo{
+  cursor: pointer;
+}
+
 .nav-container {
   @include position(flex, initial, space-between, row);
 }
@@ -46,6 +50,7 @@
     color: $orange;
   }
 }
+
 .nav-link {
   color: $grey;
   cursor: pointer;

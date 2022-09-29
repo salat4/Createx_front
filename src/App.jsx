@@ -23,6 +23,9 @@ const EventPage = lazy(() =>
 const BlogPage = lazy(()=>
   import("./pages/Blog" /*webpackChunkName: "EventPage" */)
 )
+const CoursesPage = lazy(()=>
+  import("./pages/Courses" /*webpackChunkName: "CoursesPage" */)
+)
 
 
 function App() {
@@ -31,6 +34,7 @@ function App() {
       <Suspense fallback={"Loading"}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/courses" element={<CoursesPage />} />
           <Route path="/about" element={<AboutUsPages />} />
           <Route path="/events" element={<EventsPages />} />
           <Route path="/blogs" element={<BlogsPages />} />
