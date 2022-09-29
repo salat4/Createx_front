@@ -1,13 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Svg from "../../images/symbol-defs.svg";
+import getCourses from "../../API/getCourses";
 
 export const Courses = () => {
+  const [courses, setCourses] = useState(null);
+  const [search, setSearch] = useState("");
 
-    const [search,setSearch] = useState("")
-
-    const handleSearch = (e)=>{
-        setSearch(e.target.value);
+  useEffect(() => {
+    async function FetchCourses() {
+      const course = await getCourses();
+      setCourses(course);
     }
+    FetchCourses();
+  }, []);
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
   return (
     <div className="courses-section">
       <div className="container">
@@ -72,10 +81,56 @@ export const Courses = () => {
             </svg>
           </form>
         </div>
+        <ul className="courses-list">
+          {courses &&
+            courses.map((course) => {
+              return (
+                <li key={course._id} className="courses-list__item">
+                  <img
+                    src={course.profilePicture}
+                    alt="ff"
+                    width="390"
+                    className="coach-img"
+                  />
+                  <div className="courses-list__item__text-wrap">
+                    {course.typeOfCourse === "Management" && (
+                      <p className="course-item__name blue">
+                        {course.typeOfCourse}
+                      </p>
+                    )}
+                    {course.typeOfCourse === "HR & Recruting" && (
+                      <p className="course-item__name yellow">
+                        {course.typeOfCourse}
+                      </p>
+                    )}
+                    {course.typeOfCourse === "Design" && (
+                      <p className="course-item__name pink">
+                        {course.typeOfCourse}
+                      </p>
+                    )}
+                    {course.typeOfCourse === "Marketing" && (
+                      <p className="course-item__name turquoise">
+                        {course.typeOfCourse}
+                      </p>
+                    )}
+                    {course.typeOfCourse === "Development" && (
+                      <p className="course-item__name purple">
+                        {course.typeOfCourse}
+                      </p>
+                    )}
 
-        <div>
-            
-        </div>
+                    <h3 className="course-item__text">{course.about}</h3>
+                    <p className="courses-detail">
+                      <span className="price">{course.price}</span>
+                      <span color="$ight-gray">|</span>
+                      {course.name}
+                    </p>
+                  </div>
+                </li>
+              );
+            })}
+        </ul>
+        <div></div>
       </div>
     </div>
   );

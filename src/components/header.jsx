@@ -14,7 +14,6 @@ export const Header = () => {
     setModalLogin(false);
   };
 
-  
   const [modalLogin, setModalLogin] = useState(false);
 
   const showLoginForm = () => {
@@ -34,13 +33,13 @@ export const Header = () => {
           <div className="nav-container">
             <nav className="navigation">
               <Link className="logo" to="/">
-              <img
-                src={Logo}
-                width="130"
-                height="22"
-                alt="logo"
-                className="header-logo"
-              />
+                <img
+                  src={Logo}
+                  width="130"
+                  height="22"
+                  alt="logo"
+                  className="header-logo"
+                />
               </Link>
               <ul className="nav-list">
                 <li className="nav-list__item ">
