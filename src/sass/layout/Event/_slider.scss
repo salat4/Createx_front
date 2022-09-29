@@ -27,3 +27,38 @@
     color: $grey;
   }
 }
+
+.event_slider-card-container {
+  background: $white;
+  border: 1px solid $bg-input-gray;
+  box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08),
+    0px 30px 24px -10px rgba(154, 156, 165, 0.05),
+    0px 12px 10px -6px rgba(154, 156, 165, 0.04),
+    0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+  border-radius: 4px;
+  padding: 24px 24px;
+
+  & > button {
+    @include text($main-font, $bold, 14px, 44px, $orange);
+    width: 100%;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+    border: 1px solid $orange;
+    margin-top: auto;
+  }
+
+  & > p {
+    @include text($main-font, $regular, 16px, 160%, $light-gray);
+  }
+
+  & > p:first-child {
+    @include text($main-font, $bold, 28px, 150%, $orange);
+    margin-bottom: 4px;
+  }
+
+  & > p:nth-child(3) {
+    @include text($main-font, $bold, 18px, 150%, $dark-gray);
+    margin-bottom: 8px;
+    margin-top: 20px;
+  }
+}
