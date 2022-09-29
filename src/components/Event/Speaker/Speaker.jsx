@@ -6,28 +6,26 @@ import Logo12 from "../../../images/logo11-min.png";
 import { useEffect } from "react";
 import { useState } from "react";
 
-export const Speaker = ({ event }) => {
+export const Speaker = ({ state }) => {
   const [benefits, setBenefits] = useState(null);
   useEffect(() => {
     const arr = [];
-    if (event) {
-      event.map(({ list }) => {
-        for (let text of list) {
-          arr.push(text);
-        }
-        return list;
-      });
-      setBenefits(arr);
-    }
-  }, [event]);
+    [state.i].map(({ list }) => {
+      for (let text of list) {
+        arr.push(text);
+      }
+      return list;
+    });
+    setBenefits(arr);
+  }, [state]);
 
   return (
     <section className="speaker-section">
       <div className="container">
         <div className="speaker_container">
           <div className="speaker_image-container">
-            {event &&
-              event.map(({ profilePicture }) => {
+            {state &&
+              [state.i].map(({ profilePicture }) => {
                 return (
                   <img
                     key={uuid()}
@@ -40,8 +38,8 @@ export const Speaker = ({ event }) => {
           </div>
           <div className="speaker_info-container">
             <p className="speaker_title">Speaker</p>
-            {event &&
-              event.map(({ aboutName, aboutJobTitle, link }) => {
+            {state &&
+              [state.i].map(({ aboutName, aboutJobTitle, link }) => {
                 return (
                   <div key={uuid()}>
                     <p className="speaker_name">{aboutName}</p>

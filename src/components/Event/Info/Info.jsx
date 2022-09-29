@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 import pathToSvg from "../../../images/symbol-defs.svg";
 
-export const Info = ({ events, id }) => {
+export const Info = ({ state }) => {
   const [keyTheme, setKeyTheme] = useState(null);
   const [valueTheme, setValueTheme] = useState(null);
   const [event, setEvent] = useState(null);
@@ -13,19 +13,17 @@ export const Info = ({ events, id }) => {
     const arrKey = [];
     const arrValue = [];
     setindexInfo(100);
-    if (events) {
-      events.map(({ theme }) => {
-        for (const key in theme) {
-          arrKey.push(key);
-          arrValue.push(theme[key]);
-        }
-        return theme;
-      });
-      setKeyTheme(arrKey);
-      setValueTheme(arrValue);
-      setEvent(events);
-    }
-  }, [events]);
+    [state.i].map(({ theme }) => {
+      for (const key in theme) {
+        arrKey.push(key);
+        arrValue.push(theme[key]);
+      }
+      return theme;
+    });
+    setKeyTheme(arrKey);
+    setValueTheme(arrValue);
+    setEvent([state.i]);
+  }, [state]);
 
   const openInfo = (e) => {
     const { id } = e.target;
@@ -71,7 +69,7 @@ export const Info = ({ events, id }) => {
                         <span className="info_theme">{data}.</span>
                         {valueTheme && (
                           <span className="info_theme-text">
-                            {valueTheme.filter((elem, ind) => ind === index)[0]}
+                            {valueTheme.filter((_, ind) => ind === index)[0]}
                           </span>
                         )}
                       </li>
@@ -82,9 +80,9 @@ export const Info = ({ events, id }) => {
           </div>
           <div className="info_sidebar_container">
             <p className="info_sidebar_title">Time</p>
-            {events &&
-              events
-                .filter((data) => data._id === id)
+            {event &&
+              event
+                // .filter((data) => data._id === id)
                 .map(({ dates }) => {
                   return (
                     <p key={uuid()} className="info_sidebar_title-time">
