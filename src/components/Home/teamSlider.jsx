@@ -35,11 +35,10 @@ export default class MultipleItems extends Component {
       dots: false,
       infinite: true,
       speed: 500,
-      slidesToShow: 4,
+      slidesToShow: this.props.count,
       slidesToScroll: 1,
       prevArrow: <SamplePrevArrow />,
       nextArrow: <SampleNextArrow />,
-   
     };
     return (
       <Slider {...settings}>
@@ -49,36 +48,36 @@ export default class MultipleItems extends Component {
               return null;
             }
             return (
-                <div key={team._id} className="team-list__item">
-                  <div className="team-img__container">
-                    <img
-                      src={team.profilePicture}
-                      alt="teacher"
-                      width="285"
-                      height="340"
-                      className="team-photo"
-                    />
-                  </div>
-                  <ul className="team-social__list">
-                    <li className="team-social-svg">
-                      <svg className="social-svg" width="20" height="20">
-                        <use href={`${Svg}#icon-facebook`} />
-                      </svg>
-                    </li>
-                    <li className="team-social-svg">
-                      <svg className="social-svg" width="20" height="20">
-                        <use href={`${Svg}#icon-instagram`} />
-                      </svg>
-                    </li>
-                    <li className="team-social-svg">
-                      <svg className="social-svg" width="20" height="20">
-                        <use href={`${Svg}#icon-linked-in`} />
-                      </svg>
-                    </li>
-                  </ul>
-                  <p className="team-name">{team.aboutName}</p>
-                  <p className="team-position">{team.aboutJobTitle}</p>
+              <div key={team._id} className="team-list__item">
+                <div className="team-img__container">
+                  <img
+                    src={team.profilePicture}
+                    alt="teacher"
+                    width="285"
+                    height="340"
+                    className="team-photo"
+                  />
                 </div>
+                <ul className="team-social__list">
+                  <li className="team-social-svg">
+                    <svg className="social-svg" width="20" height="20">
+                      <use href={`${Svg}#icon-facebook`} />
+                    </svg>
+                  </li>
+                  <li className="team-social-svg">
+                    <svg className="social-svg" width="20" height="20">
+                      <use href={`${Svg}#icon-instagram`} />
+                    </svg>
+                  </li>
+                  <li className="team-social-svg">
+                    <svg className="social-svg" width="20" height="20">
+                      <use href={`${Svg}#icon-linked-in`} />
+                    </svg>
+                  </li>
+                </ul>
+                <p className="team-name">{team.aboutName}</p>
+                <p className="team-position">{team.aboutJobTitle}</p>
+              </div>
             );
           })}
       </Slider>
