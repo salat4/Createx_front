@@ -26,7 +26,6 @@ export const TeamAbout = () => {
               {team &&
                 team.map(
                   ({ aboutName, profilePicture, aboutJobTitle }, indx) => {
-                    console.log(aboutName);
                     if (indx === 7) {
                       return null;
                     }
