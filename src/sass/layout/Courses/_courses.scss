@@ -4,7 +4,34 @@
 
 .courses-section-title {
   text-align: center;
+  margin-bottom: 60px;
 }
+
+.courses-navigation__wrap{
+    @include position(flex, center, space-between, row);
+    margin-bottom: 60px;
+}
+.courses-navigation__list{
+    display: flex;
+}
+
+.courses-navigation__list__item{
+    margin-right: 12px;
+}
+
+.courses-navigation__list__item__btn{
+    padding: 10px 20px;
+    
+    font-weight: 700;
+font-size: 16px;
+line-height: 160%;
+/* identical to box height, or 26px */
+
+text-align: center;
+
+/* gray/600 */
+
+color: #9A9CA5;
 
 .courses-list {
   display: flex;
@@ -40,3 +67,14 @@
 .courses-list__item__text-wrap {
   padding: 0 24px 24px 24px;
 }
+
+
+.review-section {
+    background-color: #f4f5f7;
+    padding: 80px 0 160px 0;
+  }
+  
+
+  .certificate-section{
+    padding: 120px 0;
+  }

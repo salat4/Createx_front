@@ -26,40 +26,40 @@ export const Courses = () => {
           <span className="title">Our online courses</span>
         </h2>
 
-        <div>
-          <ul>
-            <li>
-              <button>
+        <div className="courses-navigation__wrap">
+          <ul className="courses-navigation__list" >
+            <li className="courses-navigation__list__item">
+              <button className="courses-navigation__list__item__btn">
                 All
                 <span></span>
               </button>
             </li>
-            <li>
-              <button>
+            <li className="courses-navigation__list__item">
+              <button className="courses-navigation__list__item__btn">
                 Marketing
                 <span></span>
               </button>
             </li>
-            <li>
-              <button>
+            <li className="courses-navigation__list__item">
+              <button className="courses-navigation__list__item__btn">
                 Management
                 <span></span>
               </button>
             </li>
-            <li>
-              <button>
+            <li className="courses-navigation__list__item">
+              <button className="courses-navigation__list__item__btn">
                 HR & Recruting
                 <span></span>
               </button>
             </li>
-            <li>
-              <button>
+            <li className="courses-navigation__list__item">
+              <button className="courses-navigation__list__item__btn">
                 Design
                 <span></span>
               </button>
             </li>
-            <li>
-              <button>
+            <li className="courses-navigation__list__item">
+              <button className="courses-navigation__list__item__btn">
                 Development
                 <span></span>
               </button>

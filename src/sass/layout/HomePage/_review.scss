@@ -82,7 +82,7 @@
 }
 
 .slick-prev {
-    z-index: 1;
+  z-index: 1;
   font-size: 0;
   line-height: 0;
   left: 2%;
@@ -130,7 +130,8 @@
   }
 }
 
-.slick-next:before, .slick-prev:before {
+.slick-next:before,
+.slick-prev:before {
   content: "";
 }
 

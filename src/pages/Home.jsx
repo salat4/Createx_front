@@ -1,6 +1,5 @@
 import { HeroHeader } from "../components/Home/hero-header";
 
-
 import { About } from "../components/Home/about";
 import { Corses } from "../components/Home/corses";
 import { Benefit } from "../components/Home/benefits";
