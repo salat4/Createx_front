@@ -55,7 +55,8 @@ export default class MultipleItems extends Component {
               </div>
             );
           })}
-        {/* {this.props.props &&
+        {this.props.props &&
+          this.props.page === "home" &&
           this.props.props.map((team, indx) => {
             if (indx === 7) {
               return null;
@@ -92,7 +93,7 @@ export default class MultipleItems extends Component {
                 <p className="team-position">{team.aboutJobTitle}</p>
               </div>
             );
-          })} */}
+          })}
       </Slider>
     );
   }

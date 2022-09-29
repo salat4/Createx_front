@@ -4,12 +4,16 @@ import getCourses from "../../API/getCourses";
 
 export const Courses = () => {
   const [courses, setCourses] = useState(null);
+  const [typeCourses, setTypeCourses] = useState(null)
+
   const [search, setSearch] = useState("");
+  const [active, setActive] = useState("All")
 
   useEffect(() => {
     async function FetchCourses() {
       const course = await getCourses();
       setCourses(course);
+      setTypeCourses(course)
     }
     FetchCourses();
   }, []);
@@ -17,8 +21,40 @@ export const Courses = () => {
   const handleSearch = (e) => {
     setSearch(e.target.value);
   };
-  return (
-    <div className="courses-section">
+
+  
+  const filter = (condition, data) =>{ 
+      return data.filter(item =>{
+          return Object.keys(condition).every(key =>{
+              return String(item[ key ]).toLowerCase().includes(
+                  String( condition[ key ]).trim().toLowerCase()
+                  )
+                })
+            })
+        }
+        useEffect(()=>{
+            
+    let condition = {}
+    
+        if (active === "All" ){
+             condition = { about: search}
+        }
+        else if ( active !== "All"){
+            condition = { typeOfCourse: active,about: search}
+        }
+        
+        if(courses){
+            setTypeCourses(filter(condition, courses))
+        }        
+        
+    },[courses, search, active])
+    
+    function filterType(e) {
+      setActive(e.target.innerText); 
+  }
+
+    return (
+        <div className="courses-section">
       <div className="container">
         <h2 className="text courses-section-title">
           Enjoy your studying!
@@ -27,39 +63,39 @@ export const Courses = () => {
         </h2>
 
         <div className="courses-navigation__wrap">
-          <ul className="courses-navigation__list" >
-            <li className="courses-navigation__list__item">
-              <button className="courses-navigation__list__item__btn">
-                All
+          <ul className="courses-navigation__list">
+            <li className='courses-navigation__list__item'>
+              <button className={`courses-navigation__list__item__btn  ${"All" === active && "active"}`} onClick={filterType}>
+              All
                 <span></span>
               </button>
             </li>
             <li className="courses-navigation__list__item">
-              <button className="courses-navigation__list__item__btn">
+              <button className={`courses-navigation__list__item__btn  ${"Marketing" === active && "active"}`} onClick={filterType}>
                 Marketing
                 <span></span>
               </button>
             </li>
             <li className="courses-navigation__list__item">
-              <button className="courses-navigation__list__item__btn">
+              <button className={`courses-navigation__list__item__btn  ${"Management" === active && "active"}`} onClick={filterType}>
                 Management
                 <span></span>
               </button>
             </li>
             <li className="courses-navigation__list__item">
-              <button className="courses-navigation__list__item__btn">
+              <button className={`courses-navigation__list__item__btn  ${"HR & Recruting" === active && "active"}`} onClick={filterType}>
                 HR & Recruting
                 <span></span>
               </button>
             </li>
             <li className="courses-navigation__list__item">
-              <button className="courses-navigation__list__item__btn">
+              <button className={`courses-navigation__list__item__btn  ${"Design" === active && "active"}`} onClick={filterType}>
                 Design
                 <span></span>
               </button>
             </li>
             <li className="courses-navigation__list__item">
-              <button className="courses-navigation__list__item__btn">
+              <button className={`courses-navigation__list__item__btn  ${"Development" === active && "active"}`} onClick={filterType}>
                 Development
                 <span></span>
               </button>
@@ -68,7 +104,7 @@ export const Courses = () => {
 
           <form className="blogs__hero__menu__category__form">
             <input
-              placeholder="Search blog..."
+              placeholder="Search course..."
               className="blogs__hero__menu__category__search"
               onChange={handleSearch}
             ></input>
@@ -82,8 +118,8 @@ export const Courses = () => {
           </form>
         </div>
         <ul className="courses-list">
-          {courses &&
-            courses.map((course) => {
+          {typeCourses  &&
+            typeCourses.map((course) => {
               return (
                 <li key={course._id} className="courses-list__item">
                   <img
