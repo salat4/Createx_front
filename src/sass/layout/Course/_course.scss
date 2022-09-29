@@ -1,0 +1,46 @@
+.hero-course__container {
+  text-align: center;
+  padding: 120px 0;
+}
+
+.hero-heder__course__section {
+  background-color: $bg-pink;
+}
+.course-hero__text {
+  @include text($main-font, $bold, 16px, 150%, $orange);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.course-hero__title {
+  @include text($main-font, $boldest, 46px, 130%, $dark-gray);
+}
+
+.about-course__section {
+  padding: 120px 0;
+}
+
+.about-course__text__wrap{
+    width: 600px;
+    display: block;
+
+}
+
+.about-course__title{
+margin-bottom: 40px;
+@include text($main-font, $boldest, 46px, 130%, $dark-gray);
+
+}
+
+.about-course__text{
+margin-bottom: 48px;
+width: 100%;
+@include text($main-font, $regular, 16px, 160%, $grey);
+
+}
+
+.about-course__learn__title{
+    margin-bottom: 24px;
+    @include text($main-font, $bold, 28px, 160%, $dark-gray);
+
+}
