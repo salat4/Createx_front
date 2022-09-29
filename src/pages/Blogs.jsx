@@ -1,10 +1,9 @@
 import getBlogs from "../API/getBlogs"
 import { useEffect,useState } from "react";
 import UserSvg from "../images/symbol-defs.svg";
-// import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export default function Blogs(course)  {
-    // const location = useLocation();
+export default function Blogs()  {
 
     const [blogs, setBlog] = useState(null)
     const [typeBlogs, setTypeBlogs] = useState(null)
@@ -24,11 +23,7 @@ export default function Blogs(course)  {
         
         FetchBlogs()
     },[])
-
-    
-    // let condition = {typeofBlog:"Podcast",title:"profiles"}
-    // console.log(filter(condition))
-    const filter = (condition, data) =>{
+    const filter = (condition, data) =>{ 
         return data.filter(item =>{
             return Object.keys(condition).every(key =>{
                 return String(item[ key ]).toLowerCase().includes(
@@ -57,185 +52,24 @@ export default function Blogs(course)  {
         }
         
         if(blogs){
-            console.log(condition);
             setTypeBlogs(filter(condition, blogs))
         }        
          
     },[blogs, category, search, active])
 
     function filterType(e) {
-
-        // if (e.target.innerText !== "All") {
-            setActive(e.target.innerText);
-        // }
-        // else {
-        //     setTypeBlogs(blogs);
-        // }
-
-        // if(e.target.innerText !== "All"){
-        //     if(blogs.length === typeBlogs.length){
-        //         console.log("Type of blog tilky odyn")
-        //         setTypeBlogs(blogs.filter(
-        //             el => el.typeofBlog.toLowerCase().indexOf(e.target.innerText.toLowerCase()) !== -1
-        //         ))
-        //     }
-        //     else if (search !== "" && category === "All themes"){
-        //         console.log("Type of blog plus poshuk")
-        //         let i =(blogs.filter(
-        //         el => el.typeofBlog.toLowerCase().indexOf(e.target.innerText.toLowerCase()) !== -1
-        //     ))  
-        //     setTypeBlogs(i.filter(
-        //         el => el.title.toLowerCase().indexOf(search.toLowerCase()) !== -1
-        //     ))
-        //     }
-        //     else if (category !== "All themes" && search === ""){
-        //         console.log("Type of blog plus category")
-        //         let i =(blogs.filter(
-        //         el => el.typeofBlog.toLowerCase().indexOf(e.target.innerText.toLowerCase()) !== -1
-        //     ))  
-        //     setTypeBlogs(i.filter(
-        //         el => el.category.toLowerCase().indexOf(category.toLowerCase()) !== -1
-        //     ))
-        //     }
-        //     else if (category !== "All themes" && search !== ""){
-        //         console.log("Type of blog plus category")
-        //         let i = (blogs.filter(
-        //         el => el.typeofBlog.toLowerCase().indexOf(e.target.innerText.toLowerCase()) !== -1
-        //     ))  
-        //         let j =(i.filter(
-        //             el => el.title.toLowerCase().indexOf(search.toLowerCase()) !== -1
-        //     ))  
-        //     setTypeBlogs(j.filter(
-        //         el => el.category.toLowerCase().indexOf(category.toLowerCase()) !== -1
-        //     ))
-        //     }
-        //     else {
-        //         console.log("Type of blog problema")
-        //         setTypeBlogs(blogs.filter(
-        //             el => el.typeofBlog.toLowerCase().indexOf(e.target.innerText.toLowerCase()) !== -1
-        //         ))   
-        //     }
-        // }
-        // else{
-        // }
+        setActive(e.target.innerText);
+        
     }
 
     const showList = () =>{
         setList(!list)
     }
     const handleCategory = (e)=>{
-
-
-      //  if(e.target.id !== "All themes" ){
-            setCategory(e.target.id)
-       // }
-        
-        // if(e.target.id !== "All themes" ){
-        //     if(blogs.length === typeBlogs.length){
-        //         console.log("Category tilky odyn")
-
-        //         setTypeBlogs(blogs.filter(
-        //             el => el.category.toLowerCase().indexOf(e.target.id.toLowerCase()) !== -1
-        //         ))
-        //     }
-        //     else if (typeBlogs !== "All" && search === ""){
-        //         console.log("Category plus type of blog")
-
-        //         let i =(blogs.filter(
-        //         el => el.category.toLowerCase().indexOf(e.target.id.toLowerCase()) !== -1
-        //     ))  
-        //     setTypeBlogs(i.filter(
-        //         el => el.typeofBlog.toLowerCase().indexOf(typeBlogs.toLowerCase()) !== -1
-        //     ))
-        //     }
-        //     else if (search !== "" && typeBlogs === "All"){
-        //         console.log("Category plus poshuk")
-
-        //      let i = (blogs.filter(
-        //         el => el.category.toLowerCase().indexOf(e.target.id.toLowerCase()) !== -1
-        //     )) 
-        //     setTypeBlogs(i.filter(
-        //         el => el.title.toLowerCase().indexOf(search.toLowerCase()) !== -1
-        //     ))
-        //     }
-        //     else if (search !== "" && typeBlogs !== "All"){
-        //         console.log("Category plus poshuk")
-
-        //      let i = (blogs.filter(
-        //         el => el.category.toLowerCase().indexOf(e.target.id.toLowerCase()) !== -1
-        //     )) 
-        //     let j = (i.filter(
-        //         el => el.typeBlogs.toLowerCase().indexOf(typeBlogs.toLowerCase()) !== -1
-        //     ))
-        //     setTypeBlogs(j.filter(
-        //         el => el.title.toLowerCase().indexOf(search.toLowerCase()) !== -1
-        //     ))
-        //     }
-        //     else {
-        //         console.log("Category pomulka")
-
-        //         setTypeBlogs(blogs.filter(
-        //             el => el.category.toLowerCase().indexOf(e.target.id.toLowerCase()) !== -1
-        //         ))   
-        //     }
-            
-        // }
-        // else{
-        //     setTypeBlogs(blogs)
-        // }
+        setCategory(e.target.id)
     }
     const handleSearch = (e)=>{
-
-
-
         setSearch(e.target.value);
-        // if(blogs.length === typeBlogs.length){
-        //     console.log("Poshuk tilky odyn")
-
-        //     setTypeBlogs(blogs.filter(
-        //         el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
-        //     ))
-        // }
-        // else if (typeBlogs !== "All" && category === "All themes"){
-        //     console.log("Poshuk plus type of blog")
-
-        //     let i =(blogs.filter(
-        //     el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
-        // ))  
-        // setTypeBlogs(i.filter(
-        //     el => el.typeofBlog.toLowerCase().indexOf(typeBlogs.toLowerCase()) !== -1
-        // ))
-        // }
-        // else if (category !== "All themes" && typeBlogs === "All"){
-        //     console.log("Poshuk plus category")
-
-        //     let i =(blogs.filter(
-        //     el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
-        // ))  
-        // setTypeBlogs(i.filter(
-        //     el => el.category.toLowerCase().indexOf(category.toLowerCase()) !== -1
-        // ))
-        // }
-        // else if (category !== "All themes" && typeBlogs !== "All"){
-        //     console.log("Poshuk plus category")
-
-        //     let i =(blogs.filter(
-        //     el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
-        // ))  
-        // let j = (i.filter(
-        //     el => el.typeofBlog.toLowerCase().indexOf(typeBlogs.toLowerCase()) !== -1
-        // ))
-        // setTypeBlogs(j.filter(
-        //     el => el.category.toLowerCase().indexOf(category.toLowerCase()) !== -1
-        // ))
-        // }
-        // else {
-        //     console.log("Poshuk problema")
-
-        //     setTypeBlogs(blogs.filter(
-        //         el => el.title.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
-        //     ))   
-        // }
     }
 
    
@@ -344,21 +178,21 @@ export default function Blogs(course)  {
                                     <p className="blog__hero__list__item__box__title">{blog.title}</p>
                                     <p className="blog__hero__list__item__box__text">{blog.text}</p>
                                     { blog.typeofBlog === "Podcast" && 
-                                    <div className = "blog__hero__list__item__box__button">
+                                    <Link className = "blog__hero__list__item__box__button" to = {{pathname:`/blogs/${blog._id}`}} state= {{blog, blogs}}>
                                         <p>Listen</p> 
                                         <svg width="24" height = "24" className="blog__hero__list__item__box__button--red">
                                             <use href={`${UserSvg}#icon-Right`}></use>
                                         </svg>
-                                        </div> }
+                                        </Link> }
                                        
                                     {blog.typeofBlog === "Video" &&
-                                    <div className = "blog__hero__list__item__box__button"><p>Read</p><svg width="24" height = "24" className="blog__hero__list__item__box__button--red" >
+                                    <Link to = {{pathname:`/blogs/${blog._id}`}} state= {{blog, blogs}} className = "blog__hero__list__item__box__button"><p>Watch</p><svg width="24" height = "24" className="blog__hero__list__item__box__button--red" >
                                     <use href={`${UserSvg}#icon-Right`}></use>
-                                </svg></div>}
+                                </svg></Link>}
                                     {blog.typeofBlog === "Article" &&
-                                    <div className = "blog__hero__list__item__box__button"><p>Watch</p><svg width="24" height = "24"  className="blog__hero__list__item__box__button--red">
+                                    <Link to = {{pathname:`/blogs/${blog._id}`}} state= {{blog, blogs}} className = "blog__hero__list__item__box__button"><p>Read</p><svg width="24" height = "24"  className="blog__hero__list__item__box__button--red">
                                     <use href={`${UserSvg}#icon-Right`}></use>
-                                </svg></div>}  
+                                </svg></Link>}  
                                 </div>
                                 
                                 
