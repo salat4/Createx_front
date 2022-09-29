@@ -9,7 +9,6 @@ import Slider from "../components/Event/Slider";
 export default function EventPage() {
   const location = useLocation();
   const { state } = location;
-
   return (
     <>
       <Hero />
