@@ -32,13 +32,15 @@ export const Header = () => {
         <div className="container">
           <div className="nav-container">
             <nav className="navigation">
-              <img
-                src={Logo}
-                width="130"
-                height="22"
-                alt="logo"
-                className="header-logo"
-              />
+              <Link className="logo" to="/">
+                <img
+                  src={Logo}
+                  width="130"
+                  height="22"
+                  alt="logo"
+                  className="header-logo"
+                />
+              </Link>
               <ul className="nav-list">
                 <li className="nav-list__item ">
                   <Link to="/about" className="nav-link hover">

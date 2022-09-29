@@ -84,6 +84,10 @@
   background-color: $pink;
 }
 
+.purple{
+  background-color: #7772F1;
+}
+
 .course-item__text {
   @include text($main-font, $bold, 20px, 150%, $dark-gray);
   margin-bottom: 20px;
