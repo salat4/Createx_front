@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import getCourses from "../../API/getCourses";
+import getColor from "../getColor";
 
 export const Corses = () => {
   const [courses, setCourses] = useState(null);
@@ -53,26 +54,12 @@ export const Corses = () => {
                     className="coach-img"
                   />
                   <div>
-                    {course.typeOfCourse === "Management" && (
-                      <p className="course-item__name blue">
-                        {course.typeOfCourse}
-                      </p>
-                    )}
-                    {course.typeOfCourse === "HR & Recruting" && (
-                      <p className="course-item__name yellow">
-                        {course.typeOfCourse}
-                      </p>
-                    )}
-                    {course.typeOfCourse === "Design" && (
-                      <p className="course-item__name pink">
-                        {course.typeOfCourse}
-                      </p>
-                    )}
-                    {course.typeOfCourse === "Marketing" && (
-                      <p className="course-item__name turquoise">
-                        {course.typeOfCourse}
-                      </p>
-                    )}
+                    <p
+                      className="course-item__name"
+                      style={{ backgroundColor: getColor(course.typeOfCourse) }}
+                    >
+                      {course.typeOfCourse}
+                    </p>
 
                     <h3 className="course-item__text">{course.about}</h3>
                     <p className="courses-detail">
