@@ -46,33 +46,47 @@ export const Info = ({ state }) => {
                 {keyTheme &&
                   keyTheme.map((data, index) => {
                     return (
-                      <li
-                        onClick={openInfo}
-                        id={index}
-                        className="info_about-item"
-                        key={index}
-                      >
-                        <button id={index} className="info_button-list">
-                          {index === Number(indexInfo) ? (
-                            <svg id={index} width="18" height="18">
-                              <use
-                                id={index}
-                                href={`${pathToSvg}#icon-Minus`}
-                              />
-                            </svg>
-                          ) : (
-                            <svg id={index} width="18" height="18">
-                              <use id={index} href={`${pathToSvg}#icon-plus`} />
-                            </svg>
+                      <div className="info_about-container" key={index}>
+                        <li className="info_about-item">
+                          <button
+                            id={index}
+                            className="info_button-list"
+                            onClick={openInfo}
+                          >
+                            {index === Number(indexInfo) ? (
+                              <svg id={index} width="18" height="18">
+                                <use
+                                  id={index}
+                                  href={`${pathToSvg}#icon-Minus`}
+                                />
+                              </svg>
+                            ) : (
+                              <svg id={index} width="18" height="18">
+                                <use
+                                  id={index}
+                                  href={`${pathToSvg}#icon-plus`}
+                                />
+                              </svg>
+                            )}
+                          </button>
+                          <span className="info_theme">{data}.</span>
+                          {valueTheme && (
+                            <span className="info_theme-text">
+                              {valueTheme.filter((_, ind) => ind === index)[0]}
+                            </span>
                           )}
-                        </button>
-                        <span className="info_theme">{data}.</span>
-                        {valueTheme && (
-                          <span className="info_theme-text">
-                            {valueTheme.filter((_, ind) => ind === index)[0]}
-                          </span>
+                        </li>
+                        {index === Number(indexInfo) && (
+                          <p>
+                            Nulla amet, sagittis potenti rhoncus sit. Elit
+                            lectus nec pulvinar aliquet donec enim, ornare.
+                            Lacus facilisi curabitur turpis varius mauris. Nisi,
+                            tempus risus, odio mi suscipit sed. Curabitur
+                            faucibus porttitor quis sem lacus, arcu feugiat
+                            facilisis. Commodo nunc orci vitae accumsan id.
+                          </p>
                         )}
-                      </li>
+                      </div>
                     );
                   })}
               </ul>
@@ -81,15 +95,13 @@ export const Info = ({ state }) => {
           <div className="info_sidebar_container">
             <p className="info_sidebar_title">Time</p>
             {event &&
-              event
-                // .filter((data) => data._id === id)
-                .map(({ dates }) => {
-                  return (
-                    <p key={uuid()} className="info_sidebar_title-time">
-                      {dates.date}, {dates.time}
-                    </p>
-                  );
-                })}
+              event.map(({ dates }) => {
+                return (
+                  <p key={uuid()} className="info_sidebar_title-time">
+                    {dates.date}, {dates.time}
+                  </p>
+                );
+              })}
             <p className="info_sidebar_title-text">
               Metus turpis sit lorem lacus, in elit tellus lacus.
             </p>

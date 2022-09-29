@@ -1,7 +1,6 @@
 import TeamSlider from "../../Home/teamSlider";
 
 export const Slider = ({ state }) => {
-  console.log(state.baseEvents);
   return (
     <section className="slider_section">
       <div className="container">
