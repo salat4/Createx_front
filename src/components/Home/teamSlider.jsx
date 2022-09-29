@@ -43,6 +43,19 @@ export default class MultipleItems extends Component {
     return (
       <Slider {...settings}>
         {this.props.props &&
+          this.props.page === "event" &&
+          this.props.props.map(({ _id, dates, eventInfo, category }) => {
+            return (
+              <div key={_id} className="event_slider-card-container">
+                <p>{dates.date}</p>
+                <p>{dates.time}</p>
+                <p>{eventInfo}</p>
+                <p>{category}</p>
+                <button>View more</button>
+              </div>
+            );
+          })}
+        {/* {this.props.props &&
           this.props.props.map((team, indx) => {
             if (indx === 7) {
               return null;
@@ -79,7 +92,7 @@ export default class MultipleItems extends Component {
                 <p className="team-position">{team.aboutJobTitle}</p>
               </div>
             );
-          })}
+          })} */}
       </Slider>
     );
   }
