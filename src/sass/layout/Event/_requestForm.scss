@@ -1,0 +1,51 @@
+.request_container {
+  @include position(flex, center, space-between, initial);
+  margin-bottom: 120px;
+}
+
+.request_form-container {
+  width: 500px;
+
+  & > p:first-child {
+    @include text($main-font, $bold, 16px, 150%, $dark-gray);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  & > p:nth-child(2) {
+    @include text($main-font, $boldest, 46px, 130%, $dark-gray);
+    margin-top: 8px;
+    margin-bottom: 40px;
+  }
+
+  & > p:last-child {
+    @include text($main-font, $regular, 16px, 160%, $grey);
+  }
+}
+
+.request_form {
+  @include position(flex, initial, initial, column);
+
+  & > label {
+    @include text($main-font, $regular, 16px, 160%, $grey);
+    margin-bottom: 8px;
+  }
+
+  & > label:not(:first-child) {
+    margin-top: 24px;
+  }
+
+  & > input {
+    @include text($main-font, $regular, 16px, 160%, $dark-gray);
+    padding: 13px 16px;
+  }
+
+  & > button {
+    @include text($main-font, $bold, 16px, 52px, $white);
+    letter-spacing: 0.5px;
+    background: linear-gradient(55.95deg, #ff3f3a 0%, #f75e05 100%);
+    border-radius: 4px;
+    margin-bottom: 24px;
+    margin-top: 40px;
+  }
+}

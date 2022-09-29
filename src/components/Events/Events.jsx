@@ -54,7 +54,6 @@ export const Events = () => {
         setListData(false);
         setListCategory(false);
         break;
-
       default:
         break;
     }
@@ -231,7 +230,7 @@ export const Events = () => {
               <ul>
                 {events.map((i) => {
                   return (
-                    <li className="info_item" key={uuidv4()}>
+                    <li id={i._id} className="info_item" key={uuidv4()}>
                       <p>{i.dates.date.slice(-2)}</p>
                       <div className="info_date-container">
                         <p>{i.dates.date.slice(0, 3)}</p>
@@ -241,7 +240,11 @@ export const Events = () => {
                         <p>{i.eventInfo}</p>
                         <p>{i.category}</p>
                       </div>
-                      <Link to="/event" className="info_button">
+                      <Link
+                        to={`/events/${i._id}`}
+                        state={{ i, baseEvents }}
+                        className="info_button"
+                      >
                         View more
                       </Link>
                     </li>
@@ -253,14 +256,20 @@ export const Events = () => {
               <ul className="info_list--grid">
                 {events.map((i) => {
                   return (
-                    <li className="info_item--grid" key={uuidv4()}>
+                    <li className="info_item--grid" id={i._id} key={uuidv4()}>
                       <p className="info_date--grid">
                         {i.dates.date.slice(-2)} {i.dates.date.slice(0, 3)}
                       </p>
                       <p className="info_time--grid">{i.dates.time}</p>
                       <p className="info_text--grid">{i.eventInfo}</p>
                       <p className="info_category--grid">{i.category}</p>
-                      <button className="info_button--grid">View more</button>
+                      <Link
+                        to={`/events/${i._id}`}
+                        state={{ i, baseEvents }}
+                        className="info_button--grid"
+                      >
+                        View more
+                      </Link>
                     </li>
                   );
                 })}

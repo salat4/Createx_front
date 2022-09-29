@@ -1,12 +1,18 @@
 import getBlogs from "../API/getBlogs"
 import { useEffect,useState } from "react";
 import UserSvg from "../images/symbol-defs.svg";
+import { Link } from "react-router-dom";
 
 export default function Blogs()  {
 
     const [blogs, setBlog] = useState(null)
     const [typeBlogs, setTypeBlogs] = useState(null)
     const [active, setActive] = useState("All")
+    const [category, setCategory] = useState("All themes")
+    const [list,setList] = useState(false)
+    const [search,setSearch] = useState("")
+
+
     useEffect(() => {
         async function FetchBlogs() {
             const blog = await getBlogs()
@@ -14,22 +20,59 @@ export default function Blogs()  {
             setTypeBlogs(blog)
             
         }
+        
         FetchBlogs()
     },[])
-
-    const filterType = (e)=>{
-        if(e.target.innerText !== "All"){
-            setTypeBlogs(blogs.filter(
-                el => el.typeofBlog.toLowerCase().indexOf(e.target.innerText.toLowerCase()) !== -1
-            ))
-        }
-        else{
-            setTypeBlogs(blogs)
-        }
-        setActive(e.target.innerText)
-
-
+    const filter = (condition, data) =>{ 
+        return data.filter(item =>{
+            return Object.keys(condition).every(key =>{
+                return String(item[ key ]).toLowerCase().includes(
+                    String( condition[ key ]).trim().toLowerCase()
+                )
+            })
+        })
     }
+
+
+    useEffect(()=>{
+        
+    let condition = {}
+
+        if (active === "All" && category !== "All themes"){
+             condition = { title: search, category: category}
+        }
+        else if (category === "All themes" && active !== "All"){
+            condition = { typeofBlog: active,title: search}
+        }
+        else if (category === "All themes" && active === "All"){
+            condition = { title: search}
+        }
+        else if (category !== "All themes" && active !== "All"){
+            condition = {typeofBlog: active, title: search, category: category}
+        }
+        
+        if(blogs){
+            setTypeBlogs(filter(condition, blogs))
+        }        
+         
+    },[blogs, category, search, active])
+
+    function filterType(e) {
+        setActive(e.target.innerText);
+        
+    }
+
+    const showList = () =>{
+        setList(!list)
+    }
+    const handleCategory = (e)=>{
+        setCategory(e.target.id)
+    }
+    const handleSearch = (e)=>{
+        setSearch(e.target.value);
+    }
+
+   
 
     return (
         <>
@@ -65,16 +108,25 @@ export default function Blogs()  {
                     </ul>
                     <div className="blogs__hero__menu__category">
                         <p className="blogs__hero__menu__category__text">Blog category</p>
-                        <select className="blogs__hero__menu__category__select">
-                            <option value="">all themes</option>
-                            <option value="1">Marketing</option>
-                            <option value="2">Development</option>
-                            <option value="3">Design</option>
-                            <option value="4">HR & Recruting</option>
-                            <option value="5">Management</option>
-                        </select>
+                        <div onClick={showList}>
+                            <p>{category}</p>
+                            <svg width="16" height="16" id="sort">
+                                <use href={`${UserSvg}#icon-arrow-down-filter`} />
+                            </svg>
+                            {list && 
+                            <div>
+                                <ul className = "blogs__hero__menu__category__select" onClick={handleCategory}>
+                                    <li id = "All themes">All themes</li>
+                                    <li id="Marketing">Marketing</li>
+                                    <li id="Development">Development</li>
+                                    <li id="Design">Design</li>
+                                    <li id="HR & Recruting">HR & Recruting</li>
+                                    <li id="Management">Management</li>
+                                </ul>
+                            </div>}
+                        </div>
                         <form className="blogs__hero__menu__category__form" >
-                            <input placeholder="Search blog..." className="blogs__hero__menu__category__search"></input>
+                            <input placeholder="Search blog..." className="blogs__hero__menu__category__search" onChange={handleSearch}></input>
                             <svg width="16" height="16" className="blogs__hero__menu__category__search__icon">
                                 <use href = {`${UserSvg}#icon-search`}>
 
@@ -126,21 +178,21 @@ export default function Blogs()  {
                                     <p className="blog__hero__list__item__box__title">{blog.title}</p>
                                     <p className="blog__hero__list__item__box__text">{blog.text}</p>
                                     { blog.typeofBlog === "Podcast" && 
-                                    <div className = "blog__hero__list__item__box__button">
+                                    <Link className = "blog__hero__list__item__box__button" to = {{pathname:`/blogs/${blog._id}`}} state= {{blog, blogs}}>
                                         <p>Listen</p> 
                                         <svg width="24" height = "24" className="blog__hero__list__item__box__button--red">
                                             <use href={`${UserSvg}#icon-Right`}></use>
                                         </svg>
-                                        </div> }
+                                        </Link> }
                                        
                                     {blog.typeofBlog === "Video" &&
-                                    <div className = "blog__hero__list__item__box__button"><p>Read</p><svg width="24" height = "24" className="blog__hero__list__item__box__button--red" >
+                                    <Link to = {{pathname:`/blogs/${blog._id}`}} state= {{blog, blogs}} className = "blog__hero__list__item__box__button"><p>Watch</p><svg width="24" height = "24" className="blog__hero__list__item__box__button--red" >
                                     <use href={`${UserSvg}#icon-Right`}></use>
-                                </svg></div>}
+                                </svg></Link>}
                                     {blog.typeofBlog === "Article" &&
-                                    <div className = "blog__hero__list__item__box__button"><p>Watch</p><svg width="24" height = "24"  className="blog__hero__list__item__box__button--red">
+                                    <Link to = {{pathname:`/blogs/${blog._id}`}} state= {{blog, blogs}} className = "blog__hero__list__item__box__button"><p>Read</p><svg width="24" height = "24"  className="blog__hero__list__item__box__button--red">
                                     <use href={`${UserSvg}#icon-Right`}></use>
-                                </svg></div>}  
+                                </svg></Link>}  
                                 </div>
                                 
                                 

@@ -20,7 +20,8 @@
 @import "./layout/HomePage/subscribe";
 @import "./layout/HomePage/consultation-modal";
 
-@import "./layout//Blog/blog";
+@import "./layout/Blogs/blogs";
+@import "./layout/Blog/blog";
 
 @import "./layout/AboutUs/hero";
 @import "./layout/AboutUs/statistics";
@@ -31,6 +32,11 @@
 @import "./layout/AboutUs/companies";
 @import "./layout/Events/events";
 @import "./layout/Event/hero";
+@import "./layout/Event/info";
+@import "./layout/Event/speaker";
+@import "./layout/Event/mailing";
+@import "./layout/Event/requestForm";
+@import "./layout/Event/slider";
 
 @import "./layout/Contact/map";
-@import "./layout/Contact/form"
+@import "./layout/Contact/form";
