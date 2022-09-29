@@ -29,6 +29,11 @@
 }
 
 .event_slider-card-container {
+  display: flex !important;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 390px !important;
+  height: 323px;
   background: $white;
   border: 1px solid $bg-input-gray;
   box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08),
@@ -44,19 +49,23 @@
     letter-spacing: 0.5px;
     border-radius: 4px;
     border: 1px solid $orange;
-    margin-top: auto;
   }
 
-  & > p {
+  & > button:hover {
+    background-color: $orange;
+    color: $white;
+  }
+
+  & > div > p {
     @include text($main-font, $regular, 16px, 160%, $light-gray);
   }
 
-  & > p:first-child {
+  & > div > p:first-child {
     @include text($main-font, $bold, 28px, 150%, $orange);
     margin-bottom: 4px;
   }
 
-  & > p:nth-child(3) {
+  & > div > p:nth-child(3) {
     @include text($main-font, $bold, 18px, 150%, $dark-gray);
     margin-bottom: 8px;
     margin-top: 20px;

@@ -21,7 +21,7 @@ export const Team = () => {
           Best tutors are all here <br />
           <span className="title">Meet our team</span>
         </h2>
-        <TeamSlider props={teams} count={4} />
+        <TeamSlider props={teams} count={4} page={"home"} />
 
         <h2 className="text review-title">
           TESTIMONIALS <br />
