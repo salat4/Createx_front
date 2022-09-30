@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
+import { Footer } from "./components/footer";
 import "./styles/variables.css";
 
 const Home = lazy(() => import("./pages/Home" /* webpackChunkName: "Home" */));
@@ -30,6 +31,7 @@ const CoursesPage = lazy(()=>
 
 function App() {
   return (
+    <>
     <BrowserRouter>
       <Suspense fallback={"Loading"}>
         <Routes>
@@ -42,8 +44,12 @@ function App() {
           <Route path="/events/:id" element={<EventPage />} />
           <Route path="/contacts" element={<ContactPage />} />
         </Routes>
+        <Footer/>
       </Suspense>
+ 
     </BrowserRouter>
+    
+    </>
   );
 }
 
