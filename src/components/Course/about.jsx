@@ -1,9 +1,12 @@
+import { useLocation } from "react-router-dom";
 import Svg from "../../images/symbol-defs.svg";
 
 export const AboutCourse = () => {
+    const location = useLocation();
+    const {state} = location;
   return (
     <div className="about-course__section">
-      <div className="container">
+      <div className="container about-course__container">
         <div className="about-course__text__wrap">
           <h3 className="about-course__title">About the course</h3>
           <p className="about-course__text">
@@ -69,7 +72,28 @@ export const AboutCourse = () => {
             </li>
           </ul>
         </div>
-        <div>df</div>
+        <div className="course-inf__wrap">
+          <p className="course-info__title">Dates</p>
+          <p className="course-info__date">Sept 7 – Nov 2</p>
+          <p className="course-info__description">
+            Metus turpis sit lorem lacus, in elit tellus lacus.
+          </p>
+
+          <p className="course-info__title">Duration</p>
+          <p className="course-info__date">2 months – 8 lessons</p>
+          <p className="course-info__description">
+            Rhoncus pellentesque auctor auctor orci vulputate faucibus quis ut.{" "}
+          </p>
+
+          <p className="course-info__title">Price</p>
+          <p className="course-info__date">{state.price} per month</p>
+          <p className="course-info__description">
+            Nulla sem adipiscing adipiscing felis fringilla. Adipiscing mauris
+            quam ac elit tristique dis.
+          </p>
+
+          <button className="course-info__btn gradient">Join the course</button>
+        </div>
       </div>
     </div>
   );

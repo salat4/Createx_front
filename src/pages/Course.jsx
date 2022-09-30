@@ -1,14 +1,15 @@
 import { HeroHeader } from "../components/Course/heroHeader";
 import { AboutCourse } from "../components/Course/about";
-import { Footer } from "../components/footer";
+import { Curator } from "../components/Course/curator";
+import { CourseInfo
+ } from "../components/Course/info";
 export default function Course() {
-
-
   return (
     <>
-    <HeroHeader/>
-    <AboutCourse/>
-    <Footer/>
-  </>
-  )
+      <HeroHeader />
+      <AboutCourse />
+      <Curator />
+      <CourseInfo/>
+    </>
+  );
 }
