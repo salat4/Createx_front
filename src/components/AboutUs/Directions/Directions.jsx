@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getAbout } from "../../../API";
+import getColor from "../../getColor";
 import pathToSvg from "../../../images/symbol-defs.svg";
 
 export const Directions = () => {
@@ -32,7 +33,14 @@ export const Directions = () => {
                       <img src={image} alt=" link course about section" />
                     </div>
                     <div className="card-info">
-                      <span className="card-category">{category}</span>
+                      <span
+                        className="card-category"
+                        style={{
+                          backgroundColor: getColor(category),
+                        }}
+                      >
+                        {category}
+                      </span>
                       <p className="card-text">{text}</p>
                       <button className="card-button">
                         Check courses
@@ -44,6 +52,11 @@ export const Directions = () => {
                   </div>
                 );
               })}
+            {courses && courses.length < 6 && (
+              <div className="plug_card">
+                <p>New studying program coming soon...</p>
+              </div>
+            )}
           </div>
         </div>
       </div>

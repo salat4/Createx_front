@@ -211,10 +211,10 @@
       0px 30px 24px -10px rgba(154, 156, 165, 0.05),
       0px 12px 10px -6px rgba(154, 156, 165, 0.04),
       0px 4px 4px -4px rgba(30, 33, 44, 0.03);
-    & > a {
-      background-color: $orange;
-      color: $white;
-    }
+  }
+  & > a:hover {
+    background-color: $orange;
+    color: $white;
   }
 }
 
@@ -244,7 +244,6 @@
 
 .info_button {
   @include text($main-font, $bold, 14px, 44px, $orange);
-
   border: 1px solid $orange;
   background-color: inherit;
   border-radius: 4px;
@@ -259,13 +258,15 @@
   height: 323px;
   padding: 24px;
   border: 1px solid $bg-input-gray;
-  box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08),
-    0px 30px 24px -10px rgba(154, 156, 165, 0.05),
-    0px 12px 10px -6px rgba(154, 156, 165, 0.04),
-    0px 4px 4px -4px rgba(30, 33, 44, 0.03);
   border-radius: 4px;
   &:nth-child(-n + 6) {
     margin-bottom: 30px;
+  }
+  &:hover {
+    box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08),
+      0px 30px 24px -10px rgba(154, 156, 165, 0.05),
+      0px 12px 10px -6px rgba(154, 156, 165, 0.04),
+      0px 4px 4px -4px rgba(30, 33, 44, 0.03);
   }
 }
 
@@ -290,7 +291,7 @@
 
 .info_button--grid {
   @include text($main-font, $bold, 14px, 44px, $orange);
-
+  text-align: center;
   border: 1px solid $orange;
   background-color: inherit;
   border-radius: 4px;
@@ -298,4 +299,9 @@
   letter-spacing: 0.5px;
   width: 100%;
   margin-top: auto;
+
+  &:hover {
+    background-color: $orange;
+    color: $white;
+  }
 }

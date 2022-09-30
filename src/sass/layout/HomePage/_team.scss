@@ -141,3 +141,18 @@
   fill: $white;
   opacity: 0.6;
 }
+
+.slider_event--change {
+  @include text($main-font, $bold, 14px, 44px, $orange);
+  border: 1px solid $orange;
+  background-color: inherit;
+  border-radius: 4px;
+  padding: 1px 32px;
+  letter-spacing: 0.5px;
+  width: 100%;
+  text-align: center;
+  &:hover {
+    background-color: $orange;
+    color: $white;
+  }
+}

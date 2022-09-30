@@ -46,7 +46,6 @@
 .card-category {
   @include text($main-font, $bold, 16px, 160%, $white);
   display: inline-block;
-  background: $turquoise;
   padding: 5px 8px;
   max-width: 130px;
   border-radius: 4px;
@@ -66,5 +65,20 @@
   & > svg {
     margin-left: 11px;
     fill: $orange;
+  }
+}
+
+.plug_card {
+  @include position(flex, center, center, initial);
+  width: 370px;
+  height: 416px;
+  border: 1px solid $bg-input-gray;
+  border-radius: 4px;
+  background-color: $bg-gray;
+  padding-left: 74px;
+  padding-right: 74px;
+
+  & > p {
+    @include text($main-font, $bold, 20px, 150%, $grey);
   }
 }

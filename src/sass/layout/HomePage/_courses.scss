@@ -71,23 +71,6 @@
   border-radius: 4px;
 }
 
-.blue {
-  background-color: $blue;
-}
-.yellow {
-  background-color: $light-orange;
-}
-.turquoise {
-  background-color: $turquoise;
-}
-.pink {
-  background-color: $pink;
-}
-
-.purple{
-  background-color: #7772F1;
-}
-
 .course-item__text {
   @include text($main-font, $bold, 20px, 150%, $dark-gray);
   margin-bottom: 20px;

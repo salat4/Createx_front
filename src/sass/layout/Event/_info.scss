@@ -12,8 +12,33 @@
 }
 
 .info_about-list {
-  & > li:not(:last-child) {
+  & > div:not(:last-child) {
     margin-bottom: 24px;
+  }
+}
+
+.info_about-container {
+  width: 600px;
+  & > p {
+    @include text($main-font, $regular, 16px, 160%, $grey);
+    padding-top: 16px;
+    padding-left: 40px;
+    animation: 0.3s linear theme-text;
+  }
+}
+
+@keyframes theme-text {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
 

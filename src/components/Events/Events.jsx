@@ -72,7 +72,7 @@ export const Events = () => {
       const qwe = Date.parse(new Date(dates.date));
       return qwe;
     });
-    if (id === "newest") {
+    if (id === "oldest") {
       date.sort((a, b) => {
         return b - a;
       });
@@ -173,8 +173,8 @@ export const Events = () => {
                       <li key={uuidv4()} id={"newest"}>
                         newest
                       </li>
-                      <li key={uuidv4()} id={"boldest"}>
-                        boldest
+                      <li key={uuidv4()} id={"oldest"}>
+                        oldest
                       </li>
                     </ul>
                   </div>
