@@ -52,6 +52,11 @@ export const Directions = () => {
                   </div>
                 );
               })}
+            {courses && courses.length < 6 && (
+              <div className="plug_card">
+                <p>New studying program coming soon...</p>
+              </div>
+            )}
           </div>
         </div>
       </div>

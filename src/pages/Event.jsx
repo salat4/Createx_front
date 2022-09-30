@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Hero from "../components/Event/Hero";
 import Info from "../components/Event/Info";
@@ -7,16 +8,25 @@ import RequestForm from "../components/Event/RequestForm";
 import Slider from "../components/Event/Slider";
 
 export default function EventPage() {
+  const [stateInfo, setStateInfo] = useState(null);
   const location = useLocation();
   const { state } = location;
+  useEffect(() => {
+    setStateInfo(state);
+  }, [state]);
+
   return (
     <>
       <Hero />
-      <Info state={state} />
-      <Speaker state={state} />
+      {stateInfo && (
+        <>
+          <Info state={stateInfo} />
+          <Speaker state={stateInfo} />{" "}
+        </>
+      )}
       <Mailing />
       <RequestForm />
-      <Slider state={state} />
+      {stateInfo && <Slider state={stateInfo} />}
     </>
   );
 }

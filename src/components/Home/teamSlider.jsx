@@ -1,6 +1,7 @@
 import Slider from "react-slick";
 import { Component } from "react";
 import Svg from "../../images/symbol-defs.svg";
+import { Link } from "react-router-dom";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -31,6 +32,7 @@ export default class MultipleItems extends Component {
   }
 
   render() {
+    const { baseEvents, page } = this.props;
     const settings = {
       dots: false,
       infinite: true,
@@ -42,19 +44,24 @@ export default class MultipleItems extends Component {
     };
     return (
       <Slider {...settings}>
-        {this.props.props &&
-          this.props.page === "event" &&
-          this.props.props.map(({ _id, dates, eventInfo, category }) => {
+        {baseEvents &&
+          page === "event" &&
+          baseEvents.map((i) => {
             return (
-              <div key={_id} className="event_slider-card-container">
+              <div key={i._id} className="event_slider-card-container">
                 <div>
-                  <p>{dates.date}</p>
-                  <p>{dates.time}</p>
-                  <p>{eventInfo}</p>
-                  <p>{category}</p>
+                  <p>{i.dates.date}</p>
+                  <p>{i.dates.time}</p>
+                  <p>{i.eventInfo}</p>
+                  <p>{i.category}</p>
                 </div>
-
-                <button>View more</button>
+                <Link
+                  className="slider_event--change"
+                  to={`/events/${i._id}`}
+                  state={{ i, baseEvents }}
+                >
+                  View more
+                </Link>
               </div>
             );
           })}

@@ -8,7 +8,7 @@ export const Slider = ({ state }) => {
           <p>Check other online events</p>
           <p>You may be interested in</p>
         </div>
-        <TeamSlider props={state.baseEvents} count={3} page={"event"} />
+        <TeamSlider baseEvents={state.baseEvents} count={3} page={"event"} />
       </div>
     </section>
   );

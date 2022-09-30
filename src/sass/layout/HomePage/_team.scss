@@ -59,7 +59,16 @@
     height: 281px;
     left: 0px;
     bottom: 0;
-    background-image: linear-gradient(180deg, rgba(30, 33, 44, 0) 58.9%, rgba(30, 33, 44, 0.03) 70.21%, rgba(30, 33, 44, 0.33) 83.73%, rgba(30, 33, 44, 0.56) 90.17%, rgba(30, 33, 44, 0.768225) 95.75%, rgba(30, 33, 44, 0.92) 100.49%, #1e212c 100%);
+    background-image: linear-gradient(
+      180deg,
+      rgba(30, 33, 44, 0) 58.9%,
+      rgba(30, 33, 44, 0.03) 70.21%,
+      rgba(30, 33, 44, 0.33) 83.73%,
+      rgba(30, 33, 44, 0.56) 90.17%,
+      rgba(30, 33, 44, 0.768225) 95.75%,
+      rgba(30, 33, 44, 0.92) 100.49%,
+      #1e212c 100%
+    );
   }
   &:hover .social-svg {
     display: block;
@@ -131,4 +140,19 @@
   display: none;
   fill: $white;
   opacity: 0.6;
+}
+
+.slider_event--change {
+  @include text($main-font, $bold, 14px, 44px, $orange);
+  border: 1px solid $orange;
+  background-color: inherit;
+  border-radius: 4px;
+  padding: 1px 32px;
+  letter-spacing: 0.5px;
+  width: 100%;
+  text-align: center;
+  &:hover {
+    background-color: $orange;
+    color: $white;
+  }
 }
