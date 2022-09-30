@@ -244,7 +244,6 @@
 
 .info_button {
   @include text($main-font, $bold, 14px, 44px, $orange);
-
   border: 1px solid $orange;
   background-color: inherit;
   border-radius: 4px;
