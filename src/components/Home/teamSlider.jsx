@@ -216,7 +216,7 @@ export default class MultipleItems extends Component {
           this.props.page === "/courses/:id" &&
           this.props.props.map((course) => {
             return (
-              <div key={course._id} className="course-list__item">
+              <Link key={course._id} to={{ pathname: `/courses/${course._id}` }} className="course-list__item">
                 <img
                   src={course.profilePicture}
                   alt="Coatch"
@@ -237,7 +237,7 @@ export default class MultipleItems extends Component {
                     {course.name}
                   </p>
                 </div>
-              </div>
+              </Link>
             );
           })}
       </Slider>
