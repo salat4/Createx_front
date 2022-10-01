@@ -6,9 +6,57 @@ import { Link } from "react-router-dom";
 export const Courses = () => {
   const [courses, setCourses] = useState(null);
   const [typeCourses, setTypeCourses] = useState(null);
+  const [sizeOb, setSizeOb] = useState();
+  const [sizeMarketing, setSizeMarketing] = useState(0);
+  const [sizeManagement, setSizeManagement] = useState(0);
+  const [sizeHR, setSizeHR] = useState(0);
+  const [sizeDesign, setSizeDesign] = useState(0);
+  const [sizeDev, setSizeDev] = useState();
 
   const [search, setSearch] = useState("");
   const [active, setActive] = useState("All");
+
+  useEffect(() => {
+    const marketingArr = [];
+    const managementArr = [];
+    const hrArr = [];
+    const designgArr = [];
+    const developmentArr = [];
+
+    if (courses) {
+      const objSize = Object.keys(courses).length;
+      setSizeOb(objSize)
+      courses.map((c) => {
+        if (c.typeOfCourse === "Marketing") {
+          marketingArr.push(c);
+          setSizeMarketing( marketingArr.length);
+        }
+
+        if (c.typeOfCourse === "Management") {
+          managementArr.push(c);
+          setSizeManagement(managementArr.length);
+        }
+
+        if (c.typeOfCourse === "HR & Recruting") {
+          hrArr.push(c);
+          setSizeHR(hrArr.length);
+        }
+
+        if (c.typeOfCourse === "Design") {
+          designgArr.push(c);
+          setSizeDesign(designgArr.length);
+         
+        }
+
+        if (c.typeOfCourse === "Development") {
+          developmentArr.push(c);
+          setSizeDev(developmentArr.length);
+        }
+        return c;
+    });
+    
+    }
+  }, [courses]);
 
   useEffect(() => {
     async function FetchCourses() {
@@ -32,6 +80,7 @@ export const Courses = () => {
       });
     });
   };
+
   useEffect(() => {
     let condition = {};
 
@@ -61,7 +110,7 @@ export const Courses = () => {
 
         <div className="courses-navigation__wrap">
           <ul className="courses-navigation__list">
-            <li className="courses-navigation__list__item">
+            <li className="pos courses-navigation__list__item">
               <button
                 className={`courses-navigation__list__item__btn  ${
                   "All" === active && "active"
@@ -69,10 +118,10 @@ export const Courses = () => {
                 onClick={filterType}
               >
                 All
-                <span></span>
               </button>
+                <span>{sizeOb}</span>
             </li>
-            <li className="courses-navigation__list__item">
+            <li className="pos courses-navigation__list__item">
               <button
                 className={`courses-navigation__list__item__btn  ${
                   "Marketing" === active && "active"
@@ -80,10 +129,10 @@ export const Courses = () => {
                 onClick={filterType}
               >
                 Marketing
-                <span></span>
               </button>
+                <span>{sizeMarketing}</span>
             </li>
-            <li className="courses-navigation__list__item">
+            <li className="pos courses-navigation__list__item">
               <button
                 className={`courses-navigation__list__item__btn  ${
                   "Management" === active && "active"
@@ -91,10 +140,10 @@ export const Courses = () => {
                 onClick={filterType}
               >
                 Management
-                <span></span>
               </button>
+                <span>{sizeManagement}</span>
             </li>
-            <li className="courses-navigation__list__item">
+            <li className="pos courses-navigation__list__item">
               <button
                 className={`courses-navigation__list__item__btn  ${
                   "HR & Recruting" === active && "active"
@@ -102,10 +151,10 @@ export const Courses = () => {
                 onClick={filterType}
               >
                 HR & Recruting
-                <span></span>
               </button>
+                <span>{sizeHR}</span>
             </li>
-            <li className="courses-navigation__list__item">
+            <li className="pos courses-navigation__list__item">
               <button
                 className={`courses-navigation__list__item__btn  ${
                   "Design" === active && "active"
@@ -113,10 +162,10 @@ export const Courses = () => {
                 onClick={filterType}
               >
                 Design
-                <span></span>
               </button>
+                <span>{sizeDesign}</span>
             </li>
-            <li className="courses-navigation__list__item">
+            <li className="pos courses-navigation__list__item">
               <button
                 className={`courses-navigation__list__item__btn  ${
                   "Development" === active && "active"
@@ -124,8 +173,8 @@ export const Courses = () => {
                 onClick={filterType}
               >
                 Development
-                <span></span>
               </button>
+                <span>{sizeDev}</span>
             </li>
           </ul>
 
