@@ -45,6 +45,10 @@
   @include text($main-font, $bold, 28px, 160%, $dark-gray);
 }
 
+.info-course__section {
+  padding-bottom: 120px;
+}
+
 .course-inf__wrap {
   width: 495px;
   height: 550px;
@@ -244,8 +248,87 @@
 .course-benefit__wrap {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 180px;
+}
+
+.course-info__wrap {
+  background-image: url(../../../images/illustration1.png);
+  background-repeat: no-repeat;
+  background-position: 100% 9%;
 }
 
 .course-about__list {
   width: 600px;
+  margin-bottom: 60px;
+}
+
+.discount-form__section {
+  background-color: #f4f5f7;
+  padding: 180px 0 100px 0;
+}
+
+.discount-form__container {
+  background-image: url(../../../images/illustration2.png);
+  background-repeat: no-repeat;
+  background-position: 0% 9%;
+}
+
+.discount-form__wrap {
+  width: 495px;
+  margin-left: auto;
+}
+
+.course-discount-form__btn {
+  width: 495px;
+  height: 44px;
+  @include text($main-font, $bold, 14px, 44px, $white);
+  letter-spacing: 0.5px;
+}
+
+.course-discount-form__input {
+  width: 100%;
+  padding: 11px 14px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  border: 1px solid $border-input-gray;
+  @include text($main-font, $regular, 14px, 150%, $grey);
+
+  &::placeholder {
+    @include text($main-font, $regular, 14px, 150%, $light-gray2);
+  }
+}
+
+.course-slider__section {
+  padding: 120px 0 180px 0;
+}
+
+.all-courses__wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.course-list__item {
+  display: flex !important;
+  width: 575px !important;
+  height: 214px;
+
+  border: 1px solid $bg-input-gray;
+  box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08),
+    0px 30px 24px -10px rgba(154, 156, 165, 0.05),
+    0px 12px 10px -6px rgba(154, 156, 165, 0.04),
+    0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+}
+
+.all-courses__text {
+  margin-right: 40px;
+  @include text($main-font, $bold, 28px, 150%, $dark-gray);
+}
+
+.all-courses__btn {
+  width: 202px;
+  height: 52px;
+  @include text($main-font, $bold, 14px, 44px, $white);
+  text-align: center;
 }

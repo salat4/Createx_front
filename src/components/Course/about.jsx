@@ -2,8 +2,8 @@ import { useLocation } from "react-router-dom";
 import Svg from "../../images/symbol-defs.svg";
 
 export const AboutCourse = () => {
-    const location = useLocation();
-    const {state} = location;
+  const location = useLocation();
+  const { state } = location;
   return (
     <div className="about-course__section">
       <div className="container about-course__container">
@@ -20,67 +20,25 @@ export const AboutCourse = () => {
           </p>
           <h3 className="about-course__learn__title">You will learn:</h3>
           <ul className="course-about-list">
-            <li className="about-list__item">
-              <svg width="20" height="20">
-                <use href={`${Svg}#icon-checked`} />
-              </svg>
-              <p className="about-list__item-text">
-                A fermentum in morbi pretium aliquam adipiscing donec tempus.
-              </p>
-            </li>
-            <li className="about-list__item">
-              <svg width="16" height="20">
-                <use href={`${Svg}#icon-checked`} />
-              </svg>
-              <p className="about-list__item-text">
-                Vulputate placerat amet pulvinar lorem nisl.
-              </p>
-            </li>
-            <li className="about-list__item">
-              <svg width="16" height="20">
-                <use href={`${Svg}#icon-checked`} />
-              </svg>
-              <p className="about-list__item-text">
-                Consequat feugiat habitant gravida quisque elit bibendum id
-                adipiscing sed.
-              </p>
-            </li>
-            <li className="about-list__item">
-              <svg width="17" height="20">
-                <use href={`${Svg}#icon-checked`} />
-              </svg>
-              <p className="about-list__item-text">
-                Etiam duis lobortis in fames ultrices commodo nibh.
-              </p>
-            </li>
-            <li className="about-list__item">
-              <svg width="17" height="20">
-                <use href={`${Svg}#icon-checked`} />
-              </svg>
-              <p className="about-list__item-text">
-                Tincidunt sagittis neque sem ac eget.
-              </p>
-            </li>
-            <li className="about-list__item">
-              <svg width="20" height="16">
-                <use href={`${Svg}#icon-checked`} />
-              </svg>
-              <p className="about-list__item-text">
-                Ultricies amet justo et eget quisque purus vulputate dapibus
-                tortor.
-              </p>
-            </li>
+            {state.learn.map((text, indx) => 
+              <li key={indx} className="about-list__item">
+                <svg width="20" height="20">
+                  <use href={`${Svg}#icon-checked`} />
+                </svg>
+                <p className="about-list__item-text">{text} </p>
+              </li>
+            )}
           </ul>
         </div>
         <div className="course-inf__wrap">
           <p className="course-info__title">Dates</p>
-          <p className="course-info__date">Sept 7 – Nov 2</p>
+          <p className="course-info__date">{state.dates}</p>
           <p className="course-info__description">
             Metus turpis sit lorem lacus, in elit tellus lacus.
           </p>
 
           <p className="course-info__title">Duration</p>
-          <p className="course-info__date">2 months – 8 lessons</p>
+          <p className="course-info__date">{state.duration}</p>
           <p className="course-info__description">
             Rhoncus pellentesque auctor auctor orci vulputate faucibus quis ut.{" "}
           </p>

@@ -8,7 +8,6 @@ import { Certificate } from "../components/Home/certificate";
 import { Team } from "../components/Home/team";
 import { Blog } from "../components/Home/blog";
 import { Subscribe } from "../components/Home/subscribe";
-import {Footer} from '../components/footer';
 
 export default function Home (){
   return (
@@ -22,7 +21,6 @@ export default function Home (){
       <Team />
       <Blog/>
       <Subscribe/>
-      <Footer/>
     </>
   );
 };

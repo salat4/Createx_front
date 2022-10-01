@@ -13,28 +13,28 @@ export const Curator = () => {
             <h2 className="about-title">
               Course curator
               <br />
-              <span className="about-title__span">Cody Fisher</span>
+              <span className="about-title__span">{state.aboutName}</span>
             </h2>
-            <p className="curator-info__title">Senior UX designer in IT Product Company</p>
+            <p className="curator-info__title">{state.aboutJobTitle}</p>
 
             <ul className="curator-info__list">
               <li className="curator-info__list__item">
                 <svg width="20" height="20">
                   <use href={`${Svg}#icon-Star`} />
                 </svg>
-                <p>4.9 rate</p>
+                <p>{state.rate}</p>
               </li>
               <li className="curator-info__list__item">
                 <svg width="20" height="20">
                   <use href={`${Svg}#icon-play`} />
                 </svg>
-                <p>4 courses</p>
+                <p>{state.countCourses}</p>
               </li>
               <li className="curator-info__list__item">
                 <svg width="20" height="20">
                   <use href={`${Svg}#icon-profile`} />
                 </svg>
-                <p>350 students</p>
+                <p>{state.countStudents}</p>
               </li>
             </ul>
             <p className="curator-info__text">

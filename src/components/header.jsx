@@ -58,7 +58,7 @@ export const Header = () => {
                   </Link>
                 </li>
                 <li className="nav-list__item">
-                  <Link to="/blog" className="nav-link hover">
+                  <Link to="/blogs" className="nav-link hover">
                     Blog
                   </Link>
                 </li>

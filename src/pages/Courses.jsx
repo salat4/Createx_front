@@ -3,7 +3,6 @@ import { Courses } from "../components/Courses/courses";
 import { ReviewSider } from "../components/Courses/reviewSlider";
 import { Certificate } from "../components/Home/certificate";
 import { Subscribe } from "../components/Home/subscribe";
-import { Footer } from "../components/footer";
 
 export default function CoursesPage() {
   return (
@@ -13,7 +12,6 @@ export default function CoursesPage() {
       <ReviewSider />
       <Certificate/>
       <Subscribe/>
-      <Footer />
     </>
   );
 }

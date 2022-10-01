@@ -1,5 +1,4 @@
 import { Header } from "../components/header";
-import { Footer } from "../components/footer";
 import { Map } from "../components/Contact/Map";
 import { Form } from "../components/Contact/Form";
 export default function ContactPage() {
@@ -8,7 +7,6 @@ export default function ContactPage() {
       <Header />
       <Map />
       <Form/>
-      <Footer />
     </>
   );
 }

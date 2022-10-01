@@ -1,9 +1,39 @@
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Svg from "../../images/symbol-defs.svg";
 
 export const CourseInfo = () => {
   const location = useLocation();
   const { state } = location;
+  const [keyTheme, setKeyTheme] = useState(null);
+  const [valueTheme, setValueTheme] = useState(null);
+  const [indexInfo, setindexInfo] = useState(null);
+
+  useEffect(() => {
+    const arr = state.program;
+
+    const arrKey = [];
+    const arrValue = [];
+
+    for (const o of arr) {
+      for (const key in o) {
+        arrKey.push(key);
+        arrValue.push(o[key]);
+      }
+    }
+
+    setKeyTheme(arrKey);
+    setValueTheme(arrValue);
+  }, [state]);
+
+  const openInfo = (e) => {
+    const { id } = e.target;
+    if (id === indexInfo) {
+      setindexInfo(100);
+      return;
+    }
+    setindexInfo(id);
+  };
 
   return (
     <div className="info-course__section">
@@ -81,8 +111,8 @@ export const CourseInfo = () => {
           </h2>
           <div>
             <ul className="course-about__list">
-              {state.benefits.map((b) => (
-                <li className="about-list__item">
+              {state.benefits.map((b, indx) => (
+                <li key={indx} className="about-list__item">
                   <svg width="20" height="20">
                     <use href={`${Svg}#icon-checked`} />
                   </svg>
@@ -91,6 +121,53 @@ export const CourseInfo = () => {
               ))}
             </ul>
           </div>
+        </div>
+        <div className="course-info__wrap">
+        <h2 className="about-title ">
+        Course program <br />
+          <span className="about-title__span">What will you learn</span>
+        </h2>          <ul className="info_about-list">
+            {keyTheme &&
+              keyTheme.map((data, index) => {
+                return (
+                  <div className="info_about-container" key={index}>
+                    <li className="info_about-item">
+                      <button
+                        id={index}
+                        className="info_button-list"
+                        onClick={openInfo}
+                      >
+                        {index === Number(indexInfo) ? (
+                          <svg id={index} width="18" height="18">
+                            <use id={index} href={`${Svg}#icon-Minus`} />
+                          </svg>
+                        ) : (
+                          <svg id={index} width="18" height="18">
+                            <use id={index} href={`${Svg}#icon-plus`} />
+                          </svg>
+                        )}
+                      </button>
+                      <span className="info_theme">{data}.</span>
+                      {valueTheme && (
+                        <span className="info_theme-text">
+                          {valueTheme.filter((_, ind) => ind === index)[0]}
+                        </span>
+                      )}
+                    </li>
+                    {index === Number(indexInfo) && (
+                      <p>
+                        Nulla amet, sagittis potenti rhoncus sit. Elit lectus
+                        nec pulvinar aliquet donec enim, ornare. Lacus facilisi
+                        curabitur turpis varius mauris. Nisi, tempus risus, odio
+                        mi suscipit sed. Curabitur faucibus porttitor quis sem
+                        lacus, arcu feugiat facilisis. Commodo nunc orci vitae
+                        accumsan id.
+                      </p>
+                    )}
+                  </div>
+                );
+              })}
+          </ul>
         </div>
       </div>
     </div>
