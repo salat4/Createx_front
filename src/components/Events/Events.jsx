@@ -69,8 +69,8 @@ export const Events = () => {
     const { id } = e.target;
     setSort(id);
     const date = events.map(({ dates }) => {
-      const qwe = Date.parse(new Date(dates.date));
-      return qwe;
+      const dateParse = Date.parse(new Date(dates.date));
+      return dateParse;
     });
     if (id === "oldest") {
       date.sort((a, b) => {
@@ -82,16 +82,17 @@ export const Events = () => {
       });
     }
 
-    const da = date.map((item) => {
-      const asd = new Date(item);
-      return asd.toString(item).slice(4, 10);
+    const resultData = date.map((item) => {
+      const convertDate = new Date(item);
+      return convertDate.toString(item).slice(4, 10);
     });
-    const arr2 = [];
-    for (let i of da) {
-      const arr = events.filter((a) => a.dates.date === i);
-      arr2.push(...arr);
+
+    const dateToState = [];
+    for (let d of resultData) {
+      const filterDate = events.filter((a) => a.dates.date === d);
+      dateToState.push(...filterDate);
     }
-    setEvents(arr2);
+    setEvents(dateToState);
     setListData(false);
   };
 
