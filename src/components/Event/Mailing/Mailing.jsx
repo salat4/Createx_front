@@ -8,11 +8,6 @@ export const Mailing = () => {
 
   const SubscribeSubmit = (e) => {
     e.preventDefault();
-    // if (subscribeEmail === "") {
-    //   ref.current.focus();
-    //   Notiflix.Notify.warning("Fill in the email field to subscribe");
-    //   return;
-    // }
 
     Notiflix.Notify.success(`${subscribeEmail} subscription successful!`);
     setSubscribeEmail("");

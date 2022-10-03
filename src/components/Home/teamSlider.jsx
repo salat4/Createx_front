@@ -2,6 +2,7 @@ import Slider from "react-slick";
 import { Component } from "react";
 import Svg from "../../images/symbol-defs.svg";
 import { Link } from "react-router-dom";
+import getColor from "../getColor";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -127,6 +128,7 @@ export default class MultipleItems extends Component {
                                 
                                 
                             </div>
+
             );
           })}
         {this.props.props &&
@@ -166,6 +168,34 @@ export default class MultipleItems extends Component {
                 <p className="team-name">{team.aboutName}</p>
                 <p className="team-position">{team.aboutJobTitle}</p>
               </div>
+            );
+          })}
+        {this.props.props &&
+          this.props.page === "/courses/:id" &&
+          this.props.props.map((course) => {
+            return (
+              <Link key={course._id} to={{ pathname: `/courses/${course._id}` }} className="course-list__item">
+                <img
+                  src={course.profilePicture}
+                  alt="Coatch"
+                  width="300"
+                  className="coach-img"
+                />
+                <div>
+                  <p
+                    className="course-item__name"
+                    style={{ backgroundColor: getColor(course.typeOfCourse) }}
+                  >
+                    {course.typeOfCourse}
+                  </p>
+                  <h3 className="course-item__text">{course.about}</h3>
+                  <p className="courses-detail">
+                    <span className="price">{course.price}</span>
+                    <span color=" var(--light-gray)">|</span>
+                    {course.name}
+                  </p>
+                </div>
+              </Link>
             );
           })}
       </Slider>
