@@ -136,7 +136,7 @@ export const Footer = () => {
                             </span>
                         </div>
                         <div className="footer__button">
-                            <span className="footer__button--top">GO TO TOP</span>
+                            <span className="footer__button--top" onClick={()=>{window.scrollTo({top:0})}}>GO TO TOP</span>
                         </div>
                     </div>
                 </div>

@@ -2,6 +2,7 @@ import getBlogs from "../API/getBlogs"
 import { useEffect,useState } from "react";
 import UserSvg from "../images/symbol-defs.svg";
 import { Link } from "react-router-dom";
+import {Header} from '../components/header.jsx'
 
 export default function Blogs()  {
 
@@ -76,6 +77,8 @@ export default function Blogs()  {
 
     return (
         <>
+                <Header></Header>
+
         <div className="blogs container">
             <div className="blogs__header">
                 <p className="blogs__header__text">Our blog</p>
