@@ -49,7 +49,7 @@ export const Corses = () => {
                 <li key={course._id} className="couses-list__item">
                   <img
                     src={course.profilePicture}
-                    alt="ff"
+                    alt="Coatch"
                     width="300"
                     className="coach-img"
                   />

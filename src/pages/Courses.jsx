@@ -1,14 +1,17 @@
 import { Header } from "../components/header";
 import { Courses } from "../components/Courses/courses";
-import { Footer } from "../components/footer";
+import { ReviewSider } from "../components/Courses/reviewSlider";
+import { Certificate } from "../components/Home/certificate";
+import { Subscribe } from "../components/Home/subscribe";
 
 export default function CoursesPage() {
   return (
     <>
       <Header />
       <Courses />
-      <Footer />
-    
+      <ReviewSider />
+      <Certificate/>
+      <Subscribe/>
     </>
   );
 }
