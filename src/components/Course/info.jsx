@@ -116,7 +116,7 @@ export const CourseInfo = () => {
                   <svg width="20" height="20">
                     <use href={`${Svg}#icon-checked`} />
                   </svg>
-                  <p className="about-list__item-text">{b}</p>
+                  <p className="about-list__item-text">{b.trim()}</p>
                 </li>
               ))}
             </ul>
