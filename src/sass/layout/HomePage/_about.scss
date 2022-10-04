@@ -38,20 +38,14 @@
 
 .about-list__item {
   display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+
   &:not(:last-child) {
     margin-bottom: 12px;
   }
   & > svg{
-    margin-right: 0px;
+    margin-right: 16px;
     width: 20px !important;
   }
-}
-
-.about-list__item-text {
-  margin-left: 0px;
 }
 
 .about-button {
