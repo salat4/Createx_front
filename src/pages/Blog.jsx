@@ -1,13 +1,15 @@
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import UserSvg from "../images/symbol-defs.svg";
 import TeamSlider from "../components/Home/teamSlider";
-
+import {Header} from '../components/header.jsx'
 export default function Blog () {
    const location =  useLocation()
+   const navigate = useNavigate()
    const {blog} = location.state
    const {blogs} = location.state
     return(
         <>
+        <Header></Header>
             <div className = "container blog__container">
                 <div className="blog__main">
                         <ul className = "blog__main__theme">
@@ -89,7 +91,7 @@ export default function Blog () {
                     <div>
                         <p className  = "blog__left__author__title">Author</p>
                         <div className ="blog__left__author">
-                            <img src = {blog.img} alt = {blog.img} width = "100" height = "100" className="blog__left__author__img"></img>
+                            <img src = {blog.authorImage} alt = {blog.authorImage} width = "100" height = "100" className="blog__left__author__img"></img>
                             <ul className = "blog__left__author__info">
                                 <li className = "blog__left__author__item__name">Kristin Watson</li>
                                 <li className=" blog__left__author__item__course">Curator of Marketing Course</li>
@@ -195,12 +197,20 @@ export default function Blog () {
             </div>
             
     </div>
-    <div className = "container slider">
+    <div className = "container slider blog__slider">
         <h2 className="text team-title">
         Our blog <br />
           <span className="title">You may also like</span>
         </h2>
         <TeamSlider props={blogs} count={3} page={"blogs"}></TeamSlider>
+        <div className = "blog__slider__box">
+            <h3 className = "blog__slider__text">
+                Do you want more articles, podcasts and videos?
+            </h3>
+            <button className = "blog__slider__button" onClick={()=>{navigate("/blogs")}}>
+                    Go to blog
+            </button>
+        </div>
     </div>
        </>
     )
