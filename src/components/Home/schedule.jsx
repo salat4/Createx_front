@@ -38,9 +38,11 @@ export const Schedule = () => {
                 </span>
                 <div className="schedule-data">
                   <p className="schedule-list__item_mounth">
-                    {events.dates.date.slice(0, 3)}{" "}
+                    {events.dates.date.slice(0, 3)}
                   </p>
-                  <p className="schedule-list__item_time">{events.dates.time}</p>
+                  <p className="schedule-list__item_time">
+                    {events.dates.time}
+                  </p>
                 </div>
 
                 <div className="schedule-info">
@@ -52,7 +54,7 @@ export const Schedule = () => {
                 <Link
                   className="schedule-list__item_btn button-outlined"
                   to={`/events/${events._id}`}
-                  state={{events,eventsToMap }}
+                  state={[events, eventsToMap]}
                 >
                   View more
                 </Link>
