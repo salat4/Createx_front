@@ -3,6 +3,7 @@ import { Component } from "react";
 import Svg from "../../images/symbol-defs.svg";
 import { Link } from "react-router-dom";
 import getColor from "../getColor";
+import { scrollUp } from "../scroll";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -129,6 +130,7 @@ export default class MultipleItems extends Component {
                                 
                             </div>
 
+              
             );
           })}
         {this.props.props &&
@@ -174,7 +176,11 @@ export default class MultipleItems extends Component {
           this.props.page === "/courses/:id" &&
           this.props.props.map((course) => {
             return (
-              <Link key={course._id} to={{ pathname: `/courses/${course._id}` }} className="course-list__item">
+              <Link
+              to={`/courses/${course._id}`}
+              state={course}
+              onClick={scrollUp}
+              >
                 <img
                   src={course.profilePicture}
                   alt="Coatch"

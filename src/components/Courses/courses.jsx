@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Svg from "../../images/symbol-defs.svg";
 import getCourses from "../../API/getCourses";
 import { Link, useLocation } from "react-router-dom";
+import gerColor from "../getColor";
 
 export const Courses = () => {
   const [courses, setCourses] = useState(null);
@@ -12,7 +13,7 @@ export const Courses = () => {
   const [sizeHR, setSizeHR] = useState(0);
   const [sizeDesign, setSizeDesign] = useState(0);
   const [sizeDev, setSizeDev] = useState();
-  const location = useLocation()
+  const location = useLocation();
 
   const [search, setSearch] = useState("");
   const [active, setActive] = useState(location.state ? location.state : "All");
@@ -24,11 +25,11 @@ export const Courses = () => {
     const developmentArr = [];
     if (courses) {
       const objSize = Object.keys(courses).length;
-      setSizeOb(objSize)
+      setSizeOb(objSize);
       courses.map((c) => {
         if (c.typeOfCourse === "Marketing") {
           marketingArr.push(c);
-          setSizeMarketing( marketingArr.length);
+          setSizeMarketing(marketingArr.length);
         }
 
         if (c.typeOfCourse === "Management") {
@@ -44,7 +45,6 @@ export const Courses = () => {
         if (c.typeOfCourse === "Design") {
           designgArr.push(c);
           setSizeDesign(designgArr.length);
-         
         }
 
         if (c.typeOfCourse === "Development") {
@@ -52,8 +52,7 @@ export const Courses = () => {
           setSizeDev(developmentArr.length);
         }
         return c;
-    });
-    
+      });
     }
   }, [courses]);
 
@@ -88,12 +87,10 @@ export const Courses = () => {
     } else if (active !== "All") {
       condition = { typeOfCourse: active, about: search };
     }
- 
 
-
-  if (courses) {
-    setTypeCourses(filter(condition, courses));
-  }
+    if (courses) {
+      setTypeCourses(filter(condition, courses));
+    }
   }, [courses, search, active]);
 
   function filterType(e) {
@@ -112,71 +109,61 @@ export const Courses = () => {
 
         <div className="courses-navigation__wrap">
           <ul className="courses-navigation__list">
-            <li className={`pos courses-navigation__list__item   ${
-                  "All" === active && "active"
-                }`}>
-              <p
-                className={`courses-navigation__list__item__btn `}
-                onClick={filterType}
-              >
-                All
-              </p>
-                <span>{sizeOb}</span>
+            <li
+              onClick={filterType}
+              className={`pos blogs__hero__menu__list__item courses-navigation__list__item  ${
+                "All" === active && "active"
+              }`}
+            >
+              <p className={`courses-navigation__list__item__btn `}>All</p>
+              <span>{sizeOb}</span>
             </li>
-            <li className="pos courses-navigation__list__item">
-              <button
-                className={`courses-navigation__list__item__btn  ${
-                  "Marketing" === active && "active"
-                }`}
-                onClick={filterType}
-              >
-                Marketing
-              </button>
-                <span>{sizeMarketing}</span>
+            <li
+              onClick={filterType}
+              className={`pos courses-navigation__list__item  ${
+                "Marketing" === active && "active"
+              }`}
+            >
+              <p className="courses-navigation__list__item__btn">Marketing</p>
+              <span>{sizeMarketing}</span>
             </li>
-            <li className="pos courses-navigation__list__item">
-              <button
-                className={`courses-navigation__list__item__btn  ${
-                  "Management" === active && "active"
-                }`}
-                onClick={filterType}
-              >
-                Management
-              </button>
-                <span>{sizeManagement}</span>
+            <li
+              className={`pos courses-navigation__list__item  ${
+                "Management" === active && "active"
+              }`}
+              onClick={filterType}
+            >
+              <p className="courses-navigation__list__item__btn">Management</p>
+              <span>{sizeManagement}</span>
             </li>
-            <li className="pos courses-navigation__list__item">
-              <button
-                className={`courses-navigation__list__item__btn  ${
-                  "HR & Recruting" === active && "active"
-                }`}
-                onClick={filterType}
-              >
+            <li
+              className={`pos courses-navigation__list__item ${
+                "HR & Recruting" === active && "active"
+              }`}
+              onClick={filterType}
+            >
+              <p className="courses-navigation__list__item__btn">
                 HR & Recruting
-              </button>
-                <span>{sizeHR}</span>
+              </p>
+              <span>{sizeHR}</span>
             </li>
-            <li className="pos courses-navigation__list__item">
-              <button
-                className={`courses-navigation__list__item__btn  ${
-                  "Design" === active && "active"
-                }`}
-                onClick={filterType}
-              >
-                Design
-              </button>
-                <span>{sizeDesign}</span>
+            <li
+              className={`pos courses-navigation__list__item ${
+                "Design" === active && "active"
+              }`}
+              onClick={filterType}
+            >
+              <p className="courses-navigation__list__item__btn">Design</p>
+              <span>{sizeDesign}</span>
             </li>
-            <li className="pos courses-navigation__list__item">
-              <button
-                className={`courses-navigation__list__item__btn  ${
-                  "Development" === active && "active"
-                }`}
-                onClick={filterType}
-              >
-                Development
-              </button>
-                <span>{sizeDev}</span>
+            <li
+              className={`pos courses-navigation__list__item ${
+                "Development" === active && "active"
+              }`}
+              onClick={filterType}
+            >
+              <p className="courses-navigation__list__item__btn">Development</p>
+              <span>{sizeDev}</span>
             </li>
           </ul>
 
@@ -208,31 +195,14 @@ export const Courses = () => {
                       className="coach-img"
                     />
                     <div className="courses-list__item__text-wrap">
-                      {course.typeOfCourse === "Management" && (
-                        <p className="course-item__name blue">
-                          {course.typeOfCourse}
-                        </p>
-                      )}
-                      {course.typeOfCourse === "HR & Recruting" && (
-                        <p className="course-item__name yellow">
-                          {course.typeOfCourse}
-                        </p>
-                      )}
-                      {course.typeOfCourse === "Design" && (
-                        <p className="course-item__name pink">
-                          {course.typeOfCourse}
-                        </p>
-                      )}
-                      {course.typeOfCourse === "Marketing" && (
-                        <p className="course-item__name turquoise">
-                          {course.typeOfCourse}
-                        </p>
-                      )}
-                      {course.typeOfCourse === "Development" && (
-                        <p className="course-item__name purple">
-                          {course.typeOfCourse}
-                        </p>
-                      )}
+                      <p
+                        className="course-item__name "
+                        style={{
+                          backgroundColor: gerColor(course.typeOfCourse),
+                        }}
+                      >
+                        {course.typeOfCourse}
+                      </p>
 
                       <h3 className="course-item__text">{course.about}</h3>
                       <p className="courses-detail">
