@@ -44,15 +44,15 @@ function App() {
       <BrowserRouter>
         <Suspense fallback={<Loader />}>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/courses" element={<CoursesPage />} />
-            <Route path="/courses/:id" element={<Course />} />
-            <Route path="/about" element={<AboutUsPages />} />
-            <Route path="/events" element={<EventsPages />} />
-            <Route path="/blogs" element={<BlogsPages />} />
-            <Route path="/blogs/:blog_id" element={<BlogPage />} />
-            <Route path="/events/:id" element={<EventPage />} />
-            <Route path="/contacts" element={<ContactPage />} />
+            <Route path="/createx" element={<Home />} />
+            <Route path="/createx/courses" element={<CoursesPage />} />
+            <Route path="/createx/courses/:id" element={<Course />} />
+            <Route path="/createx/about" element={<AboutUsPages />} />
+            <Route path="/createx/events" element={<EventsPages />} />
+            <Route path="/createx/blogs" element={<BlogsPages />} />
+            <Route path="/createx/blogs/:blog_id" element={<BlogPage />} />
+            <Route path="/createx/events/:id" element={<EventPage />} />
+            <Route path="/createx/contacts" element={<ContactPage />} />
           </Routes>
           <Footer />
         </Suspense>
