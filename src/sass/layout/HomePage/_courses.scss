@@ -18,6 +18,8 @@
 }
 
 .btn-courses {
+  padding: 1px 37px;
+  color: $orange;
   width: 200px;
   height: 52px;
 }
@@ -28,9 +30,9 @@
   margin-top: 60px;
   justify-content: space-between;
 }
-.couses-list__item__link{
-  display: flex;
 
+.couses-list__item__link {
+  display: flex;
 }
 .couses-list__item {
   display: flex;

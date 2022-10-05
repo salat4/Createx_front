@@ -23,14 +23,14 @@ export const Corses = () => {
             <br />
             <span className="title">Featured Courses</span>
           </h2>
-          <button
-            className="button-outlined btn-courses btn-hover"
-            type="button"
+
+          <Link
+            to="/courses"
+            className="button-outlined btn-courses btn-hover "
+            onClick={scrollUp}
           >
-            <Link to="/courses" className="link-orange">
-              View all courses
-            </Link>
-          </button>
+            View all courses
+          </Link>
         </div>
 
         <ul className="couses-list">
@@ -46,7 +46,7 @@ export const Corses = () => {
                     to={`/courses/${course._id}`}
                     state={course}
                     onClick={scrollUp}
-                    >
+                  >
                     <img
                       src={course.profilePicture}
                       alt="Coatch"

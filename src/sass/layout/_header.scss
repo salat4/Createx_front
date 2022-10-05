@@ -69,6 +69,7 @@
 }
 
 .header-button {
+  text-align: center;
   width: 200px;
   height: 52px;
   @include text($main-font, $bold, 16px, 52px, initial);
