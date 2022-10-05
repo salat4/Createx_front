@@ -8,7 +8,11 @@ import { ButtonShowAndHide } from "./btnShow";
 import RegisterPage from "./registration";
 import Backdrop from "../Backdrop";
 
-export default function LoginPage({ onClick, showRegistrationForm, modalRegistration }) {
+export default function LoginPage({
+  onClick,
+  showRegistrationForm,
+  modalRegistration,
+}) {
   const [userEmail, setUserEmail] = useState("");
   const [userPwd, setUserPwd] = useState("");
 
@@ -22,9 +26,9 @@ export default function LoginPage({ onClick, showRegistrationForm, modalRegistra
     password: yup.string().min(6).required(),
   });
 
-  const handleSubmit = async() => {
-   const prew = await login(userEmail, userPwd);
-   sessionStorage.setItem('user',JSON.stringify({...prew}))
+  const handleSubmit = async () => {
+    const prew = await login(userEmail, userPwd);
+    sessionStorage.setItem("user", JSON.stringify({ ...prew }));
 
     reset();
   };
@@ -60,11 +64,11 @@ export default function LoginPage({ onClick, showRegistrationForm, modalRegistra
             Sign in to your account using email and password provided during
             registration.
           </p>
-          <button onClick={onClick}  className="btn-close">
-          <svg width='24' height='24' >
-            <use href={`${Svg}#icon-close `} />
-          </svg>
-        </button>
+          <button onClick={onClick} className="btn-close">
+            <svg width="24" height="24">
+              <use href={`${Svg}#icon-close `} />
+            </svg>
+          </button>
 
           <Formik
             initialValues={defaultInitialValues}
@@ -89,19 +93,7 @@ export default function LoginPage({ onClick, showRegistrationForm, modalRegistra
                 <FormError name="password" onInput={Password} />
                 <ButtonShowAndHide />
               </label>
-              <div className="auth-checkbox__section">
-                <label className="auth-form__checkbox_label" htmlFor="keepData">
-                  <input
-                    className="auth-form__checkbox"
-                    type="checkbox"
-                    id="keepData"
-                    name="keepData"
-                  />
-                  Keep me signed in
-                  <span className="checkmark"></span>
-                </label>
-                <p className="checkbox__section-text">Forgot password?</p>
-              </div>
+
               <button className="gradient auth-btn" type="submit">
                 Sign in
               </button>
@@ -118,15 +110,9 @@ export default function LoginPage({ onClick, showRegistrationForm, modalRegistra
             </button>
             {modalRegistration && (
               <Backdrop onClick={showRegistrationForm}>
-                <RegisterPage/>
+                <RegisterPage />
               </Backdrop>
             )}
-          </div>
-          <div className="auth__google">
-            <p className="auth__google-text">Or sign in with</p>
-            <svg className="auth__google-svg">
-              <use href={`${Svg}#icon-google `} />
-            </svg>
           </div>
         </div>
       </div>

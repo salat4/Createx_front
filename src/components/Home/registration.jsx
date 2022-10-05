@@ -24,8 +24,8 @@ export default function RegisterPage({ onClick, modalLogin, showLoginForm }) {
   };
 
   const handleSubmit = async () => {
-   const prew = await registration(userName, userEmail, userPwd);
-    sessionStorage.setItem('user',JSON.stringify({...prew}))
+    const prew = await registration(userName, userEmail, userPwd);
+    sessionStorage.setItem("user", JSON.stringify({ ...prew }));
     reset();
   };
 
@@ -72,7 +72,7 @@ export default function RegisterPage({ onClick, modalLogin, showLoginForm }) {
   };
 
   const showHide = () => {
-    let currentType = type === "input" ? "password" : "input" ;
+    let currentType = type === "input" ? "password" : "input";
     setType(currentType);
   };
 
@@ -146,18 +146,7 @@ export default function RegisterPage({ onClick, modalLogin, showLoginForm }) {
                 placeholder="•••••••••••"
               />
             </label>
-            <div className="auth-checkbox__section">
-              <label className="auth-form__checkbox_label" htmlFor="keepData">
-                <Field
-                  className="auth-form__checkbox"
-                  type="checkbox"
-                  id="keepData"
-                  name="keepData"
-                />
-                Remember me
-                <span className="checkmark"></span>
-              </label>
-            </div>
+
             <button className="gradient auth-btn" type="submit">
               Sign up
             </button>
@@ -174,12 +163,6 @@ export default function RegisterPage({ onClick, modalLogin, showLoginForm }) {
               <LoginPage />
             </Backdrop>
           )}
-        </div>
-        <div className="auth__google">
-          <p className="auth__google-text">Or sign in with</p>
-          <svg className="auth__google-svg">
-            <use href={`${Svg}#icon-google `} />
-          </svg>
         </div>
       </div>
     </div>
