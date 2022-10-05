@@ -218,11 +218,9 @@ export default class MultipleItems extends Component {
           this.props.props.map((course) => {
             return (
               <Link
+              to={`/courses/${course._id}`}
+              state={course}
               onClick={scrollUp}
-                key={course._id}
-                to={`/courses/${course._id}`}
-                state={course}
-                className="course-list__item"
               >
                 <img
                   src={course.profilePicture}

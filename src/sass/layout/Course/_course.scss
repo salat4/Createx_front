@@ -350,20 +350,3 @@
   text-align: center;
 }
 
-.pos {
-  position: relative;
-
-  & > span {
-    position: absolute;
-    font-weight: 900;
-    font-size: 10px;
-    line-height: 150%;
-    right: 10px;
-    top: 1px;
-    @include text($main-font, $bold, 16px, 160%, $light-gray2);
-  }
-
-  &:hover > span {
-    color: $orange;
-  }
-}
