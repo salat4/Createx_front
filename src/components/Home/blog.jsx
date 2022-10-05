@@ -29,11 +29,9 @@ export const Blog = () => {
             Our blog <br />
             <span className="title">Latest posts</span>
           </h2>
-          <button className="gradient blog__btn btn-hover">
-            <Link to="/blogs" className="link">
+            <Link to="/blogs" className=" gradient blog__btn btn-hover ink">
               Go to blog
             </Link>
-          </button>
         </div>
 
         <ul className="blog-list">

@@ -31,16 +31,12 @@ export const Hero = () => {
 
           <ul className="hero-button__list">
             <li className="hero-button__list-item">
-              <button className="button-outlined btn-hover">
-                <Link to="/about" className="link-orange">
+                <Link to="/about" className="link-orange button-outlined btn-hover">
                   About us
                 </Link>
-              </button>
             </li>
             <li>
-              <button className="header-button gradient btn-hover">
-                <Link  className="link" to="/courses">Explore courses</Link>
-              </button>
+                <Link  className="link header-button gradient btn-hover" to="/courses">Explore courses</Link>
             </li>
           </ul>
         </div>

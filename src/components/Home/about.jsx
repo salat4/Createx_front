@@ -66,11 +66,9 @@ export const About = () => {
               </p>
             </li>
           </ul>
-          <button className="about-button gradient btn-hover" type="button">
-            <Link to="/about" className="link">
+            <Link to="/about" className="link about-button gradient btn-hover">
               More about us
             </Link>
-          </button>
         </div>
       </div>
     </div>
