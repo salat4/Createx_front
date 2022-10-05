@@ -76,19 +76,19 @@ export const Footer = () => {
                             COURSES
                         </h3>
                             <ul className="footer__box__center__courses__list">
-                                <li className="footer__box__center__courses__marketing footer--gray list__item" onClick = {((e) => navigate("/blogs",{state:e.target.innerText}))}>
+                                <li className="footer__box__center__courses__marketing footer--gray list__item" onClick = {((e) => {navigate("/courses",{state:e.target.innerText}) ;window.scrollTo({top:0})})}>
                                     Marketing
                                 </li>
-                                <li className="footer__box__center__courses__management footer--gray list__item">
+                                <li className="footer__box__center__courses__management footer--gray list__item" onClick = {((e) => {navigate("/courses",{state:e.target.innerText}) ;window.scrollTo({top:0})})}>
                                     Management
                                 </li>
-                                <li className="footer__box__center__courses__hr footer--gray list__item">
+                                <li className="footer__box__center__courses__hr footer--gray list__item" onClick = {((e) => {navigate("/courses",{state:e.target.innerText}) ;window.scrollTo({top:0})})}>
                                     HR & Recruting
                                 </li>
-                                <li className="footer__box__center__courses__design footer--gray list__item">
+                                <li className="footer__box__center__courses__design footer--gray list__item" onClick = {((e) => {navigate("/courses",{state:e.target.innerText}) ;window.scrollTo({top:0})})}>
                                     Design
                                 </li>
-                                <li className="footer__box__center__courses__development footer--gray list__item">
+                                <li className="footer__box__center__courses__development footer--gray list__item" onClick = {((e) => {navigate("/courses",{state:e.target.innerText}) ;window.scrollTo({top:0})})}>
                                     Development
                                 </li>
                             </ul> 
