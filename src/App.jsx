@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
-import { Footer } from "./components/footer";
 import "./styles/variables.css";
 
 const Home = lazy(() => import("./pages/Home" /* webpackChunkName: "Home" */));
@@ -32,11 +31,18 @@ const Course = lazy(() =>
   import("./pages/Course" /*webpackChunkName: "CoursePage" */)
 );
 
+const Loader = lazy(() =>
+  import("./components/loader" /*webpackChunkName: "Loader" */)
+);
+const Footer = lazy(() =>
+  import("./components/footer" /*webpackChunkName: "Loader" */)
+);
+
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Suspense fallback={"Loading"}>
+        <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/courses" element={<CoursesPage />} />
