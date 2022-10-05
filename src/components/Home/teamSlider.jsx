@@ -71,107 +71,66 @@ export default class MultipleItems extends Component {
           this.props.page === "blogs" &&
           this.props.props.map((blog) => {
             return (
-              <div key={blog._id} className="blog__hero__list__item">
-                <img src={blog.image} alt={blog.image}></img>
-                <div className="blog__hero__list__item__type">
-                  {blog.typeofBlog === "Podcast" && (
-                    <svg width="16" height="16">
-                      <use href={`${Svg}#icon-mic`}></use>
-                    </svg>
-                  )}
+              <div  key = {blog._id} className="blog__hero__list__item blog__box">
+                                <img src={blog.image} alt={blog.image} ></img>
+                                <div className="blog__hero__list__item__type">
+                                    
+                                   
+                                    { blog.typeofBlog === "Podcast" && 
+                                        <svg width="16" height = "16" >
+                                            <use href={`${Svg}#icon-mic`}></use>
+                                        </svg>}
+                                       
+                                    {blog.typeofBlog === "Video" &&
+                                    <svg width="16" height = "16" >
+                                        <use href={`${Svg}#icon-play`}></use>
+                                    </svg>}
+                                    {blog.typeofBlog === "Article" &&
+                                    <svg width="16" height = "16" >
+                                        <use href={`${Svg}#icon-files`}></use>
+                                    </svg>}    
+                                    <p className = "blog__hero__list__item__type__text" >{blog.typeofBlog}</p>
+                                </div>
+                                
+                                <div className="blog__hero__list__item__box">
+                                    <ul className="blog__hero__list__item__box__top">
+                                        <li className = "blog__hero__list__box__item">{blog.category}</li>
+                                        <li className = "blog__hero__list__box__item">
+                                            <svg width="16"height = "16"  >
+                                                <use href={`${Svg}#icon-calendar`}></use>
+                                            </svg>
+                                            {blog.date}
+                                        </li>
+                                        {blog.duration && <li className = "blog__hero__list__box__item">
+                                        <svg width="16"height = "16"  >
+                                                <use href={`${Svg}#icon-clock`}></use>
+                                            </svg>
+                                            { blog.duration} min</li>} 
+                                    </ul>
+                                    <p className="blog__hero__list__item__box__title">{blog.title}</p>
+                                    <p className="blog__hero__list__item__box__text">{blog.text}</p>
+                                    { blog.typeofBlog === "Podcast" && 
+                                    <Link className = "blog__hero__list__item__box__button" to = {{pathname:`/blogs/${blog._id}`}} state= {[blog,this.props.props]} onClick= { ()=>{window.scrollTo({top:0})}}>
+                                        <p>Listen</p> 
+                                        <svg width="24" height = "24" className="blog__hero__list__item__box__button--red">
+                                            <use href={`${Svg}#icon-Right`}></use>
+                                        </svg>
+                                        </Link> }
+                                       
+                                    {blog.typeofBlog === "Video" &&
+                                    <Link to = {{pathname:`/blogs/${blog._id}`}} state= {[blog,this.props.props]} className = "blog__hero__list__item__box__button" onClick= { ()=>{window.scrollTo({top:0})}}><p>Watch</p><svg width="24" height = "24" className="blog__hero__list__item__box__button--red" >
+                                    <use href={`${Svg}#icon-Right`}></use>
+                                </svg></Link>}
+                                    {blog.typeofBlog === "Article" &&
+                                    <Link to = {{pathname:`/blogs/${blog._id}`}} state= {[blog,this.props.props]} className = "blog__hero__list__item__box__button" onClick= { ()=>{window.scrollTo({top:0})}}><p>Read</p><svg width="24" height = "24"  className="blog__hero__list__item__box__button--red">
+                                    <use href={`${Svg}#icon-Right`}></use>
+                                </svg></Link>}  
+                                </div>
+                                
+                                
+                            </div>
 
-                  {blog.typeofBlog === "Video" && (
-                    <svg width="16" height="16">
-                      <use href={`${Svg}#icon-play`}></use>
-                    </svg>
-                  )}
-                  {blog.typeofBlog === "Article" && (
-                    <svg width="16" height="16">
-                      <use href={`${Svg}#icon-files`}></use>
-                    </svg>
-                  )}
-                  <p className="blog__hero__list__item__type__text">
-                    {blog.typeofBlog}
-                  </p>
-                </div>
-
-                <div className="blog__hero__list__item__box">
-                  <ul className="blog__hero__list__item__box__top">
-                    <li className="blog__hero__list__box__item">
-                      {blog.category}
-                    </li>
-                    <li className="blog__hero__list__box__item">
-                      <svg width="16" height="16">
-                        <use href={`${Svg}#icon-calendar`}></use>
-                      </svg>
-                      {blog.date}
-                    </li>
-                    {blog.duration && (
-                      <li className="blog__hero__list__box__item">
-                        <svg width="16" height="16">
-                          <use href={`${Svg}#icon-clock`}></use>
-                        </svg>
-                        {blog.duration} min
-                      </li>
-                    )}
-                  </ul>
-                  <p className="blog__hero__list__item__box__title">
-                    {blog.title}
-                  </p>
-                  <p className="blog__hero__list__item__box__text">
-                    {blog.text}
-                  </p>
-                  {blog.typeofBlog === "Podcast" && (
-                    <Link
-                      className="blog__hero__list__item__box__button"
-                      to={{ pathname: `/blogs/${blog._id}` }}
-                      state={blog}
-                    >
-                      <p>Listen</p>
-                      <svg
-                        width="24"
-                        height="24"
-                        className="blog__hero__list__item__box__button--red"
-                      >
-                        <use href={`${Svg}#icon-Right`}></use>
-                      </svg>
-                    </Link>
-                  )}
-
-                  {blog.typeofBlog === "Video" && (
-                    <Link
-                      to={{ pathname: `/blogs/${blog._id}` }}
-                      state={{ blog }}
-                      className="blog__hero__list__item__box__button"
-                    >
-                      <p>Watch</p>
-                      <svg
-                        width="24"
-                        height="24"
-                        className="blog__hero__list__item__box__button--red"
-                      >
-                        <use href={`${Svg}#icon-Right`}></use>
-                      </svg>
-                    </Link>
-                  )}
-                  {blog.typeofBlog === "Article" && (
-                    <Link
-                      to={{ pathname: `/blogs/${blog._id}` }}
-                      state={ blog }
-                      className="blog__hero__list__item__box__button"
-                    >
-                      <p>Read</p>
-                      <svg
-                        width="24"
-                        height="24"
-                        className="blog__hero__list__item__box__button--red"
-                      >
-                        <use href={`${Svg}#icon-Right`}></use>
-                      </svg>
-                    </Link>
-                  )}
-                </div>
-              </div>
+              
             );
           })}
         {this.props.props &&
