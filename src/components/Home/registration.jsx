@@ -12,12 +12,15 @@ export default function RegisterPage({ onClick, modalLogin, showLoginForm }) {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userPwd, setUserPwd] = useState("");
+  const [userPwdRep, setUserPwdRep] = useState("");
+
   const [type, setType] = useState("password");
 
   const reset = () => {
     setUserName("");
     setUserEmail("");
     setUserPwd("");
+    setUserPwdRep("");
   };
 
   const handleSubmit = async () => {
@@ -30,7 +33,7 @@ export default function RegisterPage({ onClick, modalLogin, showLoginForm }) {
     name: "",
     email: "",
     password: "",
-    repeated_password: ""
+    repeated_password: "",
   };
 
   const schema = yup.object().shape({
@@ -54,6 +57,10 @@ export default function RegisterPage({ onClick, modalLogin, showLoginForm }) {
 
   const Password = (e) => {
     setUserPwd(e.target.value);
+  };
+
+  const PasswordRep = (e) => {
+    setUserPwdRep(e.target.value);
   };
 
   const Email = (e) => {
@@ -130,7 +137,9 @@ export default function RegisterPage({ onClick, modalLogin, showLoginForm }) {
               )}
               <FormError name="repeated_password" />
               <Field
+                onInput={PasswordRep}
                 className="auth-form__input"
+                value={userPwdRep}
                 id="repeated_password"
                 name="repeated_password"
                 type={type}

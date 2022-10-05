@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import getCourses from "../../API/getCourses";
 import getColor from "../getColor";
 import { scrollUp } from "../scroll";
 
 export const Corses = () => {
   const [courses, setCourses] = useState(null);
-  const navigate = useNavigate()
 
   useEffect(() => {
     async function FetchCourses() {
@@ -38,39 +37,41 @@ export const Corses = () => {
         <ul className="couses-list">
           {courses &&
             courses.map((course, indx) => {
-              if (indx === 4) {
-                return null;
-              }
-              if (indx === 3) {
-                return null;
-              }
               if (indx === 7) {
                 return null;
               }
               return (
-                <li key={course._id} className="couses-list__item" onClick={()=>{navigate(`/courses/${course._id}`)}}>
-              
-                  <img
-                    src={course.profilePicture} 
-                    alt="Coatch"
-                    width="300"
-                    className="coach-img"
-                  />
-                  <div>
-                    <p
-                      className="course-item__name"
-                      style={{ backgroundColor: getColor(course.typeOfCourse) }}
+                <li key={course._id} className="couses-list__item">
+                  <Link
+                    className="couses-list__item__link"
+                    to={`/courses/${course._id}`}
+                    state={course}
+                    onClick={scrollUp}
                     >
-                      {course.typeOfCourse}
-                    </p>
+                    <img
+                      src={course.profilePicture}
+                      alt="Coatch"
+                      width="300"
+                      className="coach-img"
+                    />
+                    <div>
+                      <p
+                        className="course-item__name"
+                        style={{
+                          backgroundColor: getColor(course.typeOfCourse),
+                        }}
+                      >
+                        {course.typeOfCourse}
+                      </p>
 
-                    <h3 className="course-item__text">{course.about}</h3>
-                    <p className="courses-detail">
-                      <span className="price">{course.price}</span>
-                      <span color=" var(--light-gray)">|</span>
-                      {course.name}
-                    </p>
-                  </div>
+                      <h3 className="course-item__text">{course.about}</h3>
+                      <p className="courses-detail">
+                        <span className="price">{course.price}</span>
+                        <span color=" var(--light-gray)">|</span>
+                        {course.name}
+                      </p>
+                    </div>
+                  </Link>
                 </li>
               );
             })}

@@ -339,6 +339,9 @@
 }
 
 .all-courses__text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-right: 40px;
   @include text($main-font, $bold, 28px, 150%, $dark-gray);
 }
