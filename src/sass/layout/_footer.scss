@@ -11,7 +11,11 @@
   }
   .footer__box__left{
     width: 279px;
-    
+    &>img{
+      &:hover{
+        cursor: pointer;
+      }
+    }
     }
   .footer__box__left__text{
     margin-bottom: 40px;
