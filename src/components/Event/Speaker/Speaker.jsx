@@ -10,7 +10,7 @@ export const Speaker = ({ state }) => {
   const [benefits, setBenefits] = useState(null);
   useEffect(() => {
     const arr = [];
-    [state.i].map(({ list }) => {
+    [state.eventObj].map(({ list }) => {
       for (let text of list) {
         arr.push(text);
       }
@@ -25,7 +25,7 @@ export const Speaker = ({ state }) => {
         <div className="speaker_container">
           <div className="speaker_image-container">
             {state &&
-              [state.i].map(({ profilePicture }) => {
+              [state.eventObj].map(({ profilePicture }) => {
                 return (
                   <img
                     key={uuid()}
@@ -39,7 +39,7 @@ export const Speaker = ({ state }) => {
           <div className="speaker_info-container">
             <p className="speaker_title">Speaker</p>
             {state &&
-              [state.i].map(({ aboutName, aboutJobTitle, link }) => {
+              [state.eventObj].map(({ aboutName, aboutJobTitle, link }) => {
                 return (
                   <div key={uuid()}>
                     <p className="speaker_name">{aboutName}</p>

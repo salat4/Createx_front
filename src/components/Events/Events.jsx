@@ -260,7 +260,7 @@ export const Events = () => {
                       </div>
                       <Link
                         to={`/events/${i._id}`}
-                        state={{ i, baseEvents }}
+                        state={[i, baseEvents]}
                         className="info_button"
                       >
                         View more
@@ -283,7 +283,7 @@ export const Events = () => {
                       <p className="info_category--grid">{i.category}</p>
                       <Link
                         to={`/events/${i._id}`}
-                        state={{ i, baseEvents }}
+                        state={[i, baseEvents]}
                         className="info_button--grid"
                       >
                         View more

@@ -61,7 +61,7 @@ export default class MultipleItems extends Component {
                   onClick={scrollUp}
                   className="slider_event--change"
                   to={`/events/${i._id}`}
-                  state={{ i, baseEvents }}
+                  state={[i, baseEvents]}
                 >
                   View more
                 </Link>
