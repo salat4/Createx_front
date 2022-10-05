@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Svg from "../../images/symbol-defs.svg";
 import getCourses from "../../API/getCourses";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export const Courses = () => {
   const [courses, setCourses] = useState(null);
@@ -12,17 +12,16 @@ export const Courses = () => {
   const [sizeHR, setSizeHR] = useState(0);
   const [sizeDesign, setSizeDesign] = useState(0);
   const [sizeDev, setSizeDev] = useState();
+  const location = useLocation()
 
   const [search, setSearch] = useState("");
-  const [active, setActive] = useState("All");
-
+  const [active, setActive] = useState(location.state ? location.state : "All");
   useEffect(() => {
     const marketingArr = [];
     const managementArr = [];
     const hrArr = [];
     const designgArr = [];
     const developmentArr = [];
-
     if (courses) {
       const objSize = Object.keys(courses).length;
       setSizeOb(objSize)
@@ -89,14 +88,17 @@ export const Courses = () => {
     } else if (active !== "All") {
       condition = { typeOfCourse: active, about: search };
     }
+ 
 
-    if (courses) {
-      setTypeCourses(filter(condition, courses));
-    }
+
+  if (courses) {
+    setTypeCourses(filter(condition, courses));
+  }
   }, [courses, search, active]);
 
   function filterType(e) {
     setActive(e.target.innerText);
+    location.state = null;
   }
 
   return (
@@ -110,15 +112,15 @@ export const Courses = () => {
 
         <div className="courses-navigation__wrap">
           <ul className="courses-navigation__list">
-            <li className="pos courses-navigation__list__item">
-              <button
-                className={`courses-navigation__list__item__btn  ${
+            <li className={`pos courses-navigation__list__item   ${
                   "All" === active && "active"
-                }`}
+                }`}>
+              <p
+                className={`courses-navigation__list__item__btn `}
                 onClick={filterType}
               >
                 All
-              </button>
+              </p>
                 <span>{sizeOb}</span>
             </li>
             <li className="pos courses-navigation__list__item">
