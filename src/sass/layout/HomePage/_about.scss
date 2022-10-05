@@ -1,6 +1,7 @@
 .about-section {
   padding: 180px 0;
-  background-image: url(../../../images//circles-pink.png), url(../../../images//dots-pink.png);
+  background-image: url(../../../images//circles-pink.png),
+    url(../../../images//dots-pink.png);
   background-repeat: no-repeat;
   background-position: 100% 80%, 0 28%;
 }
@@ -37,16 +38,18 @@
 
 .about-list__item {
   display: flex;
-  padding-bottom: 12px;
-}
 
-.about-list__item-text {
-  margin-left: 16px;
+  &:not(:last-child) {
+    margin-bottom: 12px;
+  }
+  & > svg{
+    margin-right: 16px;
+    width: 20px !important;
+  }
 }
 
 .about-button {
   width: 161px;
   height: 44px;
   @include text($main-font, $bold, 14px, 44px, $white);
-
 }

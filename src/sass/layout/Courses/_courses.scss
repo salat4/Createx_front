@@ -17,19 +17,54 @@
 
 .courses-navigation__list__item {
   margin-right: 12px;
-}
-
-.courses-navigation__list__item__btn {
   cursor: pointer;
-  padding: 10px 20px;
-  @include text($main-font, $bold, 16px, 160%, $light-gray2);
   border-radius: 4px;
+  padding: 10px 20px;
   border: 1px solid transparent;
+
+
   &:hover {
     transition: 550ms;
     border: 1px solid $orange;
     color: $orange;
   }
+
+  &:hover .courses-navigation__list__item__btn{
+    color: $orange;
+  }
+}
+
+.pos {
+  position: relative;
+
+  & > span {
+    position: absolute;
+    font-weight: 900;
+    font-size: 10px;
+    line-height: 150%;
+    right: 10px;
+    top: 1px;
+    @include text($main-font, $bold, 16px, 160%, $light-gray2);
+  }
+
+  &:hover > span {
+    color: $orange;
+  }
+}
+
+.active {
+ & > p{
+    color: $orange;
+  }
+  & > span{
+    color: $orange;
+  }
+}
+
+
+
+.courses-navigation__list__item__btn {
+  @include text($main-font, $bold, 16px, 160%, $light-gray2);
 }
 
 .blogs__hero__menu__category__search {
@@ -67,8 +102,8 @@
       0px 4px 4px -4px rgba(30, 33, 44, 0.05);
   }
 
-  &:nth-child(3n){
-    margin-right:0px;
+  &:nth-child(3n) {
+    margin-right: 0px;
   }
 }
 

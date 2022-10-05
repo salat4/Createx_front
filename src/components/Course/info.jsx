@@ -112,11 +112,8 @@ export const CourseInfo = () => {
           <div>
             <ul className="course-about__list">
               {state.benefits.map((b, indx) => (
-                <li key={indx} className="about-list__item">
-                  <svg width="20" height="20">
-                    <use href={`${Svg}#icon-checked`} />
-                  </svg>
-                  <p className="about-list__item-text">{b}</p>
+                <li key={indx} className="about-list__item course-about__list__item">
+                  <p className="about-list__item-text">{b.trim()}</p>
                 </li>
               ))}
             </ul>

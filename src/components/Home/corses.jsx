@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import getCourses from "../../API/getCourses";
 import getColor from "../getColor";
+import { scrollUp } from "../scroll";
 
 export const Corses = () => {
   const [courses, setCourses] = useState(null);
+  const navigate = useNavigate()
 
   useEffect(() => {
     async function FetchCourses() {
@@ -46,9 +48,10 @@ export const Corses = () => {
                 return null;
               }
               return (
-                <li key={course._id} className="couses-list__item">
+                <li key={course._id} className="couses-list__item" onClick={()=>{navigate(`/courses/${course._id}`)}}>
+              
                   <img
-                    src={course.profilePicture}
+                    src={course.profilePicture} 
                     alt="Coatch"
                     width="300"
                     className="coach-img"
