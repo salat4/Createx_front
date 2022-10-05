@@ -72,7 +72,7 @@ export default class MultipleItems extends Component {
           this.props.page === "blogs" &&
           this.props.props.map((blog) => {
             return (
-              <div key={blog._id} className="blog__hero__list__item">
+              <div key={blog._id} className="blog__hero__list__item blog__box">
                 <img src={blog.image} alt={blog.image}></img>
                 <div className="blog__hero__list__item__type">
                   {blog.typeofBlog === "Podcast" && (
@@ -126,7 +126,10 @@ export default class MultipleItems extends Component {
                     <Link
                       className="blog__hero__list__item__box__button"
                       to={{ pathname: `/blogs/${blog._id}` }}
-                      state={blog}
+                      state={[blog, this.props.props]}
+                      onClick={() => {
+                        window.scrollTo({ top: 0 });
+                      }}
                     >
                       <p>Listen</p>
                       <svg
@@ -142,8 +145,11 @@ export default class MultipleItems extends Component {
                   {blog.typeofBlog === "Video" && (
                     <Link
                       to={{ pathname: `/blogs/${blog._id}` }}
-                      state={{ blog }}
+                      state={[blog, this.props.props]}
                       className="blog__hero__list__item__box__button"
+                      onClick={() => {
+                        window.scrollTo({ top: 0 });
+                      }}
                     >
                       <p>Watch</p>
                       <svg
@@ -158,8 +164,11 @@ export default class MultipleItems extends Component {
                   {blog.typeofBlog === "Article" && (
                     <Link
                       to={{ pathname: `/blogs/${blog._id}` }}
-                      state={blog}
+                      state={[blog, this.props.props]}
                       className="blog__hero__list__item__box__button"
+                      onClick={() => {
+                        window.scrollTo({ top: 0 });
+                      }}
                     >
                       <p>Read</p>
                       <svg

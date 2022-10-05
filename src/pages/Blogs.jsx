@@ -181,7 +181,7 @@ export default function Blogs()  {
                                     <p className="blog__hero__list__item__box__title">{blog.title}</p>
                                     <p className="blog__hero__list__item__box__text">{blog.text}</p>
                                     { blog.typeofBlog === "Podcast" && 
-                                    <Link className = "blog__hero__list__item__box__button" to = {{pathname:`/blogs/${blog._id}`}} state= {{blog, blogs}}>
+                                    <Link className = "blog__hero__list__item__box__button" to = {{pathname:`/blogs/${blog._id}`}} state= {[blog, blogs]}>
                                         <p>Listen</p> 
                                         <svg width="24" height = "24" className="blog__hero__list__item__box__button--red">
                                             <use href={`${UserSvg}#icon-Right`}></use>
@@ -189,11 +189,11 @@ export default function Blogs()  {
                                         </Link> }
                                        
                                     {blog.typeofBlog === "Video" &&
-                                    <Link to = {{pathname:`/blogs/${blog._id}`}} state= {{blog, blogs}} className = "blog__hero__list__item__box__button"><p>Watch</p><svg width="24" height = "24" className="blog__hero__list__item__box__button--red" >
+                                    <Link to = {{pathname:`/blogs/${blog._id}`}} state= {[blog, blogs]} className = "blog__hero__list__item__box__button"><p>Watch</p><svg width="24" height = "24" className="blog__hero__list__item__box__button--red" >
                                     <use href={`${UserSvg}#icon-Right`}></use>
                                 </svg></Link>}
                                     {blog.typeofBlog === "Article" &&
-                                    <Link to = {{pathname:`/blogs/${blog._id}`}} state= {{blog, blogs}} className = "blog__hero__list__item__box__button"><p>Read</p><svg width="24" height = "24"  className="blog__hero__list__item__box__button--red">
+                                    <Link to = {{pathname:`/blogs/${blog._id}`}} state= {[blog, blogs]} className = "blog__hero__list__item__box__button"><p>Read</p><svg width="24" height = "24"  className="blog__hero__list__item__box__button--red">
                                     <use href={`${UserSvg}#icon-Right`}></use>
                                 </svg></Link>}  
                                 </div>

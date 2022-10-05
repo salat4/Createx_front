@@ -21,8 +21,8 @@ export default function RegisterPage({ onClick, modalLogin, showLoginForm }) {
   };
 
   const handleSubmit = async () => {
-    console.log(userName);
-    registration(userName, userEmail, userPwd);
+   const prew = await registration(userName, userEmail, userPwd);
+    sessionStorage.setItem('user',JSON.stringify({...prew}))
     reset();
   };
 
@@ -65,7 +65,7 @@ export default function RegisterPage({ onClick, modalLogin, showLoginForm }) {
   };
 
   const showHide = () => {
-    let currentType = type === "input" ? "password" : "input";
+    let currentType = type === "input" ? "password" : "input" ;
     setType(currentType);
   };
 

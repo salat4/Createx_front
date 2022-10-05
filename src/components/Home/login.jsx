@@ -22,8 +22,10 @@ export default function LoginPage({ onClick, showRegistrationForm, modalRegistra
     password: yup.string().min(6).required(),
   });
 
-  const handleSubmit = () => {
-    login(userEmail, userPwd);
+  const handleSubmit = async() => {
+   const prew = await login(userEmail, userPwd);
+   sessionStorage.setItem('user',JSON.stringify({...prew}))
+
     reset();
   };
 
