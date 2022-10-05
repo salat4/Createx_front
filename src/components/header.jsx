@@ -9,13 +9,13 @@ import { useEffect } from "react";
 
 export const Header = () => {
   const [modalRegistration, setModalRegistration] = useState(false);
-  const [user, setUser] = useState()
-  useEffect(()=>{
-    const user = JSON.parse(sessionStorage.getItem('user'))
-    if(user){
-      setUser(user)
+  const [user, setUser] = useState();
+  useEffect(() => {
+    const user = JSON.parse(sessionStorage.getItem("user"));
+    if (user) {
+      setUser(user);
     }
-  },[])
+  }, []);
   const showRegistrationForm = () => {
     setModalRegistration(!modalRegistration);
     setModalLogin(false);
@@ -104,32 +104,31 @@ export const Header = () => {
 
             <div className="btn-menu">
               <ShowConsultationModal onClick={onClick} />
-             
-             {user ? <div>{user.name}</div> :
-             <div>
-             <svg width="20" height="20">
-               <use href={`${UserSvg}#icon-profile`} />
-             </svg>
-             <ShowLoginModal
-               onClick={onClick}
-               modalLogin={modalLogin}
-               showLoginForm={showLoginForm}
-               showRegistrationForm={showRegistrationForm}
-               modalRegistration={modalRegistration}
-             />
-             <span className="header-span">/</span>
-             <ShowRegModal
-               onClick={onClick}
-               modalLogin={modalLogin}
-               showLoginForm={showLoginForm}
-               showRegistrationForm={showRegistrationForm}
-               modalRegistration={modalRegistration}
-             />
-             </div>
-             }
-             
-              
-              
+
+              {user ? (
+                <div>{user.name}</div>
+              ) : (
+                <div>
+                  <svg width="20" height="20">
+                    <use href={`${UserSvg}#icon-profile`} />
+                  </svg>
+                  <ShowLoginModal
+                    onClick={onClick}
+                    modalLogin={modalLogin}
+                    showLoginForm={showLoginForm}
+                    showRegistrationForm={showRegistrationForm}
+                    modalRegistration={modalRegistration}
+                  />
+                  <span className="header-span">/</span>
+                  <ShowRegModal
+                    onClick={onClick}
+                    modalLogin={modalLogin}
+                    showLoginForm={showLoginForm}
+                    showRegistrationForm={showRegistrationForm}
+                    modalRegistration={modalRegistration}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
