@@ -1,5 +1,4 @@
-export  const scrollUp = (e) => {
-e.preventDefault()
+export  const scrollUp = () => {
     window.scrollTo({
       top: 0,
       left: 0,

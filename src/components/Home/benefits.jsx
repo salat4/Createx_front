@@ -28,8 +28,8 @@ export const Benefit = () => {
             </svg>
             <p className="benefit-list__item_text">Experienced Tutors</p>
           </li>
-          <li className="benefit-list__item">
-            <button className="benefit-list__item_btn" onClick={showModal}>
+          <li onClick={showModal} className="benefit-list__item">
+            <button className="benefit-list__item_btn" >
               <svg width="16" height="16" className="benefit-list__item_svg">
                 <use href={`${Svg}#icon-like`} />
               </svg>
