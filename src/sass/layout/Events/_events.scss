@@ -184,12 +184,12 @@
 }
 
 .info_list--grid {
-  @include position(flex, initial, space-between, row);
+  @include position(flex, initial, space-around, row);
   flex-wrap: wrap;
 }
 
 .info_item {
-  @include position(flex, center, initial, initial);
+  @include position(flex, center, space-between, initial);
   padding: 33px 40px;
   border: 1px solid $bg-input-gray;
   border-radius: 4px;

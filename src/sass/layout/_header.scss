@@ -18,10 +18,9 @@
 .header-section {
   padding-top: 26px;
   display: flex;
-  // background-color: $bg-pink;
 }
 
-.logo{
+.logo {
   cursor: pointer;
 }
 
@@ -51,9 +50,18 @@
   }
 }
 
+.activeHeader {
+  color: $orange;
+  transition: 250ms;
+}
+
 .nav-link {
   color: $grey;
   cursor: pointer;
+  &:hover {
+    color: $orange;
+    cursor: pointer;
+  }
 }
 
 .btn-menu {

@@ -1,6 +1,7 @@
 .about-hero_container {
   @include position(flex, flex-end, space-between, initial);
   margin-bottom: 180px;
+  margin-top: 80px;
 }
 
 .about-hero_container_left {

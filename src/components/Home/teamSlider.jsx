@@ -58,6 +58,7 @@ export default class MultipleItems extends Component {
                   <p>{i.category}</p>
                 </div>
                 <Link
+                  onClick={scrollUp}
                   className="slider_event--change"
                   to={`/events/${i._id}`}
                   state={{ i, baseEvents }}
@@ -157,7 +158,7 @@ export default class MultipleItems extends Component {
                   {blog.typeofBlog === "Article" && (
                     <Link
                       to={{ pathname: `/blogs/${blog._id}` }}
-                      state={ blog }
+                      state={blog}
                       className="blog__hero__list__item__box__button"
                     >
                       <p>Read</p>
@@ -218,9 +219,9 @@ export default class MultipleItems extends Component {
           this.props.props.map((course) => {
             return (
               <Link
-              to={`/courses/${course._id}`}
-              state={course}
-              onClick={scrollUp}
+                to={`/courses/${course._id}`}
+                state={course}
+                onClick={scrollUp}
               >
                 <img
                   src={course.profilePicture}

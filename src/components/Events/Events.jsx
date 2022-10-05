@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Header } from "../header";
 import { v4 as uuidv4 } from "uuid";
 import pathToSvg from "../../images/symbol-defs.svg";
 import { getEvents } from "../../API";
@@ -140,6 +141,7 @@ export const Events = () => {
 
   return (
     <>
+      <Header />
       <section className="events_container">
         <div className="container">
           <div className="events_title-container">
