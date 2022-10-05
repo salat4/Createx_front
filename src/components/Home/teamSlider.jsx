@@ -109,7 +109,7 @@ export default class MultipleItems extends Component {
                                     <p className="blog__hero__list__item__box__title">{blog.title}</p>
                                     <p className="blog__hero__list__item__box__text">{blog.text}</p>
                                     { blog.typeofBlog === "Podcast" && 
-                                    <Link className = "blog__hero__list__item__box__button" to = {{pathname:`/blogs/${blog._id}`}} state= {{blog}}>
+                                    <Link className = "blog__hero__list__item__box__button" to = {{pathname:`/blogs/${blog._id}`}} state= {[blog,this.props.props]} onClick= { ()=>{window.scrollTo({top:0})}}>
                                         <p>Listen</p> 
                                         <svg width="24" height = "24" className="blog__hero__list__item__box__button--red">
                                             <use href={`${Svg}#icon-Right`}></use>
@@ -117,11 +117,11 @@ export default class MultipleItems extends Component {
                                         </Link> }
                                        
                                     {blog.typeofBlog === "Video" &&
-                                    <Link to = {{pathname:`/blogs/${blog._id}`}} state= {{blog}} className = "blog__hero__list__item__box__button"><p>Watch</p><svg width="24" height = "24" className="blog__hero__list__item__box__button--red" >
+                                    <Link to = {{pathname:`/blogs/${blog._id}`}} state= {[blog,this.props.props]} className = "blog__hero__list__item__box__button" onClick= { ()=>{window.scrollTo({top:0})}}><p>Watch</p><svg width="24" height = "24" className="blog__hero__list__item__box__button--red" >
                                     <use href={`${Svg}#icon-Right`}></use>
                                 </svg></Link>}
                                     {blog.typeofBlog === "Article" &&
-                                    <Link to = {{pathname:`/blogs/${blog._id}`}} state= {{blog}} className = "blog__hero__list__item__box__button"><p>Read</p><svg width="24" height = "24"  className="blog__hero__list__item__box__button--red">
+                                    <Link to = {{pathname:`/blogs/${blog._id}`}} state= {[blog,this.props.props]} className = "blog__hero__list__item__box__button" onClick= { ()=>{window.scrollTo({top:0})}}><p>Read</p><svg width="24" height = "24"  className="blog__hero__list__item__box__button--red">
                                     <use href={`${Svg}#icon-Right`}></use>
                                 </svg></Link>}  
                                 </div>

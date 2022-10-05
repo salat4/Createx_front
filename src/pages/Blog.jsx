@@ -1,13 +1,18 @@
-import { useLocation, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import UserSvg from "../images/symbol-defs.svg";
 import TeamSlider from "../components/Home/teamSlider";
 import {Header} from '../components/header.jsx'
 export default function Blog () {
    const location =  useLocation()
    const navigate = useNavigate()
-   const {blog} = location.state
-   const {blogs} = location.state
+//    const {blog} = location.state
+//    const {blogs} = location.state
+//    const firstBlog = blogs[0]
+   const blog = location.state[0]
+   const blogs = location.state[1]
+//    console.log(zxc)
     return(
+        
         <>
         <Header></Header>
             <div className = "container blog__container">
@@ -133,7 +138,7 @@ export default function Blog () {
                                             <p>{blogs[0].date}</p>
                                         </li>
                                     </ul>
-                                    <p>{blogs[0].title}</p>
+                                    <Link to = {{pathname:`/blogs/${blogs[0]._id}`}} state= {[blogs[0], blogs]} onClick= { ()=>{window.scrollTo({top:0})}}>{blogs[0].title}</Link>
                                 </div>
                             </li>
                             <li className="blog__left__trending__item">
@@ -149,7 +154,7 @@ export default function Blog () {
                                             <p>{blogs[1].date}</p>
                                         </li>
                                     </ul>
-                                    <p>{blogs[1].title}</p>
+                                    <Link to = {{pathname:`/blogs/${blogs[1]._id}`}} state= {[blogs[1], blogs]} onClick= { ()=>{window.scrollTo({top:0})}}>{blogs[1].title}</Link>
                                 </div>
                             </li>
                             <li className="blog__left__trending__item">
@@ -165,7 +170,7 @@ export default function Blog () {
                                             <p>{blogs[2].date}</p>
                                         </li>
                                     </ul>
-                                    <p>{blogs[2].title}</p>
+                                    <Link to = {{pathname:`/blogs/${blogs[2]._id}`}} state= {[blogs[2], blogs]} onClick= { ()=>{window.scrollTo({top:0})}}>{blogs[2].title}</Link>
                                 </div>
                             </li>
                         </ul>

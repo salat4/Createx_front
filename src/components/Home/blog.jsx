@@ -1,12 +1,11 @@
 import Svg from "../../images/symbol-defs.svg";
 import getBlogs from "../../API/getBlogs";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link  } from "react-router-dom";
 
 export const Blog = () => {
   const [blogs, setBlogs] = useState(null);
   const [items, setItems] = useState(null);
-
   useEffect(() => {
     async function FetchBlogs() {
       const blog = await getBlogs();
@@ -78,12 +77,12 @@ export const Blog = () => {
                   </ul>
                   <p className="blog-list__item__box__title">{item.title}</p>
                   <p className="blog-list__item__box__text">{item.text}</p>
-                  <button className="blog-btn__more">
+                  <Link className="blog-btn__more" to = {{pathname:`/blogs/${item._id}`}} state= {[item, blogs]} onClick = {(() => {window.scrollTo({top:0})})}>
                     Enjoy
                     <svg width="20" height="20" className="more-btn__svg">
                       <use href={`${Svg}#icon-Right`} />
                     </svg>
-                  </button>
+                  </Link>
                 </div>
               </li>
             ))}

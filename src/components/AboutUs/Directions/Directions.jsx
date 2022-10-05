@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import { getAbout } from "../../../API";
 import getColor from "../../getColor";
 import pathToSvg from "../../../images/symbol-defs.svg";
+import { useNavigate } from "react-router-dom";
 
 export const Directions = () => {
   const [courses, setCourse] = useState([]);
-
+ const navigate =  useNavigate()
   useEffect(() => {
     try {
       getCoursesAbout();
@@ -42,7 +43,7 @@ export const Directions = () => {
                         {category}
                       </span>
                       <p className="card-text">{text}</p>
-                      <button className="card-button">
+                      <button className="card-button" id = {category} onClick={(e)=>{navigate("/courses",{state:e.target.id}) ;window.scrollTo({top:0})}}>
                         Check courses
                         <svg width="32" height="21">
                           <use href={`${pathToSvg}#icon-Right`} />

@@ -381,21 +381,19 @@ margin-bottom: 24px;
 }
 .blog__left__trending__box{
     margin-left: 20px;
-    &>p{
+   
+    &>a{
         font-family: 'Lato';
         font-style: normal;
         font-weight: 700;
         font-size: 16px;
         line-height: 160%;
-        /* or 26px */
-
         &:hover{
             color:#FF3F3A;
             cursor: pointer;
         }
-        /* gray/900 */
-
         color: #1E212C;
+
     }
 }
 .blog__left__trending__info__item{
