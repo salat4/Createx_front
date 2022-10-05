@@ -21,38 +21,36 @@ const BlogsPages = lazy(() =>
 const EventPage = lazy(() =>
   import("./pages/Event" /* webpackChunkName: "EventPage" */)
 );
-const BlogPage = lazy(()=>
-  import("./pages/Blog" /*webpackChunkName: "EventPage" */)
-)
-const CoursesPage = lazy(()=>
+const BlogPage = lazy(() =>
+  import("./pages/Blog" /*webpackChunkName: "BlogPage" */)
+);
+const CoursesPage = lazy(() =>
   import("./pages/Courses" /*webpackChunkName: "CoursesPage" */)
-)
+);
 
-const Course = lazy(()=>
+const Course = lazy(() =>
   import("./pages/Course" /*webpackChunkName: "CoursePage" */)
-)
+);
 
 function App() {
   return (
     <>
-    <BrowserRouter>
-      <Suspense fallback={"Loading"}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/courses" element={<CoursesPage />} />
-          <Route path="/courses/:id" element={<Course />} />
-          <Route path="/about" element={<AboutUsPages />} />
-          <Route path="/events" element={<EventsPages />} />
-          <Route path="/blogs" element={<BlogsPages />} />
-          <Route path="/blogs/:blog_id" element={<BlogPage />} />
-          <Route path="/events/:id" element={<EventPage />} />
-          <Route path="/contacts" element={<ContactPage />} />
-        </Routes>
-        <Footer/>
-      </Suspense>
- 
-    </BrowserRouter>
-    
+      <BrowserRouter>
+        <Suspense fallback={"Loading"}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/courses" element={<CoursesPage />} />
+            <Route path="/courses/:id" element={<Course />} />
+            <Route path="/about" element={<AboutUsPages />} />
+            <Route path="/events" element={<EventsPages />} />
+            <Route path="/blogs" element={<BlogsPages />} />
+            <Route path="/blogs/:blog_id" element={<BlogPage />} />
+            <Route path="/events/:id" element={<EventPage />} />
+            <Route path="/contacts" element={<ContactPage />} />
+          </Routes>
+          <Footer />
+        </Suspense>
+      </BrowserRouter>
     </>
   );
 }

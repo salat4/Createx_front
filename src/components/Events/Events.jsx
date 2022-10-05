@@ -7,6 +7,7 @@ import { Subscribe } from "../Home/subscribe";
 
 export const Events = () => {
   const [category, setCategory] = useState("All themes");
+  const [listCategoryFilter, setListCategoryFilter] = useState([]);
   const [sort, setSort] = useState("newest");
   const [amount, setAmount] = useState(9);
   const [baseEvents, setBaseEvents] = useState([]);
@@ -24,7 +25,7 @@ export const Events = () => {
         setBaseEvents(allEvents);
         if (category !== "All themes") {
           const filterCategory = allEvents.filter(
-            (c) => c.category === category
+            (c) => c.category.trim() === category.trim()
           );
           setEvents(filterCategory.slice(0, amount));
         } else {
@@ -35,6 +36,17 @@ export const Events = () => {
       console.log(error);
     }
   }, [amount, category]);
+
+  useEffect(() => {
+    for (let categoryList of baseEvents) {
+      if (!listCategoryFilter.includes(categoryList.category)) {
+        setListCategoryFilter([
+          ...listCategoryFilter,
+          categoryList.category.trim(),
+        ]);
+      }
+    }
+  }, [baseEvents, listCategoryFilter]);
 
   const showList = (e) => {
     const { id } = e.target;
@@ -61,7 +73,7 @@ export const Events = () => {
 
   const changeCategory = (e) => {
     const { id } = e.target;
-    setCategory(id);
+    setCategory(id.trim());
     setListCategory(false);
   };
 
@@ -74,11 +86,11 @@ export const Events = () => {
     });
     if (id === "oldest") {
       date.sort((a, b) => {
-        return b - a;
+        return a - b;
       });
     } else {
       date.sort((a, b) => {
-        return a - b;
+        return b - a;
       });
     }
 
@@ -149,13 +161,14 @@ export const Events = () => {
                       className="filter_category-list"
                     >
                       <li id="All themes">All themes</li>
-                      {baseEvents.map(({ category }) => {
-                        return (
-                          <li key={uuidv4()} id={category}>
-                            {category}
-                          </li>
-                        );
-                      })}
+                      {listCategoryFilter.length > 0 &&
+                        listCategoryFilter.map((c) => {
+                          return (
+                            <li key={uuidv4()} id={c}>
+                              {c}
+                            </li>
+                          );
+                        })}
                     </ul>
                   </div>
                 )}
@@ -207,8 +220,9 @@ export const Events = () => {
                 </svg>
               </button>
             </div>
-            <div onClick={changeView} className="button-view_container">
+            <div className="button-view_container">
               <button
+                onClick={changeView}
                 id="flex"
                 className={view === "flex" && "button-view_flex--active"}
               >
@@ -217,6 +231,7 @@ export const Events = () => {
                 </svg>
               </button>
               <button
+                onClick={changeView}
                 id="grid"
                 className={view === "grid" && "button-view_grid--active"}
               >
