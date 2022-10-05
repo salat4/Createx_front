@@ -13,7 +13,7 @@ export const Info = ({ state }) => {
     const arrKey = [];
     const arrValue = [];
     setindexInfo(100);
-    [state.i].map(({ theme }) => {
+    [state.eventObj].map(({ theme }) => {
       for (const key in theme) {
         arrKey.push(key);
         arrValue.push(theme[key]);
@@ -22,7 +22,7 @@ export const Info = ({ state }) => {
     });
     setKeyTheme(arrKey);
     setValueTheme(arrValue);
-    setEvent([state.i]);
+    setEvent([state.eventObj]);
   }, [state]);
 
   const openInfo = (e) => {

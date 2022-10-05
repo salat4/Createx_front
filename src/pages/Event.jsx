@@ -10,10 +10,15 @@ import Slider from "../components/Event/Slider";
 export default function EventPage() {
   const [stateInfo, setStateInfo] = useState(null);
   const location = useLocation();
+  const eventObj = location.state[0];
+  const baseEvents = location.state[1];
   const { state } = location;
   useEffect(() => {
-    setStateInfo(state);
-  }, [state]);
+    setStateInfo({
+      eventObj,
+      baseEvents,
+    });
+  }, [baseEvents, eventObj, state]);
 
   return (
     <>
@@ -21,7 +26,7 @@ export default function EventPage() {
       {stateInfo && (
         <>
           <Info state={stateInfo} />
-          <Speaker state={stateInfo} />{" "}
+          <Speaker state={stateInfo} />
         </>
       )}
       <Mailing />

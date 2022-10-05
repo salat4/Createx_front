@@ -1,14 +1,21 @@
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import Logo from "../images/logo.png";
 import UserSvg from "../images/symbol-defs.svg";
 import { ShowLoginModal } from "./Home/showLoginModal";
 import { ShowRegModal } from "./Home/showRegistrationModal";
 import { ShowConsultationModal } from "./Home/showConsultationModal";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export const Header = () => {
   const [modalRegistration, setModalRegistration] = useState(false);
-
+  const [user, setUser] = useState()
+  useEffect(()=>{
+    const user = JSON.parse(sessionStorage.getItem('user'))
+    if(user){
+      setUser(user)
+    }
+  },[])
   const showRegistrationForm = () => {
     setModalRegistration(!modalRegistration);
     setModalLogin(false);
@@ -43,53 +50,86 @@ export const Header = () => {
               </Link>
               <ul className="nav-list">
                 <li className="nav-list__item ">
-                  <Link to="/about" className="nav-link hover">
+                  <NavLink
+                    to="/about"
+                    className={({ isActive }) =>
+                      isActive ? "activeHeader" : "nav-link"
+                    }
+                  >
                     About Us
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-list__item">
-                  <Link to="/courses" className="nav-link hover">
+                  <NavLink
+                    to="/courses"
+                    className={({ isActive }) =>
+                      isActive ? "activeHeader" : "nav-link"
+                    }
+                  >
                     Courses
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-list__item">
-                  <Link to="/events" className="nav-link hover">
+                  <NavLink
+                    to="/events"
+                    className={({ isActive }) =>
+                      isActive ? "activeHeader" : "nav-link"
+                    }
+                  >
                     Events
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-list__item">
-                  <Link to="/blogs" className="nav-link hover">
+                  <NavLink
+                    to="/blogs"
+                    className={({ isActive }) =>
+                      isActive ? "activeHeader" : "nav-link"
+                    }
+                  >
                     Blog
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-list__item">
-                  <Link to="/contacts" className="nav-link hover">
+                  <NavLink
+                    to="/contacts"
+                    className={({ isActive }) =>
+                      isActive ? "activeHeader" : "nav-link"
+                    }
+                  >
                     Contacts
-                  </Link>
+                  </NavLink>
                 </li>
               </ul>
             </nav>
 
             <div className="btn-menu">
               <ShowConsultationModal onClick={onClick} />
-              <svg width="20" height="20">
-                <use href={`${UserSvg}#icon-profile`} />
-              </svg>
-              <ShowLoginModal
-                onClick={onClick}
-                modalLogin={modalLogin}
-                showLoginForm={showLoginForm}
-                showRegistrationForm={showRegistrationForm}
-                modalRegistration={modalRegistration}
-              />
-              <span className="header-span">/</span>
-              <ShowRegModal
-                onClick={onClick}
-                modalLogin={modalLogin}
-                showLoginForm={showLoginForm}
-                showRegistrationForm={showRegistrationForm}
-                modalRegistration={modalRegistration}
-              />
+             
+             {user ? <div>{user.name}</div> :
+             <div>
+             <svg width="20" height="20">
+               <use href={`${UserSvg}#icon-profile`} />
+             </svg>
+             <ShowLoginModal
+               onClick={onClick}
+               modalLogin={modalLogin}
+               showLoginForm={showLoginForm}
+               showRegistrationForm={showRegistrationForm}
+               modalRegistration={modalRegistration}
+             />
+             <span className="header-span">/</span>
+             <ShowRegModal
+               onClick={onClick}
+               modalLogin={modalLogin}
+               showLoginForm={showLoginForm}
+               showRegistrationForm={showRegistrationForm}
+               modalRegistration={modalRegistration}
+             />
+             </div>
+             }
+             
+              
+              
             </div>
           </div>
         </div>
