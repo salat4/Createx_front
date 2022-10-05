@@ -4,6 +4,7 @@ import getCourses from "../../API/getCourses";
 import getColor from "../getColor";
 import {scrollUp} from "../scroll" 
 
+
 export const Corses = () => {
   const [courses, setCourses] = useState(null);
 
