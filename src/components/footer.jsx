@@ -1,12 +1,10 @@
 import Logo from "../images/logo-white.png";
 import UserSvg from "../images/symbol-defs.svg";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 
-export const Footer = () => {
+export default function Footer () {
     const navigate = useNavigate();
-    const [course, setCourse] = useState("Marketing");
     return (
         <>
             <div className="footer__container">
