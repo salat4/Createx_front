@@ -152,6 +152,8 @@
 .step-number {
   margin-bottom: 16px;
   position: relative;
+  width: 75px;
+  height: 75px;
   @include text($main-font, $boldest, 46px, 130%, $border-input-gray);
 
   &:after {
@@ -187,9 +189,7 @@
   }
 
   &:hover .step-number {
-    transition: 550ms;
-    width: 75px;
-    height: 75px;
+    transition: 850ms;
     background-color: #ffdddd;
     border-radius: 50%;
     box-shadow: 0 0 0 13px #fff3f3;
@@ -198,6 +198,8 @@
     align-items: center;
     margin-right: 21px;
     color: $orange;
+    width: 75px;
+    height: 75px;
   }
 }
 
@@ -263,10 +265,10 @@
   margin-left: 35px;
 }
 
-.course-about__list__item{
+.course-about__list__item {
   position: relative;
 
-  &::before{
+  &::before {
     content: "";
     position: absolute;
     background-image: url(../../../images/check.png);
