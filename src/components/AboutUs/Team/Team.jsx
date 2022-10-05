@@ -24,11 +24,9 @@ export const TeamAbout = () => {
           <div>
             <ul className="team-list">
               {team &&
-                team.map(
-                  ({ aboutName, profilePicture, aboutJobTitle }, indx) => {
-                    if (indx === 7) {
-                      return null;
-                    }
+                team
+                  .slice(0, 8)
+                  .map(({ aboutName, profilePicture, aboutJobTitle }) => {
                     return (
                       <li className="team-list_item" key={aboutName}>
                         <img src={profilePicture} alt="Our team" />
@@ -38,8 +36,7 @@ export const TeamAbout = () => {
                         </p>
                       </li>
                     );
-                  }
-                )}
+                  })}
             </ul>
           </div>
         </div>

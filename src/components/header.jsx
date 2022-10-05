@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import Logo from "../images/logo.png";
 import UserSvg from "../images/symbol-defs.svg";
 import { ShowLoginModal } from "./Home/showLoginModal";
@@ -50,29 +50,54 @@ export const Header = () => {
               </Link>
               <ul className="nav-list">
                 <li className="nav-list__item ">
-                  <Link to="/about" className="nav-link hover">
+                  <NavLink
+                    to="/about"
+                    className={({ isActive }) =>
+                      isActive ? "activeHeader" : "nav-link"
+                    }
+                  >
                     About Us
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-list__item">
-                  <Link to="/courses" className="nav-link hover">
+                  <NavLink
+                    to="/courses"
+                    className={({ isActive }) =>
+                      isActive ? "activeHeader" : "nav-link"
+                    }
+                  >
                     Courses
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-list__item">
-                  <Link to="/events" className="nav-link hover">
+                  <NavLink
+                    to="/events"
+                    className={({ isActive }) =>
+                      isActive ? "activeHeader" : "nav-link"
+                    }
+                  >
                     Events
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-list__item">
-                  <Link to="/blogs" className="nav-link hover">
+                  <NavLink
+                    to="/blogs"
+                    className={({ isActive }) =>
+                      isActive ? "activeHeader" : "nav-link"
+                    }
+                  >
                     Blog
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-list__item">
-                  <Link to="/contacts" className="nav-link hover">
+                  <NavLink
+                    to="/contacts"
+                    className={({ isActive }) =>
+                      isActive ? "activeHeader" : "nav-link"
+                    }
+                  >
                     Contacts
-                  </Link>
+                  </NavLink>
                 </li>
               </ul>
             </nav>

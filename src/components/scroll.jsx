@@ -1,8 +1,7 @@
-export  const scrollUp = (e) => {
-e.preventDefault()
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-  };
+export const scrollUp = () => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
+};
