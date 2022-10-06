@@ -76,12 +76,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: -30px;
+  margin-right: -30px;
 }
 
 .courses-list__item {
   cursor: pointer;
 
-  width: calc((100% - 60px) / 3);
+  width: 390px;
   margin-bottom: 30px;
   margin-right: 30px;
   background: $white;
@@ -101,9 +103,6 @@
       0px 4px 4px -4px rgba(30, 33, 44, 0.05);
   }
 
-  &:nth-child(3n) {
-    margin-right: 0px;
-  }
 }
 
 
