@@ -84,7 +84,7 @@ export default function Blogs()  {
                 <p className="blogs__header__text">Our blog</p>
                 <h3 className="blogs__header__title">Createx School Journal</h3>
             </div>
-            <div>
+            <div className = "blogs__hero">
                 <div className="blogs__hero__menu">
                     <ul className="blogs__hero__menu__list">
                         <li  className={`blogs__hero__menu__list__item ${"All" === active && "active"}`} onClick={filterType}>
@@ -203,28 +203,7 @@ export default function Blogs()  {
                     ))}
                 </ul>
             </div>
-            <div className="blogs__pages">
-                <ul className = "blogs__pages__list">
-                    <li className = "blogs__pages__item active__pages" >
-                        1
-                    </li>
-                    <li className = "blogs__pages__item">
-                        2
-                    </li>
-                    <li className = "blogs__pages__item">
-                        3
-                    </li>
-                    <li className = "blogs__pages__item">
-                        4
-                    </li>
-                    <li className = "blogs__pages__item">
-                    <svg width="24" height = "24" className="">
-                                            <use href={`${UserSvg}#icon-Right`}></use>
-                                        </svg>
-                    </li>
-
-                </ul>
-            </div>
+            
         </div>
         <div className="blogs__subscribe">
             <div className = "blogs__container container">
