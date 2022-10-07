@@ -27,6 +27,7 @@ export default function RegisterPage({ onClick, modalLogin, showLoginForm }) {
     const prew = await registration(userName, userEmail, userPwd);
     sessionStorage.setItem("user", JSON.stringify({ ...prew }));
     reset();
+    onClick();
   };
 
   const defaultInitialValues = {

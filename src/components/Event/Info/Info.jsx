@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 import pathToSvg from "../../../images/symbol-defs.svg";
 

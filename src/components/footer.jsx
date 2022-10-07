@@ -51,19 +51,19 @@ export default function Footer () {
                                 SITE MAP
                             </h3>
                             <ul className="footer__box__center__sitemap__list">
-                                <li className="footer__box__center__box__sitemap__aboutus footer--gray list__item" onClick = {(() => navigate("/about"))}>
+                                <li className="footer__box__center__box__sitemap__aboutus footer--gray list__item" onClick = {(() => {navigate("/about");window.scrollTo({top:0})})}>
                                     About Us
                                 </li>
-                                <li className="footer__box__center__box__sitemap__courses footer--gray list__item" onClick = {(() => navigate("/about"))}>
+                                <li className="footer__box__center__box__sitemap__courses footer--gray list__item" onClick = {(() => {navigate("/courses");window.scrollTo({top:0})})}>
                                     Courses
                                 </li>
-                                <li className="footer__box__center__box__sitemap__events footer--gray list__item" onClick = {(() => navigate("/events"))}>
+                                <li className="footer__box__center__box__sitemap__events footer--gray list__item" onClick = {(() => {navigate("/events");window.scrollTo({top:0})})}>
                                     Events
                                 </li>
-                                <li className="footer__box__center__box__sitemap__blog footer--gray list__item" onClick = {(() => navigate("/blogs"))}>
+                                <li className="footer__box__center__box__sitemap__blog footer--gray list__item" onClick = {(() => {navigate("/blogs");window.scrollTo({top:0})})}>
                                     Blog
                                 </li>
-                                <li className="footer__box__center__box__sitemap__contacts footer--gray list__item" onClick = {(() => navigate("/contacts"))}>
+                                <li className="footer__box__center__box__sitemap__contacts footer--gray list__item" onClick = {(() => {navigate("/contacts");window.scrollTo({top:0})})}>
                                     Contacts
                                 </li>
                                 

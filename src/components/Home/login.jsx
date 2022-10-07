@@ -16,6 +16,7 @@ export default function LoginPage({
   const [userEmail, setUserEmail] = useState("");
   const [userPwd, setUserPwd] = useState("");
 
+
   const defaultInitialValues = {
     email: "",
     password: "",
@@ -29,8 +30,8 @@ export default function LoginPage({
   const handleSubmit = async () => {
     const prew = await login(userEmail, userPwd);
     sessionStorage.setItem("user", JSON.stringify({ ...prew }));
-
     reset();
+    onClick();
   };
 
   const FormError = ({ name }) => {

@@ -5,17 +5,17 @@ import { ShowLoginModal } from "./Home/showLoginModal";
 import { ShowRegModal } from "./Home/showRegistrationModal";
 import { ShowConsultationModal } from "./Home/showConsultationModal";
 import { useState } from "react";
-import { useEffect } from "react";
 
 export const Header = () => {
+  const SS_KEY = "user";
   const [modalRegistration, setModalRegistration] = useState(false);
-  const [user, setUser] = useState();
-  useEffect(() => {
-    const user = JSON.parse(sessionStorage.getItem("user"));
-    if (user) {
-      setUser(user);
-    }
-  }, []);
+  const [user, setUser] = useState(()=>{
+    const saved = sessionStorage.getItem(SS_KEY);
+    const initialValue = JSON.parse(saved);
+    return initialValue || [];
+});
+const [leave,setLeave] = useState("false")
+
   const showRegistrationForm = () => {
     setModalRegistration(!modalRegistration);
     setModalLogin(false);
@@ -31,8 +31,13 @@ export const Header = () => {
   const onClick = () => {
     setModalRegistration(false);
     setModalLogin(false);
+    setUser(JSON.parse(sessionStorage.getItem("user")))
   };
-
+  const handleLeave = () =>{
+    sessionStorage.setItem("user", JSON.stringify([]));
+    onClick();
+    setLeave(!leave)
+  }
   return (
     <>
       <div className="header-section">
@@ -105,8 +110,15 @@ export const Header = () => {
             <div className="btn-menu">
               <ShowConsultationModal onClick={onClick} />
 
-              {user ? (
-                <div>{user.name}</div>
+              {
+               user && !Array.isArray(user)   ? (
+                <div className="leave">
+                  <div onClick={()=>{setLeave(!leave)}}>{user.name}</div>
+                 
+                    <button className={leave ? "leave__on" : "leave__off"} onClick = {handleLeave}>Leave</button>
+                  
+                </div>
+                
               ) : (
                 <div>
                   <svg width="20" height="20">

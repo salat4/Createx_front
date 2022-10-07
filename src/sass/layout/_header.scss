@@ -5,6 +5,24 @@
     transition: 250ms;
   }
 }
+.leave{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.leave__on{
+  display: none;
+}
+.leave__off{
+  top: 100px;
+  position: absolute;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100px;
+  background: linear-gradient(36deg, #ff3f3a 0%, #f75e05 100%);
+  color: #ffffff;
+}
 
 .btn-hover {
   &:hover {
