@@ -109,16 +109,12 @@ const [leave,setLeave] = useState("false")
 
             <div className="btn-menu">
               <ShowConsultationModal onClick={onClick} />
-
               {
                user && !Array.isArray(user)   ? (
                 <div className="leave">
                   <div onClick={()=>{setLeave(!leave)}}>{user.name}</div>
-                 
                     <button className={leave ? "leave__on" : "leave__off"} onClick = {handleLeave}>Leave</button>
-                  
-                </div>
-                
+                  </div>
               ) : (
                 <div>
                   <svg width="20" height="20">
