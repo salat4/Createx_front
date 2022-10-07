@@ -8,7 +8,7 @@ export const Curator = () => {
   return (
     <div className="curator-section">
       <div className="container curator-container">
-          <img src={state.profilePicture} alt="curator" width="590" />
+          <img src={state.profilePicture} alt="curator" width="590"  className="img_border" />
           <div className="curator-info__wrap">
             <h2 className="about-title">
               Course curator
