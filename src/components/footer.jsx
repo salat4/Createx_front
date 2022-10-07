@@ -10,7 +10,7 @@ export default function Footer () {
             <div className="footer__container">
                 <ul className="footer__box container">
                     <li className="footer__box__left" >
-                        <img src={Logo} width='130' height='20' alt="logo" className="footer-logo" onClick = {(() => navigate("/"))}/>
+                        <img src={Logo} width='130' height='20' alt="logo" className="footer-logo" onClick = {(() => {navigate("/");window.scrollTo({top:0})})}/>
                         <p className="footer__box__left__text">Createx Online School is a leader in online studying. We have lots of courses and programs from the main market experts. We provide relevant approaches to online learning, internships and employment in the largest companies in the country. </p> 
                         <ul className="footer__box__left__link">
                             <li className="footer__box__left__link__facebook">

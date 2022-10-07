@@ -112,7 +112,7 @@ export const Info = ({ state }) => {
               quam ac elit tristique dis.
             </p>
             <div className="info_sidebar_link">
-              <Link to="https://www.facebook.com/">Event on Facebook</Link>
+              <p>Event on Facebook</p>
             </div>
 
             <button className="info_sidebar-button">Join the event</button>
