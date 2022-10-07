@@ -198,7 +198,7 @@ export default class MultipleItems extends Component {
                     alt="teacher"
                     width="285"
                     height="340"
-                    className="team-photo"
+                    className="team-photo  img_border"
                   />
                 </div>
                 <ul className="team-social__list">

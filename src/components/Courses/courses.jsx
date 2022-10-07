@@ -94,7 +94,7 @@ export const Courses = () => {
   }, [courses, search, active]);
 
   function filterType(e) {
-    setActive(e.target.innerText);
+    setActive(e.target.id);
     location.state = null;
   }
 
@@ -110,60 +110,70 @@ export const Courses = () => {
         <div className="courses-navigation__wrap">
           <ul className="courses-navigation__list">
             <li
+              id="All"
               onClick={filterType}
               className={`pos blogs__hero__menu__list__item courses-navigation__list__item  ${
                 "All" === active && "active"
               }`}
             >
-              <p className={`courses-navigation__list__item__btn `}>All</p>
-              <span>{sizeOb}</span>
+              <p id="All" className={`courses-navigation__list__item__btn `}>
+                All
+              </p>
+              <span id="All">{sizeOb}</span>
             </li>
             <li
+              id="Marketing"
               onClick={filterType}
               className={`pos courses-navigation__list__item  ${
                 "Marketing" === active && "active"
               }`}
             >
-              <p className="courses-navigation__list__item__btn">Marketing</p>
-              <span>{sizeMarketing}</span>
+              <p id="Marketing" className="courses-navigation__list__item__btn">
+                Marketing
+              </p>
+              <span id="Marketing">{sizeMarketing}</span>
             </li>
             <li
+              id="Management"
               className={`pos courses-navigation__list__item  ${
                 "Management" === active && "active"
               }`}
               onClick={filterType}
             >
-              <p className="courses-navigation__list__item__btn">Management</p>
-              <span>{sizeManagement}</span>
+              <p id="Management" className="courses-navigation__list__item__btn">Management</p>
+              <span id="Management">{sizeManagement}</span>
             </li>
             <li
+              id="HR & Recruting"
               className={`pos courses-navigation__list__item ${
                 "HR & Recruting" === active && "active"
               }`}
               onClick={filterType}
             >
-              <p className="courses-navigation__list__item__btn">
+              <p id="HR & Recruting" className="courses-navigation__list__item__btn">
                 HR & Recruting
               </p>
-              <span>{sizeHR}</span>
+              <span id="HR & Recruting">{sizeHR}</span>
             </li>
             <li
+              id="Design"
               className={`pos courses-navigation__list__item ${
                 "Design" === active && "active"
               }`}
               onClick={filterType}
             >
-              <p className="courses-navigation__list__item__btn">Design</p>
-              <span>{sizeDesign}</span>
+              <p id="Design" className="courses-navigation__list__item__btn">Design</p>
+              <span id="Design">{sizeDesign}</span>
             </li>
             <li
+              id="Development"
               className={`pos courses-navigation__list__item ${
                 "Development" === active && "active"
               }`}
               onClick={filterType}
             >
-              <p className="courses-navigation__list__item__btn">Development</p>
-              <span>{sizeDev}</span>
+              <p id="Development" className="courses-navigation__list__item__btn">Development</p>
+              <span id="Development">{sizeDev}</span>
             </li>
           </ul>
 
@@ -188,11 +198,11 @@ export const Courses = () => {
               return (
                 <li key={course._id} className="courses-list__item">
                   <Link to={`${course._id}`} state={course}>
-                    <img
+                    <img 
                       src={course.profilePicture}
                       alt="ff"
                       width="390"
-                      className="coach-img"
+                      className="coach-img img_border"
                     />
                     <div className="courses-list__item__text-wrap">
                       <p
