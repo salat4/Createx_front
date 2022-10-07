@@ -6,7 +6,7 @@ export const About = () => {
   return (
     <div className="about-section">
       <div className="container about-container">
-        <img width="705" height="560" src={AboutImg} alt="women and laptop" />
+        <img  className="img_border" width="705" height="560" src={AboutImg} alt="women and laptop" />
         <div className="about-info">
           <h2 className="about-title">
             Who we are

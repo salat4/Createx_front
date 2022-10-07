@@ -53,7 +53,7 @@ export const Corses = () => {
                       src={course.profilePicture}
                       alt="Coatch"
                       width="300"
-                      className="coach-img"
+                      className="coach-img img_border"
                     />
                     <div>
                       <p
