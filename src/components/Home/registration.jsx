@@ -7,7 +7,6 @@ import Svg from "../../images/symbol-defs.svg";
 import { ButtonShowAndHide } from "./btnShow";
 import Backdrop from "../Backdrop";
 import LoginPage from "./login";
-import Notiflix from "notiflix";
 
 export default function RegisterPage({ onClick, modalLogin, showLoginForm }) {
   const [userName, setUserName] = useState("");
