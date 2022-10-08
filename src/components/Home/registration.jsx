@@ -25,7 +25,12 @@ export default function RegisterPage({ onClick, modalLogin, showLoginForm }) {
 
   const handleSubmit = async () => {
     const prew = await registration(userName, userEmail, userPwd);
-    sessionStorage.setItem("user", JSON.stringify({ ...prew }));
+    console.log(prew);
+    // if (prew.message) {
+    //   Notiflix.Notify.failure(prew.response.data);
+    // } else {
+    //   sessionStorage.setItem("user", JSON.stringify({ ...prew }));
+    // }
     reset();
     onClick();
   };
