@@ -7,6 +7,7 @@ import Svg from "../../images/symbol-defs.svg";
 import { ButtonShowAndHide } from "./btnShow";
 import Backdrop from "../Backdrop";
 import LoginPage from "./login";
+import Notiflix from "notiflix";
 
 export default function RegisterPage({ onClick, modalLogin, showLoginForm }) {
   const [userName, setUserName] = useState("");
@@ -25,7 +26,12 @@ export default function RegisterPage({ onClick, modalLogin, showLoginForm }) {
 
   const handleSubmit = async () => {
     const prew = await registration(userName, userEmail, userPwd);
-    sessionStorage.setItem("user", JSON.stringify({ ...prew }));
+    console.log(prew);
+    // if (prew.message) {
+    //   Notiflix.Notify.failure(prew.response.data);
+    // } else {
+    //   sessionStorage.setItem("user", JSON.stringify({ ...prew }));
+    // }
     reset();
     onClick();
   };
