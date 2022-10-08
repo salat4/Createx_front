@@ -28,9 +28,7 @@ export default function LoginPage({
 
   const handleSubmit = async () => {
     const prew = await login(userEmail, userPwd);
-    if (prew.message) {
-      console.log(prew.message);
-    } else {
+    if(prew){
       sessionStorage.setItem("user", JSON.stringify({ ...prew }));
     }
     reset();
@@ -94,8 +92,8 @@ export default function LoginPage({
               </label>
               <label className="auth-form__label" htmlFor="password">
                 Password
-                <FormError name="password" onInput={Password} />
-                <ButtonShowAndHide />
+                <FormError name="password"  />
+                <ButtonShowAndHide Password = {Password}/>
               </label>
 
               <button className="gradient auth-btn" type="submit">
