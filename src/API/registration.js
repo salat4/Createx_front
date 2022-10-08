@@ -13,6 +13,7 @@ export default async function registration(userName, userEmail, userPwd) {
     );
     return register.data;
   } catch (error) {
-    Notiflix.Notify.failure("error");
+    console.log(error);
+    Notiflix.Notify.failure(error.response.data);
   }
 }

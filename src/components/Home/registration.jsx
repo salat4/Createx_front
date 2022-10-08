@@ -25,12 +25,9 @@ export default function RegisterPage({ onClick, modalLogin, showLoginForm }) {
 
   const handleSubmit = async () => {
     const prew = await registration(userName, userEmail, userPwd);
-    console.log(prew);
-    // if (prew.message) {
-    //   Notiflix.Notify.failure(prew.response.data);
-    // } else {
-    //   sessionStorage.setItem("user", JSON.stringify({ ...prew }));
-    // }
+    if(prew){
+      sessionStorage.setItem("user", JSON.stringify({ ...prew }));
+    }
     reset();
     onClick();
   };
@@ -128,7 +125,7 @@ export default function RegisterPage({ onClick, modalLogin, showLoginForm }) {
             <label className="auth-form__label" htmlFor="password">
               Password
               <FormError name="password" />
-              <ButtonShowAndHide value={userPwd} onInput={Password} />
+              <ButtonShowAndHide value={userPwd} Password={Password} />
             </label>
             <label className="auth-form__label" htmlFor="repeated_password">
               Confirm Password

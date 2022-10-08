@@ -1,4 +1,5 @@
 import axios from "axios";
+import Notiflix from "notiflix";
 
 export default async function login(userEmail, userPwd) {
   try {
@@ -9,14 +10,9 @@ export default async function login(userEmail, userPwd) {
         password: userPwd,
       }
     );
-    // if (log.data.code === 404) {
-    //   console.log(log);
-    //   return;
-    // }
-    console.log(log);
     return log.data;
   } catch (error) {
     console.log(error);
-    return error;
+    Notiflix.Notify.failure(error.response.data);
   }
 }
