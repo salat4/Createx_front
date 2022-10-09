@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import "./styles/variables.css";
+import PageNotFound from "pages/NotFound";
 
 const Home = lazy(() => import("./pages/Home" /* webpackChunkName: "Home" */));
 const ContactPage = lazy(() =>
@@ -53,6 +54,10 @@ function App() {
             <Route path="/blogs/:blog_id" element={<BlogPage />} />
             <Route path="/events/:id" element={<EventPage />} />
             <Route path="/contacts" element={<ContactPage />} />
+            <Route
+              path="*"
+              element={<PageNotFound title="Page is not found" />}
+            />
           </Routes>
           <Footer />
         </Suspense>

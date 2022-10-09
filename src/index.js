@@ -1,8 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import axios from "axios";
 import "./sass/main.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+
+axios.defaults.baseURL = "http://localhost:4000/";
+
+// https://createx1.herokuapp.com
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
