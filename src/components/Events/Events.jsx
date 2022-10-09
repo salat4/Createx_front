@@ -226,7 +226,7 @@ export const Events = () => {
               <button
                 onClick={changeView}
                 id="flex"
-                className={view === "flex" && "button-view_flex--active"}
+                className={view === "flex" ? "button-view_flex--active" : ""}
               >
                 <svg id="flex" width="18" height="18">
                   <use id="flex" href={`${pathToSvg}#icon-menu-column`} />
@@ -235,7 +235,7 @@ export const Events = () => {
               <button
                 onClick={changeView}
                 id="grid"
-                className={view === "grid" && "button-view_grid--active"}
+                className={view === "grid" ? "button-view_grid--active" : ""}
               >
                 <svg id="grid" width="18" height="18">
                   <use id="grid" href={`${pathToSvg}#icon-menu-row`} />

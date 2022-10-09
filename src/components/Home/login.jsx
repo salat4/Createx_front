@@ -28,11 +28,12 @@ export default function LoginPage({
 
   const handleSubmit = async () => {
     const prew = await login(userEmail, userPwd);
-    if(prew){
-      sessionStorage.setItem("user", JSON.stringify({ ...prew }));
+    if (prew.status === 200) {
+      sessionStorage.setItem("user", JSON.stringify({ ...prew.data }));
+      reset();
+      onClick();
+      return;
     }
-    reset();
-    onClick();
   };
 
   const FormError = ({ name }) => {
@@ -92,8 +93,8 @@ export default function LoginPage({
               </label>
               <label className="auth-form__label" htmlFor="password">
                 Password
-                <FormError name="password"  />
-                <ButtonShowAndHide Password = {Password}/>
+                <FormError name="password" />
+                <ButtonShowAndHide Password={Password} />
               </label>
 
               <button className="gradient auth-btn" type="submit">

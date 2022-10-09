@@ -4,14 +4,14 @@ import { getCourses } from "../../../API";
 export const TeamAbout = () => {
   const [team, setTeam] = useState([]);
   useEffect(() => {
-    try {
-      getTeamAbout();
-      async function getTeamAbout() {
+    getTeamAbout();
+    async function getTeamAbout() {
+      try {
         const aboutTeamCourses = await getCourses();
         setTeam(aboutTeamCourses);
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
     }
   }, []);
 

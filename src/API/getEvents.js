@@ -1,11 +1,15 @@
 import axios from "axios";
 
-export default async function getEvents() {
+export default async function getEvents(id) {
   try {
-    const blogs = await axios.get(
-      "https://createx1.herokuapp.com/createx/events"
-    );
-    return blogs.data;
+    const allEvents = await axios.get("/createx/events");
+    const search = allEvents.data.find((el) => el._id === id);
+
+    if (search || !id) {
+      return allEvents.data;
+    } else {
+      throw new Error("Event not found");
+    }
   } catch (error) {
     console.log(error);
   }

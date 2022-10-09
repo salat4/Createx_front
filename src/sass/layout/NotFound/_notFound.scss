@@ -1,0 +1,13 @@
+.not-found-container {
+  & > p:first-child {
+    margin-top: 50px;
+    @include text($main-font, $boldest, 48px, 150%, $dark-gray);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  & > p:last-child {
+    @include text($main-font, $bold, 28px, 150%, $dark-gray);
+    text-align: center;
+  }
+  height: calc(100vh - 516px);
+}
