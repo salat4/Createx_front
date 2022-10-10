@@ -140,7 +140,12 @@ export const Courses = () => {
               }`}
               onClick={filterType}
             >
-              <p id="Management" className="courses-navigation__list__item__btn">Management</p>
+              <p
+                id="Management"
+                className="courses-navigation__list__item__btn"
+              >
+                Management
+              </p>
               <span id="Management">{sizeManagement}</span>
             </li>
             <li
@@ -150,7 +155,10 @@ export const Courses = () => {
               }`}
               onClick={filterType}
             >
-              <p id="HR & Recruting" className="courses-navigation__list__item__btn">
+              <p
+                id="HR & Recruting"
+                className="courses-navigation__list__item__btn"
+              >
                 HR & Recruting
               </p>
               <span id="HR & Recruting">{sizeHR}</span>
@@ -162,7 +170,9 @@ export const Courses = () => {
               }`}
               onClick={filterType}
             >
-              <p id="Design" className="courses-navigation__list__item__btn">Design</p>
+              <p id="Design" className="courses-navigation__list__item__btn">
+                Design
+              </p>
               <span id="Design">{sizeDesign}</span>
             </li>
             <li
@@ -172,7 +182,12 @@ export const Courses = () => {
               }`}
               onClick={filterType}
             >
-              <p id="Development" className="courses-navigation__list__item__btn">Development</p>
+              <p
+                id="Development"
+                className="courses-navigation__list__item__btn"
+              >
+                Development
+              </p>
               <span id="Development">{sizeDev}</span>
             </li>
           </ul>
@@ -197,8 +212,8 @@ export const Courses = () => {
             typeCourses.map((course) => {
               return (
                 <li key={course._id} className="courses-list__item">
-                  <Link to={`${course._id}`} state={course}>
-                    <img 
+                  <Link to={`${course._id}`} state={[course, typeCourses]}>
+                    <img
                       src={course.profilePicture}
                       alt="ff"
                       width="390"
