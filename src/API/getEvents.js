@@ -11,6 +11,6 @@ export default async function getEvents(id) {
       throw new Error("Event not found");
     }
   } catch (error) {
-    console.log(error);
+    return error;
   }
 }
