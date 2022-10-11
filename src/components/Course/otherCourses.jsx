@@ -1,19 +1,10 @@
-import { useEffect, useState } from "react";
 import TeamSlider from "../Home/teamSlider";
-import getCourses from "../../API/getCourses";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CoursesProps } from "pages/Course";
 
 export const CourseSlider = () => {
-  const [course, setCourse] = useState(null);
-
-  useEffect(() => {
-    async function FetchAbout() {
-      const course = await getCourses();
-      setCourse(course);
-    }
-    FetchAbout();
-  }, []);
-
+  const state = useContext(CoursesProps);
   return (
     <div className="course-slider__section">
       <div className="container">
@@ -22,11 +13,17 @@ export const CourseSlider = () => {
           <span className="about-title__span">You may also like</span>
         </h2>
         <div className="a">
-          <TeamSlider props={course} count={2} page={"/courses/:id"} />
+          <TeamSlider
+            props={state.allCourses}
+            count={2}
+            page={"/courses/:id"}
+          />
         </div>
         <div className="all-courses__wrap">
           <p className="all-courses__text">Do you want more courses?</p>
-          <Link to="/courses" className="all-courses__btn gradient">View all courses</Link>
+          <Link to="/courses" className="all-courses__btn gradient">
+            View all courses
+          </Link>
         </div>
       </div>
     </div>

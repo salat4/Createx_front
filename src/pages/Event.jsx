@@ -71,7 +71,8 @@ export default function EventPage() {
         <>
           <Hero />
           <Info state={stateInfo} />
-          <Speaker state={stateInfo} /> <Mailing /> <RequestForm />{" "}
+          <Speaker state={stateInfo} />
+          <Mailing /> <RequestForm />
           <Slider state={stateInfo} />
         </>
       )}

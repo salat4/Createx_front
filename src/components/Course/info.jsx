@@ -1,16 +1,16 @@
+import { CoursesProps } from "pages/Course";
+import { useContext } from "react";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import Svg from "../../images/symbol-defs.svg";
 
 export const CourseInfo = () => {
-  const location = useLocation();
-  const { state } = location;
   const [keyTheme, setKeyTheme] = useState(null);
   const [valueTheme, setValueTheme] = useState(null);
   const [indexInfo, setindexInfo] = useState(null);
+  const state = useContext(CoursesProps);
 
   useEffect(() => {
-    const arr = state.program;
+    const arr = state.course.program;
 
     const arrKey = [];
     const arrValue = [];
@@ -46,23 +46,23 @@ export const CourseInfo = () => {
           <ul className="course-step__list">
             <li className="course-step__list__item">
               <span className="step-number">01</span>
-              <h3>{state.process[0].title}</h3>
-              <p>{state.process[0].text}</p>
+              <h3>{state.course.process[0].title}</h3>
+              <p>{state.course.process[0].text}</p>
             </li>
             <li className="course-step__list__item">
               <span className="step-number">02</span>
-              <h3>{state.process[1].title}</h3>
-              <p>{state.process[1].text}</p>
+              <h3>{state.course.process[1].title}</h3>
+              <p>{state.course.process[1].text}</p>
             </li>
             <li className="course-step__list__item">
               <span className="step-number">03</span>
-              <h3>{state.process[2].title}</h3>
-              <p>{state.process[2].text}</p>
+              <h3>{state.course.process[2].title}</h3>
+              <p>{state.course.process[2].text}</p>
             </li>
             <li className="course-step__list__item">
               <span className="step-number">04</span>
-              <h3>{state.process[3].title}</h3>
-              <p>{state.process[3].text}</p>
+              <h3>{state.course.process[3].title}</h3>
+              <p>{state.course.process[3].text}</p>
             </li>
           </ul>
         </div>
@@ -111,8 +111,11 @@ export const CourseInfo = () => {
           </h2>
           <div>
             <ul className="course-about__list">
-              {state.benefits.map((b, indx) => (
-                <li key={indx} className="about-list__item course-about__list__item">
+              {state.course.benefits.map((b, indx) => (
+                <li
+                  key={indx}
+                  className="about-list__item course-about__list__item"
+                >
                   <p className="about-list__item-text">{b.trim()}</p>
                 </li>
               ))}
@@ -120,10 +123,12 @@ export const CourseInfo = () => {
           </div>
         </div>
         <div className="course-info__wrap">
-        <h2 className="about-title ">
-        Course program <br />
-          <span className="about-title__span">What will you learn</span>
-        </h2>          <ul className="info_about-list">
+          <h2 className="about-title ">
+            Course program <br />
+            <span className="about-title__span">What will you learn</span>
+          </h2>
+          course.
+          <ul className="info_about-list">
             {keyTheme &&
               keyTheme.map((data, index) => {
                 return (
