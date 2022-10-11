@@ -1,9 +1,9 @@
-import { useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { CoursesProps } from "pages/Course";
 import Svg from "../../images/symbol-defs.svg";
 
 export const AboutCourse = () => {
-  const location = useLocation();
-  const { state } = location;
+  const state = useContext(CoursesProps);
   return (
     <div className="about-course__section">
       <div className="container about-course__container">
@@ -20,31 +20,34 @@ export const AboutCourse = () => {
           </p>
           <h3 className="about-course__learn__title">You will learn:</h3>
           <ul className="course-about-list">
-            {state.learn.map((text, indx) => 
-              <li key={indx} className="about-list__item">
-                <svg width="20" height="20">
-                  <use href={`${Svg}#icon-checked`} />
-                </svg>
-                <p className="about-list__item-text">{text} </p>
-              </li>
-            )}
+            {state &&
+              state.course.learn.map((text, indx) => (
+                <li key={indx} className="about-list__item">
+                  <svg width="20" height="20">
+                    <use href={`${Svg}#icon-checked`} />
+                  </svg>
+                  <p className="about-list__item-text">{text} </p>
+                </li>
+              ))}
           </ul>
         </div>
         <div className="course-inf__wrap">
           <p className="course-info__title">Dates</p>
-          <p className="course-info__date">{state.dates}</p>
+          <p className="course-info__date">{state && state.course.dates}</p>
           <p className="course-info__description">
             Metus turpis sit lorem lacus, in elit tellus lacus.
           </p>
 
           <p className="course-info__title">Duration</p>
-          <p className="course-info__date">{state.duration}</p>
+          <p className="course-info__date">{state && state.course.duration}</p>
           <p className="course-info__description">
             Rhoncus pellentesque auctor auctor orci vulputate faucibus quis ut.{" "}
           </p>
 
           <p className="course-info__title">Price</p>
-          <p className="course-info__date">{state.price} per month</p>
+          <p className="course-info__date">
+            {state && state.course.price} per month
+          </p>
           <p className="course-info__description">
             Nulla sem adipiscing adipiscing felis fringilla. Adipiscing mauris
             quam ac elit tristique dis.
