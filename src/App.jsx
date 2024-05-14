@@ -11,19 +11,19 @@ const ContactPage = lazy(() =>
 const AboutUsPages = lazy(() =>
   import("./pages/AboutUs" /* webpackChunkName: "AboutUsPages" */)
 );
-const EventsPages = lazy(() =>
-  import("./pages/Events" /* webpackChunkName: "EventsPages" */)
-);
-const BlogsPages = lazy(() =>
-  import("./pages/Blogs" /* webpackChunkName: "BlogsPages" */)
-);
+// const EventsPages = lazy(() =>
+//   import("./pages/Events" /* webpackChunkName: "EventsPages" */)
+// );
+// const BlogsPages = lazy(() =>
+//   import("./pages/Blogs" /* webpackChunkName: "BlogsPages" */)
+// );
 
-const EventPage = lazy(() =>
-  import("./pages/Event" /* webpackChunkName: "EventPage" */)
-);
-const BlogPage = lazy(() =>
-  import("./pages/Blog" /*webpackChunkName: "BlogPage" */)
-);
+// const EventPage = lazy(() =>
+//   import("./pages/Event" /* webpackChunkName: "EventPage" */)
+// );
+// const BlogPage = lazy(() =>
+//   import("./pages/Blog" /*webpackChunkName: "BlogPage" */)
+// );
 // const CoursesPage = lazy(() =>
 //   import("./pages/Courses" /*webpackChunkName: "CoursesPage" */)
 // );
@@ -49,10 +49,10 @@ function App() {
 {/*             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/courses/:id" element={<Course />} /> */}
             <Route path="/about" element={<AboutUsPages />} />
-            <Route path="/events" element={<EventsPages />} />
+{/*             <Route path="/events" element={<EventsPages />} />
             <Route path="/blogs" element={<BlogsPages />} />
             <Route path="/blogs/:blog_id" element={<BlogPage />} />
-            <Route path="/events/:id" element={<EventPage />} />
+            <Route path="/events/:id" element={<EventPage />} /> */}
             <Route path="/contacts" element={<ContactPage />} />
             <Route
               path="*"
