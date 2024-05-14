@@ -24,13 +24,13 @@ const EventPage = lazy(() =>
 const BlogPage = lazy(() =>
   import("./pages/Blog" /*webpackChunkName: "BlogPage" */)
 );
-const CoursesPage = lazy(() =>
-  import("./pages/Courses" /*webpackChunkName: "CoursesPage" */)
-);
+// const CoursesPage = lazy(() =>
+//   import("./pages/Courses" /*webpackChunkName: "CoursesPage" */)
+// );
 
-const Course = lazy(() =>
-  import("./pages/Course" /*webpackChunkName: "CoursePage" */)
-);
+// const Course = lazy(() =>
+//   import("./pages/Course" /*webpackChunkName: "CoursePage" */)
+// );
 
 const Loader = lazy(() =>
   import("./components/loader" /*webpackChunkName: "Loader" */)
@@ -46,8 +46,8 @@ function App() {
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/courses" element={<CoursesPage />} />
-            <Route path="/courses/:id" element={<Course />} />
+{/*             <Route path="/courses" element={<CoursesPage />} />
+            <Route path="/courses/:id" element={<Course />} /> */}
             <Route path="/about" element={<AboutUsPages />} />
             <Route path="/events" element={<EventsPages />} />
             <Route path="/blogs" element={<BlogsPages />} />
